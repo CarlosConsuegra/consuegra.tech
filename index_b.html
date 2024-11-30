@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Consuegra | Technology & Innovation Strategist</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --deep-purple: #1a1025;
+            --medium-purple: #2d1b3d;
+            --light-purple: #432c55;
+            --neon-green: #39FF14;
+            --slate: #b8b8d1;
+            --light-slate: #d8d8e8;
+            --lightest-slate: #e8e8f5;
+            --font-mono: "SF Mono", "Fira Code", "Fira Mono", monospace;
+            --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--deep-purple);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #scene-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(to bottom, #1a1025 0%, #2d1b3d 100%);
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 16, 37, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(26, 16, 37, 0.95);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--lightest-slate);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, 
+        .nav-links a.active {
+            color: var(--neon-green);
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(1rem, 5vw, 1.5rem);
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+        }
+
+        .hero-content h2 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--lightest-slate);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h3 {
+            font-size: clamp(1rem, 5vw, 1.5rem);
+            color: var(--slate);
+            max-width: 600px;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: rgba(45, 27, 61, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+        }
+
+        .card h3 {
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            color: var(--lightest-slate);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            font-family: var(--font-mono);
+        }
+
+        .section-title::before {
+            content: "0" counter(section) ".";
+            counter-increment: section;
+            margin-right: 0.5rem;
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            position: relative;
+            width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            background-color: var(--light-purple);
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+            border: 1px solid var(--neon-green);
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .contact-links a:hover {
+            background: rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+        }
+
+        /* Mobile Menu */
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-slate);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 75%;
+                max-width: 300px;
+                background: var(--medium-purple);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .section-title::after {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+  <!-- Background Effects -->
+  <canvas id="scene-container"></canvas>
+  <div id="particles-js"></div>
+
+  <!-- Main Content -->
+  <div class="content-wrapper">
+      <nav>
+          <div class="nav-content">
+              <a href="#" class="logo">CC.</a>
+              <button class="menu-button">☰</button>
+              <ul class="nav-links">
+                  <li><a href="#about" class="nav-link">About</a></li>
+                  <li><a href="#experience" class="nav-link">Experience</a></li>
+                  <li><a href="#projects" class="nav-link">Projects</a></li>
+                  <li><a href="#contact" class="nav-link">Contact</a></li>
+              </ul>
+          </div>
+      </nav>
+
+      <section class="hero">
+          <div class="container">
+              <div class="hero-content">
+                  <h1>Hi, my name is</h1>
+                  <h2>Carlos Consuegra.</h2>
+                  <h3>I'm a visionary Technology & Innovation Strategist with over 20 years of experience pioneering advancements in VR, AR, AI, and digital transformation across sectors such as education, healthcare, corporate training, and media.</h3>
+              </div>
+          </div>
+      </section>
+
+      <section id="about">
+          <div class="container">
+              <h2 class="section-title">About Me</h2>
+              <p>I'm passionate about creating mission-driven technology that not only pushes the boundaries of innovation but also delivers tangible social impact. With extensive experience leading teams, founding tech companies, and consulting for top global brands, I bring a blend of entrepreneurial expertise, strategic insight, and a dedication to "technology for good."</p>
+              <div class="cards-grid">
+                  <div class="card">
+                      <h3>Strategic Tech Leadership</h3>
+                      <p>As Strategic Tech Director at Made for Joy, created the "Final Mile" Production Pipeline, revolutionizing content delivery across VR, AR, and WebXR platforms.</p>
+                  </div>
+                  <div class="card">
+                      <h3>Innovation Focus</h3>
+                      <p>Co-founded and directed Funktionell for 15 years, building a multi-disciplinary tech company that became a formative place for over 50 tech professionals.</p>
+                  </div>
+                  <div class="card">
+                      <h3>VR Pioneer</h3>
+                      <p>Co-founded Oniria VR, Mexico's first VR company, creating award-winning immersive experiences and co-founding VRFest.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="projects">
+          <div class="container">
+              <h2 class="section-title">Featured Projects</h2>
+              <div class="cards-grid">
+                  <div class="card">
+                      <h3>Funkdomotics</h3>
+                      <p>Created accessible, user-centered home automation solutions addressing specific Latin American needs. Developed affordable technology for resource conservation and energy efficiency.</p>
+                  </div>
+                  <div class="card">
+                      <h3>Chicle Fresco</h3>
+                      <p>Developed VR and digital content democratizing educational tools, offering immersive learning experiences to students and helping bridge digital divides.</p>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section id="contact">
+          <div class="container">
+              <h2 class="section-title">Get In Touch</h2>
+              <div class="contact">
+                  <p>I'm always interested in hearing about new projects, speaking opportunities, or consulting engagements that align with my mission of creating technology for good.</p>
+                  <div class="contact-links">
+                      <a href="mailto:carlos@consuegra.tech">Email Me</a>
+                      <a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank">LinkedIn</a>
+                  </div>
+              </div>
+          </div>
+      </section>
+  </div>
+
+  <script>
+    // Three.js Setup
+    let camera, scene, renderer;
+    let geometries = [];
+    let mouse = { x: 0, y: 0 };
+
+    function initThree() {
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        
+        renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#scene-container'),
+            antialias: true,
+            alpha: true
+        });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        createGeometries();
+        
+        const ambientLight = new THREE.AmbientLight(0x39FF14, 0.2);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0x39FF14, 0.5);
+        directionalLight.position.set(5, 5, 5);
+        scene.add(directionalLight);
+
+        camera.position.z = 30;
+
+        document.addEventListener('mousemove', onMouseMove);
+        animate();
+    }
+
+    function createGeometries() {
+        const material = new THREE.MeshPhongMaterial({
+            color: 0x39FF14,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.3
+        });
+
+        const shapes = [
+            new THREE.IcosahedronGeometry(4, 0),
+            new THREE.OctahedronGeometry(3, 0),
+            new THREE.TetrahedronGeometry(3, 0)
+        ];
+
+        for (let i = 0; i < 6; i++) {
+            const geometry = shapes[i % shapes.length];
+            const mesh = new THREE.Mesh(geometry, material);
+
+            mesh.position.x = (Math.random() - 0.5) * 40;
+            mesh.position.y = (Math.random() - 0.5) * 40;
+            mesh.position.z = (Math.random() - 0.5) * 40;
+            
+            mesh.rotation.x = Math.random() * Math.PI;
+            mesh.rotation.y = Math.random() * Math.PI;
+
+            geometries.push({
+                mesh: mesh,
+                rotationSpeed: {
+                    x: (Math.random() - 0.5) * 0.002,
+                    y: (Math.random() - 0.5) * 0.002
+                }
+            });
+
+            scene.add(mesh);
+        }
+    }
+
+    function onMouseMove(event) {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+
+        geometries.forEach(item => {
+            item.mesh.rotation.x += item.rotationSpeed.x;
+            item.mesh.rotation.y += item.rotationSpeed.y;
+            
+            // Subtle movement based on mouse position
+            item.mesh.position.x += (mouse.x * 0.1 - item.mesh.position.x) * 0.05;
+            item.mesh.position.y += (mouse.y * 0.1 - item.mesh.position.y) * 0.05;
+        });
+
+        renderer.render(scene, camera);
+    }
+
+    // Initialize Three.js
+    initThree();
+
+    // Particles.js Configuration
+    particlesJS("particles-js", {
+        particles: {
+            number: {
+                value: 60,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: "#39FF14"
+            },
+            shape: {
+                type: "circle"
+            },
+            opacity: {
+                value: 0.3,
+                random: false
+            },
+            size: {
+                value: 2,
+                random: true
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#39FF14",
+                opacity: 0.2,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 1.5,
+                direction: "none",
+                random: true,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: {
+                    enable: true,
+                    rotateX: 600,
+                    rotateY: 1200
+                }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: {
+                    enable: true,
+                    mode: "grab"
+                },
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                },
+                resize: true
+            },
+            modes: {
+                grab: {
+                    distance: 140,
+                    line_linked: {
+                        opacity: 0.4
+                    }
+                }
+            }
+        },
+        retina_detect: true
+    });
+
+    // Scroll Animations
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const nav = document.querySelector('nav');
+
+    // Intersection Observer for sections
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: "-50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Update active nav link
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href').slice(1) === entry.target.id) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Mobile Menu Toggle
+    const menuButton = document.querySelector('.menu-button');
+    const navLinksContainer = document.querySelector('.nav-links');
+
+    menuButton.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinksContainer.classList.remove('active');
+        });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+</script>
+</body>
+</html>
