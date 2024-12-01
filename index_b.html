@@ -9,6 +9,101 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <style>
         /* Previous CSS remains the same */
+        
+        :root {
+    --deep-purple: #1a1025;
+    --medium-purple: #2d1b3d;
+    --light-purple: #432c55;
+    --neon-green: #39FF14;
+    --slate: #b8b8d1;
+    --light-slate: #d8d8e8;
+    --lightest-slate: #e8e8f5;
+    --font-mono: "SF Mono", "Fira Code", "Fira Mono", monospace;
+    --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--deep-purple);
+    color: var(--slate);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Navigation Styles */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(26, 16, 37, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.hero-content h1 {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    color: var(--neon-green);
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+}
+
+.hero-content h2 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    color: var(--lightest-slate);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero-content h3 {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    color: var(--slate);
+    max-width: 600px;
+}
+
+/* Section Styles */
+.section-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: var(--lightest-slate);
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    position: relative;
+    width: 300px;
+    height: 1px;
+    margin-left: 20px;
+    background-color: var(--light-purple);
+}
 
         /* Cursor Effect */
         .cursor-effect {
@@ -447,8 +542,51 @@
 
     // Particles.js Configuration (Previous configuration remains the same)
     particlesJS("particles-js", {
-        // ... (previous particles configuration)
-    });
+    particles: {
+        number: {
+            value: 60,
+            density: {
+                enable: true,
+                value_area: 800
+            }
+        },
+        color: {
+            value: "#39FF14"
+        },
+        shape: {
+            type: "circle"
+        },
+        opacity: {
+            value: 0.3,
+            random: false
+        },
+        size: {
+            value: 2,
+            random: true
+        },
+        line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#39FF14",
+            opacity: 0.2,
+            width: 1
+        },
+        move: {
+            enable: true,
+            speed: 1.5,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+                enable: true,
+                rotateX: 600,
+                rotateY: 1200
+            }
+        }
+    }
+});
 
     // Enhanced scroll animations
     const sections = document.querySelectorAll('section');
