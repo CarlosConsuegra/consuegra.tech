@@ -38,14 +38,14 @@
             overflow-x: hidden;
         }
 
-        /* Layout */
+        /* Layout & Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Canvas & Effects Containers */
+        /* Background Effects */
         #scene-container {
             position: fixed;
             top: 0;
@@ -82,6 +82,11 @@
             padding: 1rem 0;
             z-index: 100;
             transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(26, 16, 37, 0.95);
         }
 
         .nav-content {
@@ -133,10 +138,11 @@
             display: flex;
             align-items: center;
             padding: 0;
+            margin: 0;
         }
 
         .hero-content {
-            margin-top: -5vh; /* Slight offset to center visually */
+            margin-top: -5vh;
         }
 
         .hero-content h1 {
@@ -160,7 +166,7 @@
             max-width: 600px;
         }
 
-        /* Section Styles */
+        /* Sections */
         section {
             padding: 5rem 0;
         }
@@ -176,6 +182,7 @@
             display: flex;
             align-items: center;
             white-space: nowrap;
+            position: relative;
         }
 
         .section-title::after {
@@ -188,7 +195,205 @@
             background-color: var(--light-purple);
         }
 
-        /* Mobile Menu Button */
+        /* Cursor Effect */
+        .cursor-effect {
+            width: 20px;
+            height: 20px;
+            background: rgba(57, 255, 20, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            z-index: 9999;
+            transition: transform 0.15s ease-out;
+        }
+
+        .cursor-trail {
+            width: 5px;
+            height: 5px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Parallax Effects */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            z-index: 1;
+        }
+
+        .parallax-content {
+            transform: translateZ(0);
+            position: relative;
+            background: rgba(26, 16, 37, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            transition: var(--transition);
+        }
+
+        .parallax-content:hover {
+            border-color: rgba(57, 255, 20, 0.2);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 4rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--neon-green);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            background: rgba(26, 16, 37, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            right: -7px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            top: 15px;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+            transition: var(--transition);
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -7px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: rgba(45, 27, 61, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            color: var(--neon-green);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            color: var(--light-slate);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: var(--lightest-slate);
+            line-height: 1.6;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(45, 27, 61, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 
+                0 0 25px rgba(57, 255, 20, 0.1),
+                0 0 5px rgba(57, 255, 20, 0.2);
+        }
+
+        .card h3 {
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+            border: 1px solid var(--neon-green);
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .contact-links a:hover {
+            background: rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
         .menu-button {
             display: none;
             background: none;
@@ -224,261 +429,44 @@
                 right: 0;
             }
 
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 24px;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 24px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-links a {
+                width: 100%;
+                max-width: 300px;
+            }
+
             .section-title::after {
                 width: 100px;
             }
         }
     </style>
 </head>
-
-<style>
-  /* Cursor Effect */
-  .cursor-effect {
-      width: 20px;
-      height: 20px;
-      background: rgba(57, 255, 20, 0.5);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      mix-blend-mode: screen;
-      z-index: 9999;
-      transition: transform 0.15s ease-out;
-  }
-  
-  .cursor-trail {
-      width: 5px;
-      height: 5px;
-      background: var(--neon-green);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9998;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-  }
-  
-  /* Parallax and Layer Effects */
-  .parallax-section {
-      position: relative;
-      overflow: hidden;
-      transform-style: preserve-3d;
-      z-index: 1;
-  }
-  
-  .parallax-content {
-      transform: translateZ(0);
-      position: relative;
-      background: rgba(26, 16, 37, 0.7);
-      backdrop-filter: blur(10px);
-      border-radius: 8px;
-      padding: 2rem;
-      margin: 2rem 0;
-      border: 1px solid rgba(57, 255, 20, 0.1);
-      transition: var(--transition);
-  }
-  
-  .parallax-content:hover {
-      border-color: rgba(57, 255, 20, 0.2);
-      box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
-  }
-  
-  /* Card Effects */
-  .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-  }
-  
-  .card {
-      background: rgba(45, 27, 61, 0.3);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(57, 255, 20, 0.1);
-      padding: 2rem;
-      border-radius: 4px;
-      transition: var(--transition);
-      transform-style: preserve-3d;
-      perspective: 1000px;
-  }
-  
-  .card:hover {
-      transform: translateY(-5px) rotateX(5deg);
-      border-color: rgba(57, 255, 20, 0.3);
-      box-shadow: 
-          0 0 25px rgba(57, 255, 20, 0.1),
-          0 0 5px rgba(57, 255, 20, 0.2);
-  }
-  
-  .card h3 {
-      color: var(--neon-green);
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-      text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
-  }
-  
-  /* Timeline Effects */
-  .timeline {
-      position: relative;
-      max-width: 1200px;
-      margin: 4rem auto;
-  }
-  
-  .timeline::after {
-      content: '';
-      position: absolute;
-      width: 2px;
-      background: var(--neon-green);
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      margin-left: -1px;
-      box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
-  }
-  
-  .timeline-item {
-      padding: 10px 40px;
-      position: relative;
-      width: 50%;
-      opacity: 0;
-      transform: translateX(-100px);
-      transition: all 0.8s ease;
-  }
-  
-  .timeline-item.visible {
-      opacity: 1;
-      transform: translateX(0);
-  }
-  
-  .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 15px;
-      height: 15px;
-      right: -7px;
-      background-color: var(--neon-green);
-      border-radius: 50%;
-      top: 15px;
-      box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
-  }
-  
-  .timeline-item:nth-child(even) {
-      left: 50%;
-      transform: translateX(100px);
-  }
-  
-  .timeline-item:nth-child(even).visible {
-      transform: translateX(0);
-  }
-  
-  .timeline-item:nth-child(even)::after {
-      left: -7px;
-  }
-  
-  .timeline-content {
-      padding: 20px;
-      background: rgba(45, 27, 61, 0.3);
-      backdrop-filter: blur(10px);
-      border-radius: 8px;
-      border: 1px solid rgba(57, 255, 20, 0.1);
-      transition: var(--transition);
-  }
-  
-  .timeline-content:hover {
-      border-color: rgba(57, 255, 20, 0.3);
-      box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
-  }
-  
-  .timeline-content h3 {
-      color: var(--neon-green);
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
-  }
-  
-  .timeline-content h4 {
-      color: var(--light-slate);
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-  }
-  
-  /* Contact Section */
-  .contact {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto;
-  }
-  
-  .contact-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-  }
-  
-  .contact-links a {
-      color: var(--neon-green);
-      text-decoration: none;
-      font-family: var(--font-mono);
-      font-size: 1.1rem;
-      padding: 1rem 2rem;
-      border: 1px solid var(--neon-green);
-      border-radius: 4px;
-      transition: var(--transition);
-  }
-  
-  .contact-links a:hover {
-      background: rgba(57, 255, 20, 0.1);
-      box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
-      transform: translateY(-2px);
-  }
-  
-  /* Scroll Reveal Animation */
-  .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-  }
-  
-  .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-  }
-  
-  /* Mobile Adjustments */
-  @media (max-width: 768px) {
-      .timeline::after {
-          left: 31px;
-      }
-  
-      .timeline-item {
-          width: 100%;
-          padding-left: 70px;
-          padding-right: 25px;
-      }
-  
-      .timeline-item:nth-child(even) {
-          left: 0;
-      }
-  
-      .timeline-item::after {
-          left: 24px;
-          right: auto;
-      }
-  
-      .timeline-item:nth-child(even)::after {
-          left: 24px;
-      }
-  
-      .contact-links {
-          flex-direction: column;
-          align-items: center;
-      }
-  
-      .contact-links a {
-          width: 100%;
-          max-width: 300px;
-      }
-  }
-  </style>
 
 <body>
   <!-- Background Effects -->
@@ -507,7 +495,7 @@
 
       <section class="hero parallax-section">
           <div class="container">
-              <div class="hero-content reveal">
+              <div class="hero-content">
                   <h1>Hi, my name is</h1>
                   <h2>Carlos Consuegra.</h2>
                   <h3>I'm a visionary Technology & Innovation Strategist with over 20 years of experience pioneering advancements in VR, AR, AI, and digital transformation across sectors such as education, healthcare, corporate training, and media.</h3>
@@ -517,8 +505,8 @@
 
       <section id="about" class="parallax-section">
           <div class="container">
-              <h2 class="section-title reveal">About Me</h2>
-              <div class="parallax-content reveal">
+              <h2 class="section-title">About Me</h2>
+              <div class="parallax-content">
                   <p>With extensive experience leading teams, founding tech companies, and consulting for top global brands, I bring a blend of entrepreneurial expertise, strategic insight, and a dedication to "technology for good." My career exemplifies a unique blend of visionary innovation, entrepreneurial spirit, and a steadfast commitment to socially impactful technology.</p>
               </div>
           </div>
@@ -526,7 +514,7 @@
 
       <section id="achievements" class="parallax-section">
           <div class="container">
-              <h2 class="section-title reveal">Key Achievements</h2>
+              <h2 class="section-title">Key Achievements</h2>
               <div class="timeline">
                   <div class="timeline-item">
                       <div class="timeline-content">
@@ -555,8 +543,8 @@
 
       <section id="consulting" class="parallax-section">
           <div class="container">
-              <h2 class="section-title reveal">Consulting & Advisory</h2>
-              <div class="parallax-content reveal">
+              <h2 class="section-title">Consulting & Advisory</h2>
+              <div class="parallax-content">
                   <p>Known for my Adaptive Onboarding approach, I provide comprehensive support from initial setup through hands-on training and strategic alignment. My consulting work focuses on XR and AI onboarding, digital transformation, and innovation strategies that align seamlessly with client goals.</p>
                   <div class="cards-grid">
                       <div class="card">
@@ -578,17 +566,17 @@
 
       <section id="projects" class="parallax-section">
           <div class="container">
-              <h2 class="section-title reveal">Innovation Projects</h2>
+              <h2 class="section-title">Innovation Projects</h2>
               <div class="cards-grid">
-                  <div class="card reveal">
+                  <div class="card">
                       <h3>Funkdomotics</h3>
                       <p>Focused on accessible, user-centered home automation, creating affordable technology for resource conservation and energy efficiency. Addressed specific Latin American needs, promoting financial savings and environmental responsibility.</p>
                   </div>
-                  <div class="card reveal">
+                  <div class="card">
                       <h3>Chicle Fresco</h3>
                       <p>A venture dedicated to using technology for educational and social impact. Developed VR and digital content that democratized educational tools, offering immersive learning experiences and bridging digital divides. Partnered with organizations like UNICEF and Amnesty International.</p>
                   </div>
-                  <div class="card reveal">
+                  <div class="card">
                       <h3>VRFest</h3>
                       <p>Co-founded Latin America's first VR event, which continues to elevate the VR ecosystem in the region. Created a platform for innovation, collaboration, and advancement in immersive technologies.</p>
                   </div>
@@ -598,8 +586,8 @@
 
       <section id="contact" class="parallax-section">
           <div class="container">
-              <h2 class="section-title reveal">Get In Touch</h2>
-              <div class="contact reveal">
+              <h2 class="section-title">Get In Touch</h2>
+              <div class="contact">
                   <p>I'm always interested in hearing about new projects, speaking opportunities, or consulting engagements that align with my mission of creating technology for good.</p>
                   <div class="contact-links">
                       <a href="mailto:carlos@consuegra.tech">Email Me</a>
@@ -628,7 +616,7 @@
         });
     }
 
-    // Cursor movement
+    // Cursor movement with enhanced smoothness
     document.addEventListener('mousemove', (e) => {
         // Main cursor effect
         cursorEffect.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px) scale(1)`;
@@ -644,8 +632,8 @@
         });
     });
 
-    // Cursor hover effect
-    document.querySelectorAll('a, button, .card').forEach(element => {
+    // Enhanced cursor hover effect
+    document.querySelectorAll('a, button, .card, .timeline-content').forEach(element => {
         element.addEventListener('mouseenter', () => {
             cursorEffect.style.transform += ' scale(1.5)';
             cursorEffect.style.background = 'rgba(57, 255, 20, 0.8)';
@@ -684,19 +672,34 @@
         directionalLight.position.set(5, 5, 5);
         scene.add(directionalLight);
 
-        camera.position.z = 40; // Increased for better depth perception
+        camera.position.z = 40;
 
         document.addEventListener('mousemove', onMouseMove);
         animate();
     }
 
     function createGeometries() {
-        const material = new THREE.MeshPhongMaterial({
-            color: 0x39FF14,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.2  // More transparent
-        });
+        // Create multiple materials with color variations
+        const materials = [
+            new THREE.MeshPhongMaterial({
+                color: 0x39FF14,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.15
+            }),
+            new THREE.MeshPhongMaterial({
+                color: 0x32CD32,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.15
+            }),
+            new THREE.MeshPhongMaterial({
+                color: 0x00FF7F,
+                wireframe: true,
+                transparent: true,
+                opacity: 0.15
+            })
+        ];
 
         const shapes = [
             new THREE.IcosahedronGeometry(4, 0),
@@ -706,17 +709,17 @@
         ];
 
         const viewport = {
-            width: 120,    // Increased spread
-            height: 80,    // Increased height range
-            depth: 100     // Increased depth for better layering
+            width: 150,
+            height: 100,
+            depth: 150
         };
 
-        // Create more shapes for better layering
-        for (let i = 0; i < 12; i++) {
+        // Create more shapes for better distribution
+        for (let i = 0; i < 15; i++) {
             const geometry = shapes[i % shapes.length];
+            const material = materials[i % materials.length];
             const mesh = new THREE.Mesh(geometry, material);
 
-            // Random positioning throughout the viewport
             mesh.position.x = (Math.random() - 0.5) * viewport.width;
             mesh.position.y = (Math.random() - 0.5) * viewport.height;
             mesh.position.z = (Math.random() - 0.5) * viewport.depth;
@@ -724,15 +727,16 @@
             mesh.rotation.x = Math.random() * Math.PI;
             mesh.rotation.y = Math.random() * Math.PI;
 
-            const scale = 0.3 + Math.random() * 2; // More size variation
+            const scale = 0.2 + Math.random() * 2.5;
             mesh.scale.set(scale, scale, scale);
 
             geometries.push({
                 mesh: mesh,
                 initialY: mesh.position.y,
+                initialZ: mesh.position.z,
                 rotationSpeed: {
-                    x: (Math.random() - 0.5) * 0.003,
-                    y: (Math.random() - 0.5) * 0.003
+                    x: (Math.random() - 0.5) * 0.002,
+                    y: (Math.random() - 0.5) * 0.002
                 }
             });
 
@@ -745,7 +749,7 @@
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     }
 
-    // Parallax effect for shapes
+    // Enhanced parallax effect
     let scrollY = 0;
     window.addEventListener('scroll', () => {
         scrollY = window.scrollY;
@@ -759,11 +763,13 @@
             item.mesh.rotation.y += item.rotationSpeed.y;
             
             // Enhanced parallax effect
-            item.mesh.position.y = item.initialY - (scrollY * 0.015);
+            const scrollFactor = scrollY * 0.01;
+            item.mesh.position.y = item.initialY - scrollFactor;
+            item.mesh.position.z = item.initialZ + (scrollFactor * 0.5);
             
             // Smoother mouse movement effect
-            item.mesh.position.x += (mouse.x * 2 - item.mesh.position.x) * 0.03;
-            item.mesh.position.y += (mouse.y * 2 - (item.mesh.position.y - item.initialY)) * 0.03;
+            item.mesh.position.x += (mouse.x * 5 - item.mesh.position.x) * 0.02;
+            item.mesh.position.y += (mouse.y * 5 - (item.mesh.position.y - item.initialY)) * 0.02;
         });
 
         renderer.render(scene, camera);
@@ -776,7 +782,7 @@
     particlesJS("particles-js", {
         particles: {
             number: {
-                value: 50,         // Reduced for better performance
+                value: 50,
                 density: {
                     enable: true,
                     value_area: 800
@@ -789,7 +795,7 @@
                 type: "circle"
             },
             opacity: {
-                value: 0.2,        // More transparent
+                value: 0.2,
                 random: false
             },
             size: {
@@ -798,14 +804,14 @@
             },
             line_linked: {
                 enable: true,
-                distance: 200,     // Increased connection distance
+                distance: 200,
                 color: "#39FF14",
-                opacity: 0.15,     // More transparent
+                opacity: 0.15,
                 width: 1
             },
             move: {
                 enable: true,
-                speed: 1.5,        // Slightly slower
+                speed: 1.5,
                 direction: "none",
                 random: true,
                 straight: false,
@@ -847,9 +853,8 @@
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
     const nav = document.querySelector('nav');
-    const reveals = document.querySelectorAll('.reveal');
 
-    // Intersection Observer for sections
+    // Intersection Observer
     const observerOptions = {
         threshold: 0.2,
         rootMargin: "-50px 0px"
@@ -860,7 +865,6 @@
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
                 
-                // Update active nav link
                 if (entry.target.id) {
                     navLinks.forEach(link => {
                         if (link.getAttribute('href') === `#${entry.target.id}`) {
@@ -874,8 +878,6 @@
         });
     }, observerOptions);
 
-    // Observe all reveal elements and sections
-    reveals.forEach(reveal => observer.observe(reveal));
     sections.forEach(section => observer.observe(section));
 
     // Mobile menu functionality
