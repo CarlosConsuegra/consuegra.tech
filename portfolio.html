@@ -4,19 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | Carlos Consuegra</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Ensuring consistent styling -->
+    <style>
+        /* Core Styles from index.html */
+        :root {
+            --deep-purple: #1a1025;
+            --medium-purple: #2d1b3d;
+            --light-purple: #432c55;
+            --neon-green: #39FF14;
+            --slate: #b8b8d1;
+            --light-slate: #d8d8e8;
+            --lightest-slate: #e8e8f5;
+            --font-mono: "SF Mono", "Fira Code", "Fira Mono", monospace;
+            --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        body {
+            background-color: var(--deep-purple);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 16, 37, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        .portfolio {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .parallax-content {
+            background: rgba(45, 27, 61, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .parallax-content:hover {
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .hero-cta:hover {
+            background: rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+        }
+    </style>
 </head>
 <body>
     <nav>
         <div class="nav-content">
             <a href="index.html" class="logo">CC.</a>
-            <ul class="nav-links">
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#experience">Experience</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
@@ -27,45 +109,13 @@
             <!-- Made for Joy Section -->
             <div class="parallax-content">
                 <h3>Made for Joy - Immersive XR Experiences</h3>
-                <p>A showcase of immersive VR experiences developed for various platforms.</p>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/oAJhhQLwzhI" frameborder="0" allowfullscreen></iframe>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/edjokh_fXxk" frameborder="0" allowfullscreen></iframe>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/lGn7sKcteiM" frameborder="0" allowfullscreen></iframe>
             </div>
 
             <!-- Funkdomotics Section -->
             <div class="parallax-content">
                 <h3>Funkdomotics - Smart Home & Automation</h3>
-                <p>Innovative smart home solutions integrating AI and automation.</p>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/Vb8HFQymqU8" frameborder="0" allowfullscreen></iframe>
-            </div>
-
-            <!-- Funktionell Section -->
-            <div class="parallax-content">
-                <h3>Funktionell - Interactive Tech Solutions</h3>
-                <p>Innovative digital experiences bridging AI, XR, and automation.</p>
-                <iframe src="https://www.behance.net/embed/project/66041669" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-                <a href="https://www.behance.net/Funktionell" target="_blank" class="hero-cta">See Full Project on Behance →</a>
-            </div>
-
-            <!-- Oniria VR Section -->
-            <div class="parallax-content">
-                <h3>Oniria VR - Mixed Reality & AI Integration</h3>
-                <p>Immersive VR projects enhancing engagement in training and storytelling.</p>
-                <iframe src="https://www.behance.net/embed/project/66041669" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-                <a href="https://www.behance.net/gallery/66041669/A-E-Mixed-Reality-Experience" target="_blank" class="hero-cta">A&E Mixed Reality →</a>
-                <a href="https://www.behance.net/gallery/52475205/Sesenta-dias-preso-VR" target="_blank" class="hero-cta">Sesenta Días Preso VR →</a>
-                <a href="https://www.behance.net/gallery/34697443/App-AXA-Seguros" target="_blank" class="hero-cta">AXA Seguros App →</a>
-                <a href="https://www.behance.net/gallery/31495369/App-Fox-Virtual" target="_blank" class="hero-cta">Fox Virtual App →</a>
-                <a href="https://www.behance.net/gallery/52476281/Best-Day-360" target="_blank" class="hero-cta">Best Day 360 →</a>
-            </div>
-
-            <!-- Chicle Fresco Section -->
-            <div class="parallax-content">
-                <h3>Chicle Fresco - Gamification & E-Learning</h3>
-                <p>Interactive educational tools leveraging gamification techniques.</p>
-                <iframe src="https://www.behance.net/embed/project/65184193" width="800" height="600" frameborder="0" allowfullscreen></iframe>
-                <a href="https://www.behance.net/gallery/65184193/Proyecto-de-Gamification-para-Save-the-Children" target="_blank" class="hero-cta">See Full Project on Behance →</a>
             </div>
         </div>
     </section>
