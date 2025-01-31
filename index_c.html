@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Consuegra | Technology & Innovation Strategist</title>
+
+    <!-- SEO Enhancements -->
+    <meta name="description" content="Empowering organizations to harness VR, AR, and AI for inclusive, impactful growth. Book a consultation with Carlos Consuegra for strategy, implementation, and meaningful tech innovation.">
+    <meta property="og:title" content="Carlos Consuegra | Technology & Innovation Strategist">
+    <meta property="og:description" content="Empowering organizations to harness VR, AR, and AI for tangible results.">
+    <meta property="og:url" content="https://consuegra.tech">
+    <meta property="og:type" content="website">
+
+    <!-- Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        /* Core Variables */
+        :root {
+            --deep-purple: #1a1025;
+            --medium-purple: #2d1b3d;
+            --light-purple: #432c55;
+            --neon-green: #39FF14;
+            --slate: #b8b8d1;
+            --light-slate: #d8d8e8;
+            --lightest-slate: #e8e8f5;
+            --font-mono: "SF Mono", "Fira Code", "Fira Mono", monospace;
+            --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--deep-purple);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a, button {
+            outline: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        a:focus, button:focus {
+            outline: 2px solid var(--neon-green);
+            outline-offset: 2px;
+        }
+        /* Layout & Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Background Effects */
+        #scene-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 16, 37, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(26, 16, 37, 0.95);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 20px rgba(57, 255, 20, 0.8);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-slate);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--neon-green);
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+        }
+
+        .nav-links a[href="#contact"] {
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-content {
+            margin-top: -5vh;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(1rem, 5vw, 1.5rem);
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--lightest-slate);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-content h2 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--lightest-slate);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h3 {
+            font-size: clamp(1rem, 5vw, 1.25rem);
+            color: var(--slate);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .hero-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .hero-content .hero-cta:hover {
+            background: rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            transform: translateY(-2px);
+        }
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        section:first-of-type {
+            padding-top: 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            color: var(--lightest-slate);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            position: relative;
+            width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            background-color: var(--light-purple);
+        }
+
+        /* Parallax Effects */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            z-index: 1;
+        }
+
+        .parallax-content {
+            transform: translateZ(0);
+            position: relative;
+            background: rgba(26, 16, 37, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            transition: var(--transition);
+        }
+
+        .parallax-content:hover {
+            border-color: rgba(57, 255, 20, 0.2);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(45, 27, 61, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow:
+                0 0 25px rgba(57, 255, 20, 0.1),
+                0 0 5px rgba(57, 255, 20, 0.2);
+        }
+
+        .card h3 {
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--light-slate);
+        }
+
+        .card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--neon-green);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 4rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--neon-green);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            background: rgba(26, 16, 37, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            right: -7px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            top: 15px;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+            transition: var(--transition);
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -7px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: rgba(45, 27, 61, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            color: var(--neon-green);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            color: var(--light-slate);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: var(--lightest-slate);
+            line-height: 1.6;
+        }
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact p {
+            margin-bottom: 3rem;
+            color: var(--light-slate);
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+            border: 1px solid var(--neon-green);
+            border-radius: 4px;
+            transition: var(--transition);
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .contact-links a:hover {
+            background: rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .contact-links a.book-link {
+            background: rgba(57, 255, 20, 0.1);
+        }
+
+        .contact-links a.book-link:hover {
+            background: rgba(57, 255, 20, 0.2);
+        }
+
+        /* Mobile Menu */
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-slate);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-button span {
+            margin-left: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .menu-button {
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 75%;
+                max-width: 300px;
+                background: rgba(45, 27, 61, 0.97);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 24px;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 24px;
+            }
+
+            .section-title::after {
+                width: 100px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-links a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+  <!-- Background Effects -->
+  <canvas id="scene-container"></canvas>
+  <div id="particles-js"></div>
+  
+  <!-- Main Content -->
+  <div class="content-wrapper">
+      <nav>
+          <div class="nav-content">
+              <a href="#" class="logo">CC.</a>
+              <button class="menu-button" aria-label="Open Menu">☰<span>Menu</span></button>
+              <ul class="nav-links">
+                  <li><a href="#about" class="nav-link">About</a></li>
+                  <li><a href="#experience" class="nav-link">Experience</a></li>
+                  <li><a href="#services" class="nav-link">Services</a></li>
+                  <li><a href="#speaking" class="nav-link">Speaking</a></li>
+                  <li><a href="#contact" class="nav-link">Contact</a></li>
+              </ul>
+          </div>
+      </nav>
+
+      <section class="hero parallax-section">
+          <div class="container">
+              <div class="hero-content">
+                  <h1>Hi, I'm Carlos Consuegra.</h1>
+                  <h2>Empowering organizations through XR and AI for the future of business.</h2>
+                  <p class="tagline">I help businesses explore, adopt, and implement innovative technologies such as XR and AI to transform the future of their industries.</p>
+                  <a href="#contact" class="hero-cta">Book a Consultation</a>
+              </div>
+          </div>
+      </section>
+
+      <section id="about" class="parallax-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="parallax-content">
+                <p>Technology is evolving at an unprecedented pace, and businesses that embrace XR, AI, and automation will shape the future. I help companies not just keep up—but lead.</p>
+                
+                <p>I'm Carlos Consuegra, a technologist, entrepreneur, and strategist with a passion for bridging the gap between cutting-edge innovation and real-world business success. With a background in immersive technologies and AI, I've spent the last four years creating transformational experiences in XR, automation, and digital strategy.</p>
+
+                <h3>Technology for Good</h3>
+                <p>I believe that technology has the power to create better societies and empower human flourishing. By leveraging XR, AI, and automation, we can build solutions that improve education, enhance well-being, and promote inclusivity. My work focuses on ensuring that emerging technologies serve a greater purpose—enabling people, organizations, and communities to thrive in an increasingly digital world.</p>
+
+                <p>Today, I focus on helping businesses unlock the power of AI and immersive technology through two main roles:</p>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Strategic Advisor (Remote)</h3>
+                        <ul>
+                            <li>Provide strategic guidance on XR, AI, and emerging technologies, helping businesses integrate them efficiently</li>
+                            <li>Support mid-sized companies and innovation labs with roadmap planning and technology adoption</li>
+                            <li>Drive measurable business impact through cross-functional leadership</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>XR & AI Onboarding Consultant</h3>
+                        <ul>
+                            <li>Offer customized onboarding strategies and hands-on setup for seamless XR and AI adoption</li>
+                            <li>Work with corporate learning, healthcare, and education sectors</li>
+                            <li>Improve user engagement and reduce onboarding costs through innovative technology integration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Technology & Impact Areas</h3>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Core Competencies</h3>
+                        <ul>
+                            <li>Technology Strategy & Roadmapping</li>
+                            <li>VR/AR/XR & AI Integration</li>
+                            <li>Innovation Pipeline Development</li>
+                            <li>Cross-Functional Team Leadership</li>
+                            <li>User-Centered Design</li>
+                            <li>Client-Centric Onboarding</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>Specialization Areas</h3>
+                        <ul>
+                            <li>Mental Health & Human Flourishing through immersive VR experiences</li>
+                            <li>Education & Workforce Training with AI-powered solutions</li>
+                            <li>Corporate Innovation & Digital Transformation</li>
+                            <li>Social Impact & Accessibility initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="parallax-section">
+        <div class="container">
+            <h2 class="section-title">Key Achievements</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Strategic Tech Director</h3>
+                        <h4>Made for Joy</h4>
+                        <p>Led technology initiatives aligned with Made for Joy's mission to foster empathy and connection through immersive technology. Created the "Final Mile" Production Pipeline, an agile content delivery system that maximized efficiency and scalability across VR, AR, and WebXR platforms. Managed remote teams and production workflows, ensuring high-quality delivery within budget constraints.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Founder and Director</h3>
+                        <h4>Funktionell</h4>
+                        <p>Over nearly 15 years, built a multi-disciplinary tech company recognized for its innovation-driven culture and social impact. Mentored and empowered over 50 professionals, fostering ethical work practices and a creator's mindset. Pioneered tech-driven solutions for enterprise clients, enhancing efficiency and engagement.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Co-Founder</h3>
+                        <h4>Funkdomotics</h4>
+                        <p>Developed accessible home automation solutions tailored to the Latin American market, prioritizing affordability, resource conservation, and energy efficiency. Created automated smart home hardware and frameworks to optimize daily energy use, promoting financial savings and environmental responsibility. Led cross-functional teams in designing user-friendly automation systems.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Co-Founder</h3>
+                        <h4>Chicle Fresco</h4>
+                        <p>Focused on technology-driven educational and social impact, developing gamification-based learning experiences for underserved communities. Created immersive learning environments that improved knowledge retention and engagement, partnering with Save the Children and Amnesty International to drive awareness on social issues.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Co-Founder and VR Innovator</h3>
+                        <h4>Oniria VR</h4>
+                        <p>Co-founded Mexico's first VR company, developing award-winning immersive experiences across cinema, healthcare, architecture, and marketing. Launched VRFest, Latin America's first major VR industry event, which continues to drive innovation in the regional XR ecosystem. Built strategic partnerships with media companies, corporations, and universities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="parallax-section">
+      <div class="container">
+          <h2 class="section-title">Case Studies</h2>
+          <div class="parallax-content">
+              <div class="card">
+                  <h3>VR Employee Onboarding & Wellbeing for a Global Financial Institution</h3>
+                  <h4>Objective</h4>
+                  <p>To develop VR-based wellbeing and onboarding experiences that help employees reset, recharge, and enhance workplace engagement.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Created three immersive VR experiences for 24/7 mental wellness support</li>
+                      <li>Implemented VR-based onboarding for company culture and digital workspace exploration</li>
+                      <li>Successfully deployed scalable VR adoption for corporate training and mental wellness</li>
+                  </ul>
+              </div>
+
+              <div class="card">
+                  <h3>UVEG – VR for Human Flourishing & Education</h3>
+                  <h4>Objective</h4>
+                  <p>To introduce 20,000 students to human flourishing concepts and the metaverse using immersive VR experiences.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Developed a 6-hour educational program "Flourishing in the Digital Age"</li>
+                      <li>Created scalable VR learning solutions accessible via WebXR and VR headsets</li>
+                      <li>Designed experiences compatible with low-cost VR cardboard headsets for maximum accessibility</li>
+                  </ul>
+              </div>
+
+              <div class="card">
+                  <h3>Mercedes-Benz – Project Safeway @ México</h3>
+                  <h4>Objective</h4>
+                  <p>To provide a better sense of security for women while traveling in Mexico and Latin America.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Engineered a practical panic button device for real-world safety applications</li>
+                      <li>Created an interactive storytelling experience for civic awareness</li>
+                      <li>Delivered iOS & Android concept design for real-time security enhancements</li>
+                  </ul>
+              </div>
+
+              <div class="card">
+                  <h3>Nielsen – VR Employee Onboarding & Training</h3>
+                  <h4>Objective</h4>
+                  <p>To develop an immersive VR onboarding program that enhances employee engagement, knowledge retention, and process efficiency.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Created a blended training approach combining in-person workshops with VR modules</li>
+                      <li>Developed 360-degree VR simulation of Nielsen's end-to-end product lifecycle</li>
+                      <li>Implemented performance tracking and analytics for measuring onboarding success</li>
+                  </ul>
+              </div>
+
+              <div class="card">
+                  <h3>AXA – Employee Onboarding Using VR</h3>
+                  <h4>Objective</h4>
+                  <p>To enhance AXA's employee onboarding and training process through immersive VR and AR solutions.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Designed VR-based modules providing first-person perspective on insurance claim scenarios</li>
+                      <li>Created synchronized multi-user VR experience for interactive engagement</li>
+                      <li>Implemented across multiple regions, improving training retention rates</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section id="services" class="parallax-section">
+      <div class="container">
+          <h2 class="section-title">Services</h2>
+          <div class="cards-grid">
+              <div class="card">
+                  <h3>Innovation Consulting and Strategy</h3>
+                  <p>I provide high-level strategic guidance for organizations looking to adopt and scale emerging technologies effectively.</p>
+                  <ul>
+                      <li>Technology roadmaps: Define clear paths for integrating XR, AI, and automation into business workflows</li>
+                      <li>Fractional advisory (10-20 hours per week): Strategic consulting for long-term innovation planning</li>
+                      <li>Remote team coordination & last-mile execution: Ensuring seamless implementation across distributed teams</li>
+                  </ul>
+                  <p><strong>Who this is for:</strong> Mid-sized companies, innovation labs, and digital transformation leaders seeking expert guidance.</p>
+              </div>
+              <div class="card">
+                  <h3>XR & AI Strategy and Implementation</h3>
+                  <p>Helping businesses seamlessly integrate AI and XR into their existing workflows and content pipelines.</p>
+                  <ul>
+                      <li>Customized integration: AI-powered automation and immersive experiences tailored to business needs</li>
+                      <li>Enterprise solutions: Focused consulting for corporate training, healthcare, and education</li>
+                      <li>End-to-end execution: Ensuring success from initial strategy to final deployment</li>
+                  </ul>
+                  <p><strong>Who this is for:</strong> Enterprises and startups ready to enhance operations through XR & AI.</p>
+              </div>
+              <div class="card">
+                  <h3>Immersive Experience Design & Onboarding</h3>
+                  <p>Creating engaging, user-centered immersive experiences that drive adoption and engagement.</p>
+                  <ul>
+                      <li>Experience design & automation: Leveraging AI to craft compelling XR-driven interactions</li>
+                      <li>Engagement strategies: Helping companies implement effective onboarding and adoption frameworks</li>
+                      <li>Distributed team coordination: Managing remote XR/AI production teams efficiently</li>
+                  </ul>
+                  <p><strong>Who this is for:</strong> Businesses building XR-driven applications, training programs, or automation solutions.</p>
+              </div>
+          </div>
+          <!-- Enhanced CTA Section -->
+          <div style="text-align: center; margin-top: 4rem;">
+              <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">🚀 Let's Build the Future of Business Together!</h3>
+              <p style="margin-bottom: 2rem;">The next decade belongs to those who adopt AI and XR wisely. Whether you're looking to enhance training, streamline automation, or create engaging digital experiences, I can help.</p>
+              <p style="margin-bottom: 2rem;">📩 Let's connect and explore how XR & AI can transform your business.</p>
+              <a href="#contact" class="hero-cta">Book a Consultation</a>
+          </div>
+      </div>
+  </section>
+
+  <section id="speaking" class="parallax-section">
+    <div class="container">
+        <h2 class="section-title">Speaking Engagements</h2>
+        <div class="parallax-content">
+            <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">Speaking Engagements (Available Upon Request)</h3>
+            <p>I occasionally speak at industry events, sharing insights on AI, XR, and the future of technology. My focus is on helping organizations integrate emerging technologies strategically, ethically, and for real-world impact.</p>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Popular Topics</h3>
+                <ul>
+                    <li>XR & AI in Business: What's Next?</li>
+                    <li>Digital Transformation & Human Flourishing</li>
+                    <li>Building Mission-Driven Technology</li>
+                    <li>The Role of Ethics in AI Development</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p>💡 <em>Interested in having me speak at your event?</em> Let's talk! 📩</p>
+                <a href="#contact" class="hero-cta" style="margin-top: 1.5rem;">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="parallax-section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact">
+            <h3 style="color: var(--neon-green); margin-bottom: 2rem;">🚀 Let's Build the Future of Business Together!</h3>
+            <p>Whether you're looking to enhance training, streamline automation, or create immersive digital experiences, I'm here to help you make it happen.</p>
+            <div class="contact-links">
+                <a href="mailto:carlos@consuegra.tech">📩 Email</a>
+                <a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank">🔗 Connect on LinkedIn</a>
+                <a href="https://cal.com/consuegra" target="_blank" class="book-link">📅 Book a Call</a>
+            </div>
+            <p style="margin-top: 2rem;">Let's explore how XR & AI can transform your business!</p>
+        </div>
+    </div>
+</section>
+</div>
+
+<script>
+// Particles.js Configuration - Reduced number of particles for performance
+particlesJS("particles-js", {
+particles: {
+    number: {
+        value: 25,
+        density: {
+            enable: true,
+            value_area: 800
+        }
+    },
+    color: {
+        value: "#39FF14"
+    },
+    shape: {
+        type: "circle"
+    },
+    opacity: {
+        value: 0.2,
+        random: false
+    },
+    size: {
+        value: 2,
+        random: true
+    },
+    line_linked: {
+        enable: true,
+        distance: 200,
+        color: "#39FF14",
+        opacity: 0.15,
+        width: 1
+    },
+    move: {
+        enable: true,
+        speed: 1.2,
+        direction: "none",
+        random: true,
+        straight: false,
+        out_mode: "out",
+        bounce: false
+    }
+},
+interactivity: {
+    detect_on: "canvas",
+    events: {
+        onhover: {
+            enable: true,
+            mode: "grab"
+        },
+        onclick: {
+            enable: true,
+            mode: "push"
+        },
+        resize: true
+    },
+    modes: {
+        grab: {
+            distance: 200,
+            line_linked: {
+                opacity: 0.3
+            }
+        }
+    }
+},
+retina_detect: true
+});
+
+// Navbar scroll effect
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+} else {
+    nav.classList.remove('scrolled');
+}
+});
+
+// Mobile menu
+const menuButton = document.querySelector('.menu-button');
+const navLinksContainer = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+menuButton.addEventListener('click', () => {
+navLinksContainer.classList.toggle('active');
+});
+
+navLinks.forEach(link => {
+link.addEventListener('click', () => {
+    navLinksContainer.classList.remove('active');
+});
+});
+</script>
+</body>
+</html>
