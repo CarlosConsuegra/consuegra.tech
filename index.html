@@ -17,7 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
-        /* Core Variables (some adjustments to ensure better contrast if needed) */
+        /* Core Variables */
         :root {
             --deep-purple: #1a1025;
             --medium-purple: #2d1b3d;
@@ -58,7 +58,6 @@
             outline: 2px solid var(--neon-green);
             outline-offset: 2px;
         }
-
         /* Layout & Container */
         .container {
             max-width: 1200px;
@@ -214,7 +213,6 @@
             box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
             transform: translateY(-2px);
         }
-
         /* Sections */
         section {
             padding: 5rem 0;
@@ -404,7 +402,6 @@
             color: var(--lightest-slate);
             line-height: 1.6;
         }
-
         /* Contact Section */
         .contact {
             text-align: center;
@@ -536,278 +533,385 @@
 </head>
 
 <body>
-    <!-- Background Effects -->
-    <canvas id="scene-container"></canvas>
-    <div id="particles-js"></div>
-    
-    <!-- Main Content -->
-    <div class="content-wrapper">
-        <nav>
-            <div class="nav-content">
-                <a href="#" class="logo">CC.</a>
-                <button class="menu-button" aria-label="Open Menu">☰<span>Menu</span></button>
-                <ul class="nav-links">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#speaking" class="nav-link">Speaking</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
+  <!-- Background Effects -->
+  <canvas id="scene-container"></canvas>
+  <div id="particles-js"></div>
+  
+  <!-- Main Content -->
+  <div class="content-wrapper">
+      <nav>
+          <div class="nav-content">
+              <a href="#" class="logo">CC.</a>
+              <button class="menu-button" aria-label="Open Menu">☰<span>Menu</span></button>
+              <ul class="nav-links">
+                  <li><a href="#about" class="nav-link">About</a></li>
+                  <li><a href="#experience" class="nav-link">Experience</a></li>
+                  <li><a href="#services" class="nav-link">Services</a></li>
+                  <li><a href="#speaking" class="nav-link">Speaking</a></li>
+                  <li><a href="#contact" class="nav-link">Contact</a></li>
+              </ul>
+          </div>
+      </nav>
 
-        <section class="hero parallax-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Hi, I’m Carlos Consuegra.</h1>
-                    <h2>Empowering organizations through VR, AR, and AI.</h2>
-                    <p class="tagline">I help businesses achieve tangible results—higher engagement, improved efficiency, and meaningful impact—by integrating cutting-edge immersive technologies.</p>
-                    <h3>With 20 years of experience pioneering digital transformation, I’ll help you create solutions that not only push technical boundaries but also drive real-world outcomes.</h3>
-                    <a href="#contact" class="hero-cta">Book a Consultation</a>
-                </div>
-            </div>
-        </section>
+      <section class="hero parallax-section">
+          <div class="container">
+              <div class="hero-content">
+                  <h1>Hi, I'm Carlos Consuegra.</h1>
+                  <h2>Empowering organizations through XR and AI for the future of business.</h2>
+                  <p class="tagline">I help businesses explore, adopt, and implement innovative technologies such as XR and AI to transform the future of their industries.</p>
+                  <a href="#contact" class="hero-cta">Book a Consultation</a>
+              </div>
+          </div>
+      </section>
 
-        <section id="about" class="parallax-section">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="parallax-content">
-                    <p>I specialize in helping organizations leverage VR, AR, and AI to create inclusive, accessible, and impactful user experiences. Whether you’re looking to reduce training costs with VR simulations, improve client engagement with AR content, or streamline operations through AI-driven automation, I tailor solutions to your unique goals.</p>
-                    <div class="cards-grid">
-                        <div class="card">
-                            <h3>Core Competencies</h3>
-                            <ul>
-                                <li>Technology Strategy & Roadmapping</li>
-                                <li>VR/AR/XR & AI Integration</li>
-                                <li>Innovation Pipeline Development</li>
-                                <li>Cross-Functional Team Leadership</li>
-                                <li>User-Centered Design</li>
-                                <li>Client-Centric Onboarding</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3>Industry Impact</h3>
-                            <ul>
-                                <li>Healthcare Innovation (e.g., VR training reduced errors by 20%)</li>
-                                <li>Educational Technology (boosted learner retention 30%)</li>
-                                <li>Corporate Training (accelerated onboarding times by 15%)</li>
-                                <li>Digital Transformation</li>
-                                <li>Immersive Experiences</li>
-                                <li>Social Impact Projects</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <section id="about" class="parallax-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="parallax-content">
+                <p>Technology is evolving at an unprecedented pace, and businesses that embrace XR, AI, and automation will shape the future. I help companies not just keep up—but lead.</p>
+                
+                <p>I'm Carlos Consuegra, a technologist, entrepreneur, and strategist with a passion for bridging the gap between cutting-edge innovation and real-world business success. With a background in immersive technologies and AI, I've spent the last four years creating transformational experiences in XR, automation, and digital strategy.</p>
 
-        <section id="experience" class="parallax-section">
-            <div class="container">
-                <h2 class="section-title">Key Achievements</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Strategic Tech Director</h3>
-                            <h4>Made for Joy</h4>
-                            <p>Delivered a "Final Mile" Production Pipeline optimizing VR/AR content, leading to a 25% increase in content delivery speed and improved user engagement.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Founder and Director</h3>
-                            <h4>Funktionell</h4>
-                            <p>Guided a multidisciplinary team of 50+ tech professionals. Developed accessible home automation solutions (Funkdomotics) and educational VR projects (Chicle Fresco), improving home efficiency and expanding educational reach.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Pioneering VR Innovator</h3>
-                            <h4>Oniria VR</h4>
-                            <p>Co-founded Mexico’s first VR company, producing award-winning immersive experiences and launching VRFest—catalyzing a regional VR ecosystem that continues to thrive today.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <h3>Technology for Good</h3>
+                <p>I believe that technology has the power to create better societies and empower human flourishing. By leveraging XR, AI, and automation, we can build solutions that improve education, enhance well-being, and promote inclusivity. My work focuses on ensuring that emerging technologies serve a greater purpose—enabling people, organizations, and communities to thrive in an increasingly digital world.</p>
 
-        <!-- Highlight Outcomes & Case Studies -->
-        <section class="parallax-section">
-            <div class="container">
-                <h2 class="section-title">Case Studies</h2>
-                <div class="parallax-content">
-                    <h3>Healthcare VR Simulation</h3>
-                    <p>Working with a healthcare provider, I implemented VR training modules that reduced training time by 15% and decreased on-site errors by 10%. These improvements led to both cost savings and better patient outcomes.</p>
-                    
-                    <h3>AR-Enhanced E-Learning</h3>
-                    <p>For an educational startup, I integrated AR elements into their curriculum. Students reported a 30% increase in content retention, helping the client differentiate themselves in a crowded market and attract new investors.</p>
-                </div>
-            </div>
-        </section>
+                <p>Today, I focus on helping businesses unlock the power of AI and immersive technology through two main roles:</p>
 
-        <section id="services" class="parallax-section">
-            <div class="container">
-                <h2 class="section-title">Services</h2>
                 <div class="cards-grid">
                     <div class="card">
-                        <h3>Strategic Advisory</h3>
-                        <p>I provide part-time strategic guidance to ensure your investment in XR/AI aligns with real business outcomes—like cost savings, improved staff training, or higher customer satisfaction.</p>
+                        <h3>Strategic Advisor (Remote)</h3>
+                        <ul>
+                            <li>Provide strategic guidance on XR, AI, and emerging technologies, helping businesses integrate them efficiently</li>
+                            <li>Support mid-sized companies and innovation labs with roadmap planning and technology adoption</li>
+                            <li>Drive measurable business impact through cross-functional leadership</li>
+                        </ul>
                     </div>
                     <div class="card">
-                        <h3>XR & AI Consulting</h3>
-                        <p>I deliver hands-on onboarding and user-centered design strategies, ensuring your team quickly masters immersive tech. Faster team adoption = quicker return on investment.</p>
+                        <h3>XR & AI Onboarding Consultant</h3>
+                        <ul>
+                            <li>Offer customized onboarding strategies and hands-on setup for seamless XR and AI adoption</li>
+                            <li>Work with corporate learning, healthcare, and education sectors</li>
+                            <li>Improve user engagement and reduce onboarding costs through innovative technology integration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Technology & Impact Areas</h3>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Core Competencies</h3>
+                        <ul>
+                            <li>Technology Strategy & Roadmapping</li>
+                            <li>VR/AR/XR & AI Integration</li>
+                            <li>Innovation Pipeline Development</li>
+                            <li>Cross-Functional Team Leadership</li>
+                            <li>User-Centered Design</li>
+                            <li>Client-Centric Onboarding</li>
+                        </ul>
                     </div>
                     <div class="card">
-                        <h3>Enterprise Solutions</h3>
-                        <p>I’ve advised global brands—Mercedes-Benz, UNICEF, Bank of America—on digital transformation. My actionable roadmaps help you achieve measurable growth and sustain innovation over time.</p>
+                        <h3>Specialization Areas</h3>
+                        <ul>
+                            <li>Mental Health & Human Flourishing through immersive VR experiences</li>
+                            <li>Education & Workforce Training with AI-powered solutions</li>
+                            <li>Corporate Innovation & Digital Transformation</li>
+                            <li>Social Impact & Accessibility initiatives</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- Add Another CTA here -->
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="#contact" class="hero-cta">Book a Consultation</a>
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="speaking" class="parallax-section">
-            <div class="container">
-                <h2 class="section-title">Speaking Engagements</h2>
-                <div class="parallax-content">
-                    <p>I speak at industry events, inspiring organizations to leverage VR, AR, and AI ethically and effectively. By attending my talks, audiences gain frameworks to drive positive social impact and innovation.</p>
-                    <div class="cards-grid">
-                        <div class="card">
-                            <h3>Key Topics</h3>
-                            <ul>
-                                <li>The Future of XR and AI in Healthcare & Education</li>
-                                <li>Building Mission-Driven Technology</li>
-                                <li>Creating Inclusive Tech Solutions</li>
-                                <li>Ethical Tech Development</li>
-                                <li>Digital Transformation Strategy</li>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <h3>Value Delivered</h3>
-                            <ul>
-                                <li>Actionable Industry Insights</li>
-                                <li>Innovation Strategy Frameworks</li>
-                                <li>Implementation Roadmaps</li>
-                                <li>Integrating Social Impact</li>
-                                <li>Change Management Guidance</li>
-                            </ul>
-                        </div>
+    <section id="experience" class="parallax-section">
+        <div class="container">
+            <h2 class="section-title">Key Achievements</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Strategic Tech Director</h3>
+                        <h4>Made for Joy</h4>
+                        <p>Led technology initiatives aligned with Made for Joy's mission to foster empathy and connection through immersive technology. Created the "Final Mile" Production Pipeline, an agile content delivery system that maximized efficiency and scalability across VR, AR, and WebXR platforms. Managed remote teams and production workflows, ensuring high-quality delivery within budget constraints.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Founder and Director</h3>
+                        <h4>Funktionell</h4>
+                        <p>Over nearly 15 years, built a multi-disciplinary tech company recognized for its innovation-driven culture and social impact. Mentored and empowered over 50 professionals, fostering ethical work practices and a creator's mindset. Pioneered tech-driven solutions for enterprise clients, enhancing efficiency and engagement.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Co-Founder</h3>
+                        <h4>Funkdomotics</h4>
+                        <p>Developed accessible home automation solutions tailored to the Latin American market, prioritizing affordability, resource conservation, and energy efficiency. Created automated smart home hardware and frameworks to optimize daily energy use, promoting financial savings and environmental responsibility. Led cross-functional teams in designing user-friendly automation systems.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Co-Founder</h3>
+                        <h4>Chicle Fresco</h4>
+                        <p>Focused on technology-driven educational and social impact, developing gamification-based learning experiences for underserved communities. Created immersive learning environments that improved knowledge retention and engagement, partnering with Save the Children and Amnesty International to drive awareness on social issues.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Co-Founder and VR Innovator</h3>
+                        <h4>Oniria VR</h4>
+                        <p>Co-founded Mexico's first VR company, developing award-winning immersive experiences across cinema, healthcare, architecture, and marketing. Launched VRFest, Latin America's first major VR industry event, which continues to drive innovation in the regional XR ecosystem. Built strategic partnerships with media companies, corporations, and universities.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="parallax-section">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact">
-                    <p>Ready to accelerate your organization’s growth through immersive, intelligent technology? Let’s talk about how I can help you achieve impactful results.</p>
-                    <div class="contact-links">
-                        <a href="mailto:carlos@consuegra.tech">Email</a>
-                        <a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank">LinkedIn</a>
-                        <a href="https://cal.com/consuegra" target="_blank" class="book-link">Book a Call</a>
-                    </div>
-                </div>
+    <!-- Case Studies Section -->
+    <section class="parallax-section">
+      <div class="container">
+          <h2 class="section-title">Case Studies</h2>
+          <div class="parallax-content">
+              <div class="card">
+                  <h3>VR Employee Onboarding & Wellbeing for a Global Financial Institution</h3>
+                  <h4>Objective</h4>
+                  <p>To develop VR-based wellbeing and onboarding experiences that help employees reset, recharge, and enhance workplace engagement.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Created three immersive VR experiences for 24/7 mental wellness support</li>
+                      <li>Implemented VR-based onboarding for company culture and digital workspace exploration</li>
+                      <li>Successfully deployed scalable VR adoption for corporate training and mental wellness</li>
+                  </ul>
+              </div>
+
+              <div class="card">
+                  <h3>UVEG – VR for Human Flourishing & Education</h3>
+                  <h4>Objective</h4>
+                  <p>To introduce 20,000 students to human flourishing concepts and the metaverse using immersive VR experiences.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Developed a 6-hour educational program "Flourishing in the Digital Age"</li>
+                      <li>Created scalable VR learning solutions accessible via WebXR and VR headsets</li>
+                      <li>Designed experiences compatible with low-cost VR cardboard headsets for maximum accessibility</li>
+                  </ul>
+              </div>
+
+              <div class="card">
+                  <h3>Mercedes-Benz – Project Safeway @ México</h3>
+                  <h4>Objective</h4>
+                  <p>To provide a better sense of security for women while traveling in Mexico and Latin America.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Engineered a practical panic button device for real-world safety applications</li>
+                      <li>Created an interactive storytelling experience for civic awareness</li>
+                      <li>Delivered iOS & Android concept design for real-time security enhancements</li>
+                  </ul>
+              </div>
+
+              <div class="card">
+                  <h3>Nielsen – VR Employee Onboarding & Training</h3>
+                  <h4>Objective</h4>
+                  <p>To develop an immersive VR onboarding program that enhances employee engagement, knowledge retention, and process efficiency.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Created a blended training approach combining in-person workshops with VR modules</li>
+                      <li>Developed 360-degree VR simulation of Nielsen's end-to-end product lifecycle</li>
+                      <li>Implemented performance tracking and analytics for measuring onboarding success</li>
+                  </ul>
+              </div>
+
+              <div class="card">
+                  <h3>AXA – Employee Onboarding Using VR</h3>
+                  <h4>Objective</h4>
+                  <p>To enhance AXA's employee onboarding and training process through immersive VR and AR solutions.</p>
+                  <h4>Impact</h4>
+                  <ul>
+                      <li>Designed VR-based modules providing first-person perspective on insurance claim scenarios</li>
+                      <li>Created synchronized multi-user VR experience for interactive engagement</li>
+                      <li>Implemented across multiple regions, improving training retention rates</li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section id="services" class="parallax-section">
+      <div class="container">
+          <h2 class="section-title">Services</h2>
+          <div class="cards-grid">
+              <div class="card">
+                  <h3>Innovation Consulting and Strategy</h3>
+                  <p>I provide high-level strategic guidance for organizations looking to adopt and scale emerging technologies effectively.</p>
+                  <ul>
+                      <li>Technology roadmaps: Define clear paths for integrating XR, AI, and automation into business workflows</li>
+                      <li>Fractional advisory (10-20 hours per week): Strategic consulting for long-term innovation planning</li>
+                      <li>Remote team coordination & last-mile execution: Ensuring seamless implementation across distributed teams</li>
+                  </ul>
+                  <p><strong>Who this is for:</strong> Mid-sized companies, innovation labs, and digital transformation leaders seeking expert guidance.</p>
+              </div>
+              <div class="card">
+                  <h3>XR & AI Strategy and Implementation</h3>
+                  <p>Helping businesses seamlessly integrate AI and XR into their existing workflows and content pipelines.</p>
+                  <ul>
+                      <li>Customized integration: AI-powered automation and immersive experiences tailored to business needs</li>
+                      <li>Enterprise solutions: Focused consulting for corporate training, healthcare, and education</li>
+                      <li>End-to-end execution: Ensuring success from initial strategy to final deployment</li>
+                  </ul>
+                  <p><strong>Who this is for:</strong> Enterprises and startups ready to enhance operations through XR & AI.</p>
+              </div>
+              <div class="card">
+                  <h3>Immersive Experience Design & Onboarding</h3>
+                  <p>Creating engaging, user-centered immersive experiences that drive adoption and engagement.</p>
+                  <ul>
+                      <li>Experience design & automation: Leveraging AI to craft compelling XR-driven interactions</li>
+                      <li>Engagement strategies: Helping companies implement effective onboarding and adoption frameworks</li>
+                      <li>Distributed team coordination: Managing remote XR/AI production teams efficiently</li>
+                  </ul>
+                  <p><strong>Who this is for:</strong> Businesses building XR-driven applications, training programs, or automation solutions.</p>
+              </div>
+          </div>
+          <!-- Enhanced CTA Section -->
+          <div style="text-align: center; margin-top: 4rem;">
+              <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">🚀 Let's Build the Future of Business Together!</h3>
+              <p style="margin-bottom: 2rem;">The next decade belongs to those who adopt AI and XR wisely. Whether you're looking to enhance training, streamline automation, or create engaging digital experiences, I can help.</p>
+              <p style="margin-bottom: 2rem;">📩 Let's connect and explore how XR & AI can transform your business.</p>
+              <a href="#contact" class="hero-cta">Book a Consultation</a>
+          </div>
+      </div>
+  </section>
+
+  <section id="speaking" class="parallax-section">
+    <div class="container">
+        <h2 class="section-title">Speaking Engagements</h2>
+        <div class="parallax-content">
+            <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">Speaking Engagements (Available Upon Request)</h3>
+            <p>I occasionally speak at industry events, sharing insights on AI, XR, and the future of technology. My focus is on helping organizations integrate emerging technologies strategically, ethically, and for real-world impact.</p>
+            
+            <div class="card" style="margin-top: 2rem;">
+                <h3>Popular Topics</h3>
+                <ul>
+                    <li>XR & AI in Business: What's Next?</li>
+                    <li>Digital Transformation & Human Flourishing</li>
+                    <li>Building Mission-Driven Technology</li>
+                    <li>The Role of Ethics in AI Development</li>
+                </ul>
             </div>
-        </section>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p>💡 <em>Interested in having me speak at your event?</em> Let's talk! 📩</p>
+                <a href="#contact" class="hero-cta" style="margin-top: 1.5rem;">Get in Touch</a>
+            </div>
+        </div>
     </div>
+</section>
+
+<section id="contact" class="parallax-section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact">
+            <h3 style="color: var(--neon-green); margin-bottom: 2rem;">🚀 Let's Build the Future of Business Together!</h3>
+            <p>Whether you're looking to enhance training, streamline automation, or create immersive digital experiences, I'm here to help you make it happen.</p>
+            <div class="contact-links">
+                <a href="mailto:carlos@consuegra.tech">📩 Email</a>
+                <a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank">🔗 Connect on LinkedIn</a>
+                <a href="https://cal.com/consuegra" target="_blank" class="book-link">📅 Book a Call</a>
+            </div>
+            <p style="margin-top: 2rem;">Let's explore how XR & AI can transform your business!</p>
+        </div>
+    </div>
+</section>
+</div>
 
 <script>
-    // Particles.js Configuration - Reduced number of particles for performance
-    particlesJS("particles-js", {
-        particles: {
-            number: {
-                value: 25,
-                density: {
-                    enable: true,
-                    value_area: 800
-                }
-            },
-            color: {
-                value: "#39FF14"
-            },
-            shape: {
-                type: "circle"
-            },
-            opacity: {
-                value: 0.2,
-                random: false
-            },
-            size: {
-                value: 2,
-                random: true
-            },
-            line_linked: {
-                enable: true,
-                distance: 200,
-                color: "#39FF14",
-                opacity: 0.15,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 1.2,
-                direction: "none",
-                random: true,
-                straight: false,
-                out_mode: "out",
-                bounce: false
-            }
-        },
-        interactivity: {
-            detect_on: "canvas",
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: "grab"
-                },
-                onclick: {
-                    enable: true,
-                    mode: "push"
-                },
-                resize: true
-            },
-            modes: {
-                grab: {
-                    distance: 200,
-                    line_linked: {
-                        opacity: 0.3
-                    }
-                }
-            }
-        },
-        retina_detect: true
-    });
-
-    // Navbar scroll effect
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
+// Particles.js Configuration - Reduced number of particles for performance
+particlesJS("particles-js", {
+particles: {
+    number: {
+        value: 25,
+        density: {
+            enable: true,
+            value_area: 800
         }
-    });
+    },
+    color: {
+        value: "#39FF14"
+    },
+    shape: {
+        type: "circle"
+    },
+    opacity: {
+        value: 0.2,
+        random: false
+    },
+    size: {
+        value: 2,
+        random: true
+    },
+    line_linked: {
+        enable: true,
+        distance: 200,
+        color: "#39FF14",
+        opacity: 0.15,
+        width: 1
+    },
+    move: {
+        enable: true,
+        speed: 1.2,
+        direction: "none",
+        random: true,
+        straight: false,
+        out_mode: "out",
+        bounce: false
+    }
+},
+interactivity: {
+    detect_on: "canvas",
+    events: {
+        onhover: {
+            enable: true,
+            mode: "grab"
+        },
+        onclick: {
+            enable: true,
+            mode: "push"
+        },
+        resize: true
+    },
+    modes: {
+        grab: {
+            distance: 200,
+            line_linked: {
+                opacity: 0.3
+            }
+        }
+    }
+},
+retina_detect: true
+});
 
-    // Mobile menu
-    const menuButton = document.querySelector('.menu-button');
-    const navLinksContainer = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links a');
+// Navbar scroll effect
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+} else {
+    nav.classList.remove('scrolled');
+}
+});
 
-    menuButton.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active');
-    });
+// Mobile menu
+const menuButton = document.querySelector('.menu-button');
+const navLinksContainer = document.querySelector('.nav-links');
+const navLinks = document.querySelectorAll('.nav-links a');
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinksContainer.classList.remove('active');
-        });
-    });
+menuButton.addEventListener('click', () => {
+navLinksContainer.classList.toggle('active');
+});
 
-    // Three.js and Cursor code remain unchanged from your original setup if desired
-    // (omitted here for brevity, but you would keep the initThree() functions and cursor code as before)
+navLinks.forEach(link => {
+link.addEventListener('click', () => {
+    navLinksContainer.classList.remove('active');
+});
+});
 </script>
 </body>
 </html>
