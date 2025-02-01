@@ -198,19 +198,28 @@
             margin-bottom: 2rem;
         }
 
-        .hero-content .hero-cta {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border: 1px solid var(--neon-green);
+        .hero-content .hero-cta, 
+        .services-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(57, 255, 20, 0.05);
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            border-radius: 8px;
             color: var(--neon-green);
             font-family: var(--font-mono);
+            font-size: 1.1rem;
             text-decoration: none;
             transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
 
-        .hero-content .hero-cta:hover {
+        .hero-content .hero-cta:hover,
+        .services-cta:hover {
             background: rgba(57, 255, 20, 0.1);
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
             transform: translateY(-2px);
         }
         /* Sections */
@@ -559,7 +568,11 @@
                   <h1>Hi, I'm Carlos Consuegra.</h1>
                   <h2>Empowering organizations through XR and AI for the future of business.</h2>
                   <p class="tagline">I help businesses explore, adopt, and implement innovative technologies such as XR and AI to transform the future of their industries.</p>
-                  <a href="#contact" class="hero-cta">Book a Consultation</a>
+                  <!-- Hero Section CTA -->
+                    <a href="#contact" class="hero-cta">
+                        <span class="icon">📅</span>
+                        <span class="text">Book a Consultation</span>
+                    </a>
               </div>
           </div>
       </section>
@@ -775,7 +788,11 @@
               <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">🚀 Let's Build the Future of Business Together!</h3>
               <p style="margin-bottom: 2rem;">The next decade belongs to those who adopt AI and XR wisely. Whether you're looking to enhance training, streamline automation, or create engaging digital experiences, I can help.</p>
               <p style="margin-bottom: 2rem;">📩 Let's connect and explore how XR & AI can transform your business.</p>
-              <a href="#contact" class="hero-cta">Book a Consultation</a>
+              <!-- Services Section CTA -->
+                <a href="#contact" class="services-cta">
+                    <span class="icon">📅</span>
+                    <span class="text">Book a Consultation</span>
+                </a>
           </div>
       </div>
   </section>
