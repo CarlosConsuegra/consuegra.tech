@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Consuegra | Executive Technology Producer | AI, VR, XR Solutions</title>
+
+    <!-- SEO Enhancements -->
+    <meta name="description" content="Executive Technology Producer with 20+ years leading global teams in AI, VR, and XR delivery. From concept to delivery, I lead the full execution of innovative technology projects with precision, speed, and clarity.">
+    <meta name="keywords" content="Technology Producer, AI Solutions, VR Development, XR Implementation, Executive Leadership, Global Teams, Innovation Consulting, Carlos Consuegra">
+    <meta name="author" content="Carlos Consuegra">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://consuegra.tech">
+    <meta property="og:title" content="Carlos Consuegra | Executive Technology Producer">
+    <meta property="og:description" content="20+ years leading global teams in AI, VR, and XR delivery. Strategic technology production for agencies, innovation teams, and forward-thinking companies.">
+    <meta property="og:image" content="https://consuegra.tech/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://consuegra.tech">
+    <meta property="twitter:title" content="Carlos Consuegra | Executive Technology Producer">
+    <meta property="twitter:description" content="20+ years leading global teams in AI, VR, and XR delivery.">
+    <meta property="twitter:image" content="https://consuegra.tech/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        /* Core Variables */
+        :root {
+            --deep-purple: #1a1025;
+            --medium-purple: #2d1b3d;
+            --light-purple: #432c55;
+            --neon-green: #39FF14;
+            --slate: #b8b8d1;
+            --light-slate: #d8d8e8;
+            --lightest-slate: #e8e8f5;
+            --font-mono: "SF Mono", "Fira Code", "Fira Mono", monospace;
+            --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--deep-purple);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a, button {
+            outline: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        a:focus, button:focus {
+            outline: 2px solid var(--neon-green);
+            outline-offset: 2px;
+        }
+
+        /* Layout & Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Background Effects */
+        #scene-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 16, 37, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(26, 16, 37, 0.95);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 20px rgba(57, 255, 20, 0.8);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-slate);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--neon-green);
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+        }
+
+        .nav-links a[href="#contact"] {
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-content {
+            margin-top: -5vh;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(1rem, 5vw, 1.5rem);
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--lightest-slate);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-content h2 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--lightest-slate);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .hero-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        .hero-content .hero-cta:hover {
+            background: rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        section:first-of-type {
+            padding-top: 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            color: var(--lightest-slate);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            position: relative;
+            width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            background-color: var(--light-purple);
+        }
+
+        /* Parallax Effects */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            z-index: 1;
+        }
+
+        .parallax-content {
+            transform: translateZ(0);
+            position: relative;
+            background: rgba(26, 16, 37, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            transition: var(--transition);
+        }
+
+        .parallax-content:hover {
+            border-color: rgba(57, 255, 20, 0.2);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(45, 27, 61, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) rotateX(5deg);
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow:
+                0 0 25px rgba(57, 255, 20, 0.1),
+                0 0 5px rgba(57, 255, 20, 0.2);
+        }
+
+        .card h3 {
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--light-slate);
+        }
+
+        .card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--neon-green);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 4rem auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--neon-green);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            background: rgba(26, 16, 37, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            right: -7px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            top: 15px;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+            transition: var(--transition);
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -7px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: rgba(45, 27, 61, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            color: var(--neon-green);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.1rem;
+            color: var(--light-slate);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content p {
+            color: var(--lightest-slate);
+            line-height: 1.6;
+        }
+
+        /* Contact Section Styles */
+        .contact-link-wrapper:hover {
+            transform: translateX(5px);
+        }
+
+        .contact-link-wrapper:hover .contact-label {
+            color: var(--neon-green);
+        }
+
+        .contact-link-wrapper:hover .contact-icon {
+            background-color: rgba(57, 255, 20, 0.2);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: rgba(57, 255, 20, 0.5);
+            outline: none;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+        }
+
+        .contact-form button:hover {
+            background: rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Menu */
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-slate);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-button span {
+            margin-left: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-button {
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 75%;
+                max-width: 300px;
+                background: rgba(45, 27, 61, 0.97);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 24px;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 24px;
+            }
+
+            .section-title::after {
+                width: 100px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+            
+            .contact-form {
+                padding: 2rem !important;
+            }
+            
+            .contact-item {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <canvas id="scene-container"></canvas>
+    <div id="particles-js"></div>
+    
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <nav>
+            <div class="nav-content">
+                <a href="#" class="logo">CC.</a>
+                <button class="menu-button" aria-label="Open Menu">☰<span>Menu</span></button>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">Solutions</a></li>
+                    <li><a href="#about-carlos" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">How I Work</a></li>
+                    <li><a href="#selected-works" class="nav-link">Selected Works</a></li>
+                    <li><a href="/portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero parallax-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Hi, I'm Carlos Consuegra.</h1>
+                    <h2>Executive Technology Producer with 20+ years leading global teams in AI, VR, and XR delivery</h2>
+                    <p class="tagline">From concept to delivery, I lead the full execution of innovative technology projects with precision, speed, and clarity.</p>
+                    <a href="#contact" class="hero-cta">Book a Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="about" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">Solutions</h2>
+                <div class="parallax-content">
+                    <p>With a deep understanding of both strategy and implementation, I help agencies, innovation teams, and companies bring complex technology projects to life. I lead global remote teams and take full ownership of the production process — so you can focus on your vision while I ensure it becomes a reality.</p>
+                    
+                    <p>Whether you're building a prototype or scaling a high-impact solution, I'm here to make it happen — with clarity, speed, and accountability.</p>
+
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🔧 Custom Tech Solutions</h3>
+                            <p>Bespoke development in AI, XR and WebApps — built for business goals, not just tech demos.</p>
+                            <ul>
+                                <li>AI-powered automation and intelligent systems tailored to your workflows</li>
+                                <li>Immersive VR/AR experiences for training, marketing, and engagement</li>
+                                <li>Scalable web applications with modern frameworks and architectures</li>
+                                <li>Cross-platform solutions optimized for performance and user experience</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>🌍 Global Production Leadership</h3>
+                            <p>Distributed team orchestration with local expertise, global efficiency — no overhead, no friction.</p>
+                            <ul>
+                                <li>Strategic team assembly based on project requirements and budget optimization</li>
+                                <li>Cross-timezone coordination ensuring continuous development cycles</li>
+                                <li>Quality assurance and technical supervision across all development phases</li>
+                                <li>Cultural and communication bridge between stakeholders and technical teams</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>📐 Technical Strategy & Roadmapping</h3>
+                            <p>Clear definitions, structured timelines, and scalable architectures aligned with your vision and constraints.</p>
+                            <ul>
+                                <li>Technology architecture design for scalability and future growth</li>
+                                <li>Project scoping with realistic timelines and budget frameworks</li>
+                                <li>Risk assessment and mitigation strategies for complex technical projects</li>
+                                <li>Integration planning for existing systems and future technology adoption</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Carlos Section -->
+        <section id="about-carlos" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="parallax-content">
+                    <h3 style="text-align: center; margin-bottom: 3rem;">🚀 From Code to Command: 20+ Years of Technical Leadership Excellence</h3>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🎯 The Journey</h3>
+                            <p>My journey in technology spans over two decades, evolving from hands-on development to strategic production leadership. I've built, managed, and orchestrated technical teams across multiple continents, delivering pioneering projects that range from Mexico's first VR company to enterprise AI solutions for global financial institutions.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>⚡ What Sets Me Apart</h3>
+                            <p><strong>The rare combination of deep technical expertise and executive-level orchestration.</strong> I understand both the intricacies of cutting-edge development and the complexities of business strategy. This dual perspective allows me to translate ambitious visions into deliverable realities while navigating global team coordination, budget optimization, and aggressive timelines.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🎖️ My Leadership Philosophy</h3>
+                            <p><strong>Accountability and results-focused execution.</strong> Whether I'm coordinating a team of 5 or 50, across 3 time zones or 6 countries, the focus remains the same: delivering exceptional technology solutions that drive real business impact. The best innovation happens when technical excellence meets strategic clarity.</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(57, 255, 20, 0.05); border-radius: 8px; border: 1px solid rgba(57, 255, 20, 0.1);">
+                        <p style="font-size: 1.1rem; margin: 0;"><strong>Today, I focus exclusively on high-impact projects where technical innovation meets strategic business goals, working with agencies, innovation teams, and forward-thinking companies ready to push boundaries and deliver results.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How I Work Section -->
+        <section id="experience" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">How I Work</h2>
+                <div class="parallax-content">
+                    <h3 style="text-align: center; margin-bottom: 3rem;">🎯 A streamlined process designed for clarity, execution, and results</h3>
+                    <p style="text-align: center; margin-bottom: 4rem;">Projects are executed through a structured yet adaptable process that prioritizes clarity, efficiency, and technical excellence. Each stage is designed to reduce friction, align expectations, and ensure high-impact delivery — no matter the complexity or scale.</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>🔍 Discovery & Strategic Scoping</h3>
+                            <h4>Foundation & Clarity</h4>
+                            <p>Project goals, technical constraints, target audiences, and success metrics are defined and translated into a clear, actionable roadmap. We establish the strategic foundation that guides every decision throughout the project lifecycle.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>⚡ Team Assembly & Technical Planning</h3>
+                            <h4>Strategic Resource Allocation</h4>
+                            <p>Specialized global team selection based on project requirements, with detailed technical specifications, timelines, and budget optimization. The right expertise in the right places for maximum efficiency and quality delivery.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>🚀 Coordinated Development & Quality Assurance</h3>
+                            <h4>Execution Excellence</h4>
+                            <p>Development progresses under executive supervision with integrated testing, quality control, and continuous alignment with business objectives. Regular checkpoints ensure we stay on track, on budget, and on vision.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>✅ Delivery & Strategic Handoff</h3>
+                            <h4>Results & Continuity</h4>
+                            <p>Final deliverables with comprehensive documentation, knowledge transfer, and optional ongoing support or iteration phases. You receive not just a product, but the strategic foundation for future growth and scaling.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: rgba(57, 255, 20, 0.05); border-radius: 8px; border: 1px solid rgba(57, 255, 20, 0.1);">
+                    <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">🚀 Ready to bring your vision to life?</h3>
+                    <p style="margin-bottom: 2rem;">Every project starts with a conversation. Let's discuss your goals, challenges, and how we can turn your innovative ideas into exceptional results.</p>
+                    <a href="#contact" class="hero-cta" style="display: inline-block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; transition: var(--transition); border-radius: 4px;">Start the Conversation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Works Section -->
+        <section id="selected-works" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">Selected Works</h2>
+                <div class="parallax-content">
+                    <h3 style="text-align: center; margin-bottom: 3rem;">🎯 Proven Results Across Industries</h3>
+                    <p style="text-align: center; margin-bottom: 4rem;">From global financial institutions to educational programs reaching 20,000+ students, here are some examples of how strategic technology production delivers real business impact.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🏦 Global Financial Institution</h3>
+                            <h4 style="color: var(--light-slate); margin-bottom: 1rem;">VR Employee Wellbeing & Onboarding</h4>
+                            <p style="margin-bottom: 1.5rem;"><strong>Challenge:</strong> Develop VR-based wellbeing and onboarding experiences to help employees reset, recharge, and enhance workplace engagement.</p>
+                            <p style="margin-bottom: 1.5rem;"><strong>Business Impact:</strong></p>
+                            <ul>
+                                <li>Created three immersive VR experiences for 24/7 mental wellness support</li>
+                                <li>Implemented scalable VR-based onboarding for company culture integration</li>
+                                <li>Successfully deployed enterprise-wide VR adoption for training and mental wellness</li>
+                            </ul>
+                            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--slate);"><strong>Technologies:</strong> VR Development, Enterprise Integration, Wellness Applications</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>🎓 UVEG Educational Program</h3>
+                            <h4 style="color: var(--light-slate); margin-bottom: 1rem;">VR for Human Flourishing & Education</h4>
+                            <p style="margin-bottom: 1.5rem;"><strong>Challenge:</strong> Introduce 20,000 students to human flourishing concepts and the metaverse using accessible immersive VR experiences.</p>
+                            <p style="margin-bottom: 1.5rem;"><strong>Business Impact:</strong></p>
+                            <ul>
+                                <li>Developed comprehensive 6-hour educational program "Flourishing in the Digital Age"</li>
+                                <li>Created scalable VR learning solutions accessible via WebXR and VR headsets</li>
+                                <li>Designed experiences compatible with low-cost VR cardboard for maximum accessibility</li>
+                            </ul>
+                            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--slate);"><strong>Technologies:</strong> WebXR, Educational VR, Accessibility Design, Scalable Deployment</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>🚗 Mercedes-Benz</h3>
+                            <h4 style="color: var(--light-slate); margin-bottom: 1rem;">Project Safeway @ México</h4>
+                            <p style="margin-bottom: 1.5rem;"><strong>Challenge:</strong> Provide a better sense of security for women while traveling in Mexico and Latin America through innovative technology solutions.</p>
+                            <p style="margin-bottom: 1.5rem;"><strong>Business Impact:</strong></p>
+                            <ul>
+                                <li>Engineered practical panic button device for real-world safety applications</li>
+                                <li>Created interactive storytelling experience for civic awareness campaigns</li>
+                                <li>Delivered iOS & Android concept design for real-time security enhancements</li>
+                            </ul>
+                            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--slate);"><strong>Technologies:</strong> Hardware Engineering, Mobile App Development, Interactive Storytelling, IoT Integration</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: rgba(57, 255, 20, 0.05); border-radius: 8px; border: 1px solid rgba(57, 255, 20, 0.1);">
+                        <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">💼 Ready to see more?</h3>
+                        <p style="margin-bottom: 2rem;">Explore the complete portfolio with detailed case studies, process documentation, and visual galleries showcasing the full scope of delivered projects.</p>
+                        <a href="/portfolio" class="hero-cta" style="display: inline-block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; transition: var(--transition); border-radius: 4px; margin-right: 1rem;">View Full Portfolio</a>
+                        <a href="#contact" class="hero-cta" style="display: inline-block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; transition: var(--transition); border-radius: 4px; background: rgba(57, 255, 20, 0.1);">Discuss Your Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">Get Started</h2>
+                <div class="parallax-content">
+                    <h3 style="text-align: center; margin-bottom: 3rem;">🚀 Let's Build Something Great Together</h3>
+                    <p style="text-align: center; margin-bottom: 4rem;">Ready to start or just want to explore ideas? Choose the best way to connect and let's discuss how we can turn your innovative vision into exceptional results.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;" class="contact-grid">
+                        <!-- Contact Links -->
+                        <div style="display: flex; flex-direction: column; gap: 2rem;">
+                            
+                            <!-- Book a Call -->
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <a href="https://cal.com/consuegra" target="_blank" class="contact-link-wrapper" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: white; font-weight: 600; font-size: 1rem; transition: transform 0.3s;">
+                                    <div class="contact-icon" style="width: 60px; height: 60px; background-color: rgba(57, 255, 20, 0.2); border: 1px solid rgba(57, 255, 20, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                        <span style="font-size: 1.5rem;">📅</span>
+                                    </div>
+                                    <div>
+                                        <span class="contact-label" style="font-size: 1.1rem; font-weight: 600; color: var(--neon-green); display: block;">Book a Call</span>
+                                        <span style="font-size: 0.9rem; color: var(--light-slate); display: block;">Schedule a strategy session</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- LinkedIn -->
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank" class="contact-link-wrapper" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: white; font-weight: 600; font-size: 1rem; transition: transform 0.3s;">
+                                    <div class="contact-icon" style="width: 50px; height: 50px; background-color: rgba(57, 255, 20, 0.08); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                        <span style="font-size: 1.2rem;">💼</span>
+                                    </div>
+                                    <div>
+                                        <span class="contact-label" style="font-size: 1rem; font-weight: 600; color: var(--light-slate); display: block;">Connect on LinkedIn</span>
+                                        <span style="font-size: 0.85rem; color: var(--slate); display: block;">Professional networking</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- WhatsApp -->
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <a href="https://wa.me/525514743335?text=Hi%20Carlos%2C%20I%20found%20your%20site%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="contact-link-wrapper" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: white; font-weight: 600; font-size: 1rem; transition: transform 0.3s;">
+                                    <div class="contact-icon" style="width: 50px; height: 50px; background-color: rgba(57, 255, 20, 0.08); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                        <span style="font-size: 1.2rem;">📱</span>
+                                    </div>
+                                    <div>
+                                        <span class="contact-label" style="font-size: 1rem; font-weight: 600; color: var(--light-slate); display: block;">WhatsApp</span>
+                                        <span style="font-size: 0.85rem; color: var(--slate); display: block;">Quick questions</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Form -->
+                        <div class="contact-form" style="background-color: rgba(45, 27, 61, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(57, 255, 20, 0.1); border-radius: 8px; padding: 3rem; display: flex; flex-direction: column; justify-content: center;">
+                            <h3 style="color: var(--neon-green); margin-bottom: 1.5rem; text-align: center;">💬 Send a Message</h3>
+                            <p style="text-align: center; margin-bottom: 2rem; color: var(--light-slate);">Tell me about your project, goals, and how I can help bring your vision to life.</p>
+                            
+                            <form id="contact-form">
+                                <div style="margin-bottom: 1.5rem;">
+                                    <input type="text" name="name" placeholder="Full Name" required style="width: 100%; background-color: rgba(45, 27, 61, 0.5); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 0.5rem; padding: 1rem; color: white; font-family: inherit; transition: border-color 0.3s ease;">
+                                </div>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <input type="email" name="email" placeholder="Email Address" required style="width: 100%; background-color: rgba(45, 27, 61, 0.5); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 0.5rem; padding: 1rem; color: white; font-family: inherit; transition: border-color 0.3s ease;">
+                                </div>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <input type="text" name="company" placeholder="Company/Organization (Optional)" style="width: 100%; background-color: rgba(45, 27, 61, 0.5); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 0.5rem; padding: 1rem; color: white; font-family: inherit; transition: border-color 0.3s ease;">
+                                </div>
+                                <div style="margin-bottom: 2rem;">
+                                    <textarea name="message" placeholder="Tell me about your project, goals, and timeline..." required style="width: 100%; background-color: rgba(45, 27, 61, 0.5); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 0.5rem; padding: 1rem; color: white; font-family: inherit; transition: border-color 0.3s ease; resize: vertical; min-height: 120px;"></textarea>
+                                </div>
+                                <button type="submit" class="hero-cta" style="width: 100%; display: inline-block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; transition: var(--transition); border-radius: 4px; background: none; cursor: pointer; font-size: 1rem;">Send Message</button>
+                                
+                                <p id="form-success" style="display:none; color: var(--neon-green); margin-top: 1rem; text-align: center;">
+                                    ✅ Message sent successfully! I'll get back to you soon.
+                                </p>
+                                <p id="form-error" style="display:none; color: #ff6b6b; margin-top: 1rem; text-align: center;">
+                                    ❌ Something went wrong. Please try again or use one of the direct contact methods above.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: rgba(26, 16, 37, 0.9); border-top: 1px solid rgba(57, 255, 20, 0.1); padding: 3rem 0 1rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
+                
+                <!-- Company Info -->
+                <div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <span style="color: var(--neon-green); font-family: var(--font-mono); font-size: 1.5rem; text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);">CC.</span>
+                    </div>
+                    <p style="color: var(--light-slate); margin-bottom: 1rem; max-width: 300px;">Executive Technology Producer with 20+ years leading global teams in AI, VR, and XR delivery.</p>
+                    <p style="color: var(--slate); font-size: 0.9rem;">From concept to delivery, turning innovative visions into exceptional results.</p>
+                </div>
+                
+                <!-- Navigation -->
+                <div>
+                    <h4 style="color: var(--lightest-slate); font-size: 1.1rem; margin-bottom: 1rem;">Navigation</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#about" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Solutions</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#about-carlos" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">About</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#experience" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">How I Work</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#selected-works" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Selected Works</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/portfolio" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 style="color: var(--lightest-slate); font-size: 1.1rem; margin-bottom: 1rem;">Get in Touch</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="https://cal.com/consuegra" target="_blank" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">📅 Book a Call</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">💼 LinkedIn</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://wa.me/525514743335?text=Hi%20Carlos%2C%20I%20found%20your%20site%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">📱 WhatsApp</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#contact" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">💬 Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(57, 255, 20, 0.1);">
+                <p style="color: var(--slate); font-size: 0.85rem; margin: 0;">
+                    © 2025 Carlos Consuegra. All rights reserved. | Executive Technology Producer
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Footer hover effects */
+        footer a:hover {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+        }
+        
+        /* Mobile footer adjustments */
+        @media (max-width: 768px) {
+            footer > .container > div:first-child {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script>
+        // Particles.js Configuration
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 25,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#39FF14"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.2,
+                    random: false
+                },
+                size: {
+                    value: 2,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 200,
+                    color: "#39FF14",
+                    opacity: 0.15,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        line_linked: {
+                            opacity: 0.3
+                        }
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Navbar scroll effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu
+        const menuButton = document.querySelector('.menu-button');
+        const navLinksContainer = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        menuButton.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+            });
+        });
+
+        // Contact Form Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(contactForm);
+                    const successMsg = document.getElementById('form-success');
+                    const errorMsg = document.getElementById('form-error');
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    try {
+                        const response = await fetch("https://formspree.io/f/mldbkgvb", {
+                            method: "POST",
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            contactForm.reset();
+                            successMsg.style.display = "block";
+                            errorMsg.style.display = "none";
+                        } else {
+                            throw new Error("Request failed");
+                        }
+                    } catch (err) {
+                        successMsg.style.display = "none";
+                        errorMsg.style.display = "block";
+                    } finally {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
