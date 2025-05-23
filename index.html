@@ -3,14 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carlos Consuegra | Technology & Innovation Strategist</title>
+    <title>Carlos Consuegra | Executive Technology Producer | AI, VR, XR Solutions</title>
 
     <!-- SEO Enhancements -->
-    <meta name="description" content="Empowering organizations to harness VR, AR, and AI for inclusive, impactful growth. Book a consultation with Carlos Consuegra for strategy, implementation, and meaningful tech innovation.">
-    <meta property="og:title" content="Carlos Consuegra | Technology & Innovation Strategist">
-    <meta property="og:description" content="Empowering organizations to harness VR, AR, and AI for tangible results.">
-    <meta property="og:url" content="https://consuegra.tech">
+    <meta name="description" content="Executive Technology Producer with 20+ years leading global teams in AI, VR, and XR delivery. From concept to delivery, I lead the full execution of innovative technology projects with precision, speed, and clarity.">
+    <meta name="keywords" content="Technology Producer, AI Solutions, VR Development, XR Implementation, Executive Leadership, Global Teams, Innovation Consulting, Carlos Consuegra">
+    <meta name="author" content="Carlos Consuegra">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://consuegra.tech">
+    <meta property="og:title" content="Carlos Consuegra | Executive Technology Producer">
+    <meta property="og:description" content="20+ years leading global teams in AI, VR, and XR delivery. Strategic technology production for agencies, innovation teams, and forward-thinking companies.">
+    <meta property="og:image" content="https://consuegra.tech/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://consuegra.tech">
+    <meta property="twitter:title" content="Carlos Consuegra | Executive Technology Producer">
+    <meta property="twitter:description" content="20+ years leading global teams in AI, VR, and XR delivery.">
+    <meta property="twitter:image" content="https://consuegra.tech/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
     <!-- Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -58,6 +74,7 @@
             outline: 2px solid var(--neon-green);
             outline-offset: 2px;
         }
+
         /* Layout & Container */
         .container {
             max-width: 1200px;
@@ -191,37 +208,23 @@
             margin-bottom: 1rem;
         }
 
-        .hero-content h3 {
-            font-size: clamp(1rem, 5vw, 1.25rem);
-            color: var(--slate);
-            max-width: 600px;
-            margin-bottom: 2rem;
-        }
-
-        .hero-content .hero-cta, 
-        .services-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(57, 255, 20, 0.05);
-            border: 1px solid rgba(57, 255, 20, 0.2);
-            border-radius: 8px;
+        .hero-content .hero-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--neon-green);
             color: var(--neon-green);
             font-family: var(--font-mono);
-            font-size: 1.1rem;
             text-decoration: none;
+            border-radius: 4px;
             transition: var(--transition);
-            backdrop-filter: blur(10px);
         }
 
-        .hero-content .hero-cta:hover,
-        .services-cta:hover {
+        .hero-content .hero-cta:hover {
             background: rgba(57, 255, 20, 0.1);
-            border-color: rgba(57, 255, 20, 0.3);
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
             transform: translateY(-2px);
         }
+
         /* Sections */
         section {
             padding: 5rem 0;
@@ -411,54 +414,33 @@
             color: var(--lightest-slate);
             line-height: 1.6;
         }
-        /* Contact Section */
-        .contact {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
+
+        /* Contact Section Styles */
+        .contact-link-wrapper:hover {
+            transform: translateX(5px);
         }
 
-        .contact p {
-            margin-bottom: 3rem;
-            color: var(--light-slate);
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
+        .contact-link-wrapper:hover .contact-label {
             color: var(--neon-green);
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-size: 1.1rem;
-            padding: 1rem 2rem;
-            border: 1px solid var(--neon-green);
-            border-radius: 4px;
-            transition: var(--transition);
-            min-width: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
         }
 
-        .contact-links a:hover {
+        .contact-link-wrapper:hover .contact-icon {
+            background-color: rgba(57, 255, 20, 0.2);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: rgba(57, 255, 20, 0.5);
+            outline: none;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+        }
+
+        .contact-form button:hover {
             background: rgba(57, 255, 20, 0.1);
             box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
             transform: translateY(-2px);
-        }
-
-        .contact-links a.book-link {
-            background: rgba(57, 255, 20, 0.1);
-        }
-
-        .contact-links a.book-link:hover {
-            background: rgba(57, 255, 20, 0.2);
         }
 
         /* Mobile Menu */
@@ -478,6 +460,7 @@
             font-size: 1rem;
         }
 
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .menu-button {
                 display: flex;
@@ -529,410 +512,524 @@
                 width: 100px;
             }
 
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
             }
-
-            .contact-links a {
-                width: 100%;
+            
+            .contact-form {
+                padding: 2rem !important;
+            }
+            
+            .contact-item {
+                justify-content: center;
+                text-align: center;
             }
         }
     </style>
 </head>
 
 <body>
-  <!-- Background Effects -->
-  <canvas id="scene-container"></canvas>
-  <div id="particles-js"></div>
-  
-  <!-- Main Content -->
-  <div class="content-wrapper">
-      <nav>
-          <div class="nav-content">
-              <a href="#" class="logo">CC.</a>
-              <button class="menu-button" aria-label="Open Menu">☰<span>Menu</span></button>
-              <ul class="nav-links">
-                  <li><a href="#about" class="nav-link">About</a></li>
-                  <li><a href="#experience" class="nav-link">Experience</a></li>
-                  <li><a href="#services" class="nav-link">Services</a></li>
-                  <li><a href="#speaking" class="nav-link">Speaking</a></li>
-                  <li><a href="#contact" class="nav-link">Contact</a></li>
-              </ul>
-          </div>
-      </nav>
-
-      <section class="hero parallax-section">
-          <div class="container">
-              <div class="hero-content">
-                  <h1>Hi, I'm Carlos Consuegra.</h1>
-                  <h2>Empowering organizations through XR and AI for the future of business.</h2>
-                  <p class="tagline">I help businesses explore, adopt, and implement innovative technologies such as XR and AI to transform the future of their industries.</p>
-                  <!-- Hero Section CTA -->
-                    <a href="#contact" class="hero-cta">
-                        <span class="icon">📅</span>
-                        <span class="text">Book a Consultation</span>
-                    </a>
-              </div>
-          </div>
-      </section>
-
-      <section id="about" class="parallax-section">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="parallax-content">
-                <p style="margin-bottom: 2rem;"><strong>Technology is evolving at an unprecedented pace, and businesses that embrace XR, AI, and automation will shape the future. I help companies not just keep up—but lead.</strong></p>
-
-                <p style="margin-bottom: 2rem;">I'm Carlos Consuegra, a <strong>technologist, entrepreneur, and strategist</strong> with a passion for bridging the gap between cutting-edge innovation and real-world business success. With a background in immersive technologies and AI, I've spent the last four years creating transformational experiences in XR, automation, and digital strategy.</p>
-
-                <h3 style="margin: 2rem 0;"><strong>Technology for Good</strong></h3>
-
-                <p style="margin-bottom: 2rem;">I believe that <strong>technology has the power to create better societies and empower human flourishing</strong>. By leveraging XR, AI, and automation, we can build solutions that <strong>improve education, enhance well-being, and promote inclusivity</strong>. My work focuses on ensuring that emerging technologies serve a greater purpose—<strong>enabling people, organizations, and communities to thrive in an increasingly digital world.</strong></p>
-
-                 <p style="margin-bottom: 2rem;">Today, I focus on helping businesses unlock the power of AI and immersive technology, whether through:</p>
-
-                <div class="cards-grid">
-                    <div class="card">
-                        <h3>Strategic Advisor (Remote)</h3>
-                        <ul>
-                            <li>Provide strategic guidance on XR, AI, and emerging technologies, helping businesses integrate them efficiently</li>
-                            <li>Support mid-sized companies and innovation labs with roadmap planning and technology adoption</li>
-                            <li>Drive measurable business impact through cross-functional leadership</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>XR & AI Onboarding Consultant</h3>
-                        <ul>
-                            <li>Offer customized onboarding strategies and hands-on setup for seamless XR and AI adoption</li>
-                            <li>Work with corporate learning, healthcare, and education sectors</li>
-                            <li>Improve user engagement and reduce onboarding costs through innovative technology integration</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h3>Technology & Impact Areas</h3>
-                <div class="cards-grid">
-                    <div class="card">
-                        <h3>Core Competencies</h3>
-                        <ul>
-                            <li>Technology Strategy & Roadmapping</li>
-                            <li>VR/AR/XR & AI Integration</li>
-                            <li>Innovation Pipeline Development</li>
-                            <li>Cross-Functional Team Leadership</li>
-                            <li>User-Centered Design</li>
-                            <li>Client-Centric Onboarding</li>
-                        </ul>
-                    </div>
-                    <div class="card">
-                        <h3>Specialization Areas</h3>
-                        <ul>
-                            <li>Mental Health & Human Flourishing through immersive VR experiences</li>
-                            <li>Education & Workforce Training with AI-powered solutions</li>
-                            <li>Corporate Innovation & Digital Transformation</li>
-                            <li>Social Impact & Accessibility initiatives</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="parallax-section">
-        <div class="container">
-            <h2 class="section-title">Key Achievements</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Strategic Tech Director</h3>
-                        <h4>Made for Joy</h4>
-                        <p>Led technology initiatives aligned with Made for Joy's mission to foster empathy and connection through immersive technology. Created the "Final Mile" Production Pipeline, an agile content delivery system that maximized efficiency and scalability across VR, AR, and WebXR platforms. Managed remote teams and production workflows, ensuring high-quality delivery within budget constraints.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Founder and Director</h3>
-                        <h4>Funktionell</h4>
-                        <p>Over nearly 15 years, built a multi-disciplinary tech company recognized for its innovation-driven culture and social impact. Mentored and empowered over 50 professionals, fostering ethical work practices and a creator's mindset. Pioneered tech-driven solutions for enterprise clients, enhancing efficiency and engagement.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Co-Founder</h3>
-                        <h4>Funkdomotics</h4>
-                        <p>Developed accessible home automation solutions tailored to the Latin American market, prioritizing affordability, resource conservation, and energy efficiency. Created automated smart home hardware and frameworks to optimize daily energy use, promoting financial savings and environmental responsibility. Led cross-functional teams in designing user-friendly automation systems.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Co-Founder</h3>
-                        <h4>Chicle Fresco</h4>
-                        <p>Focused on technology-driven educational and social impact, developing gamification-based learning experiences for underserved communities. Created immersive learning environments that improved knowledge retention and engagement, partnering with Save the Children and Amnesty International to drive awareness on social issues.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Co-Founder and VR Innovator</h3>
-                        <h4>Oniria VR</h4>
-                        <p>Co-founded Mexico's first VR company, developing award-winning immersive experiences across cinema, healthcare, architecture, and marketing. Launched VRFest, Latin America's first major VR industry event, which continues to drive innovation in the regional XR ecosystem. Built strategic partnerships with media companies, corporations, and universities.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Case Studies Section -->
-    <section class="parallax-section">
-      <div class="container">
-          <h2 class="section-title">Case Studies</h2>
-          <div class="parallax-content">
-              <div class="card">
-                  <h3>VR Employee Onboarding & Wellbeing for a Global Financial Institution</h3>
-                  <h4>Objective</h4>
-                  <p>To develop VR-based wellbeing and onboarding experiences that help employees reset, recharge, and enhance workplace engagement.</p>
-                  <h4>Impact</h4>
-                  <ul>
-                      <li>Created three immersive VR experiences for 24/7 mental wellness support</li>
-                      <li>Implemented VR-based onboarding for company culture and digital workspace exploration</li>
-                      <li>Successfully deployed scalable VR adoption for corporate training and mental wellness</li>
-                  </ul>
-              </div>
-
-              <div class="card">
-                  <h3>UVEG – VR for Human Flourishing & Education</h3>
-                  <h4>Objective</h4>
-                  <p>To introduce 20,000 students to human flourishing concepts and the metaverse using immersive VR experiences.</p>
-                  <h4>Impact</h4>
-                  <ul>
-                      <li>Developed a 6-hour educational program "Flourishing in the Digital Age"</li>
-                      <li>Created scalable VR learning solutions accessible via WebXR and VR headsets</li>
-                      <li>Designed experiences compatible with low-cost VR cardboard headsets for maximum accessibility</li>
-                  </ul>
-              </div>
-
-              <div class="card">
-                  <h3>Mercedes-Benz – Project Safeway @ México</h3>
-                  <h4>Objective</h4>
-                  <p>To provide a better sense of security for women while traveling in Mexico and Latin America.</p>
-                  <h4>Impact</h4>
-                  <ul>
-                      <li>Engineered a practical panic button device for real-world safety applications</li>
-                      <li>Created an interactive storytelling experience for civic awareness</li>
-                      <li>Delivered iOS & Android concept design for real-time security enhancements</li>
-                  </ul>
-              </div>
-
-              <div class="card">
-                  <h3>Nielsen – VR Employee Onboarding & Training</h3>
-                  <h4>Objective</h4>
-                  <p>To develop an immersive VR onboarding program that enhances employee engagement, knowledge retention, and process efficiency.</p>
-                  <h4>Impact</h4>
-                  <ul>
-                      <li>Created a blended training approach combining in-person workshops with VR modules</li>
-                      <li>Developed 360-degree VR simulation of Nielsen's end-to-end product lifecycle</li>
-                      <li>Implemented performance tracking and analytics for measuring onboarding success</li>
-                  </ul>
-              </div>
-
-              <div class="card">
-                  <h3>AXA – Employee Onboarding Using VR</h3>
-                  <h4>Objective</h4>
-                  <p>To enhance AXA's employee onboarding and training process through immersive VR and AR solutions.</p>
-                  <h4>Impact</h4>
-                  <ul>
-                      <li>Designed VR-based modules providing first-person perspective on insurance claim scenarios</li>
-                      <li>Created synchronized multi-user VR experience for interactive engagement</li>
-                      <li>Implemented across multiple regions, improving training retention rates</li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </section>
-
-  <section id="services" class="parallax-section">
-      <div class="container">
-          <h2 class="section-title">Services</h2>
-          <div class="cards-grid">
-              <div class="card">
-                  <h3>Innovation Consulting and Strategy</h3>
-                  <p>I provide high-level strategic guidance for organizations looking to adopt and scale emerging technologies effectively.</p>
-                  <ul>
-                      <li>Technology roadmaps: Define clear paths for integrating XR, AI, and automation into business workflows</li>
-                      <li>Fractional advisory (10-20 hours per week): Strategic consulting for long-term innovation planning</li>
-                      <li>Remote team coordination & last-mile execution: Ensuring seamless implementation across distributed teams</li>
-                  </ul>
-                  <p><strong>Who this is for:</strong> Mid-sized companies, innovation labs, and digital transformation leaders seeking expert guidance.</p>
-              </div>
-              <div class="card">
-                  <h3>XR & AI Strategy and Implementation</h3>
-                  <p>Helping businesses seamlessly integrate AI and XR into their existing workflows and content pipelines.</p>
-                  <ul>
-                      <li>Customized integration: AI-powered automation and immersive experiences tailored to business needs</li>
-                      <li>Enterprise solutions: Focused consulting for corporate training, healthcare, and education</li>
-                      <li>End-to-end execution: Ensuring success from initial strategy to final deployment</li>
-                  </ul>
-                  <p><strong>Who this is for:</strong> Enterprises and startups ready to enhance operations through XR & AI.</p>
-              </div>
-              <div class="card">
-                  <h3>Immersive Experience Design & Onboarding</h3>
-                  <p>Creating engaging, user-centered immersive experiences that drive adoption and engagement.</p>
-                  <ul>
-                      <li>Experience design & automation: Leveraging AI to craft compelling XR-driven interactions</li>
-                      <li>Engagement strategies: Helping companies implement effective onboarding and adoption frameworks</li>
-                      <li>Distributed team coordination: Managing remote XR/AI production teams efficiently</li>
-                  </ul>
-                  <p><strong>Who this is for:</strong> Businesses building XR-driven applications, training programs, or automation solutions.</p>
-              </div>
-          </div>
-          <!-- Enhanced CTA Section -->
-          <div style="text-align: center; margin-top: 4rem;">
-              <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">🚀 Let's Build the Future of Business Together!</h3>
-              <p style="margin-bottom: 2rem;">The next decade belongs to those who adopt AI and XR wisely. Whether you're looking to enhance training, streamline automation, or create engaging digital experiences, I can help.</p>
-              <p style="margin-bottom: 2rem;">📩 Let's connect and explore how XR & AI can transform your business.</p>
-              <!-- Services Section CTA -->
-                <a href="#contact" class="services-cta">
-                    <span class="icon">📅</span>
-                    <span class="text">Book a Consultation</span>
-                </a>
-          </div>
-      </div>
-  </section>
-
-  <section id="speaking" class="parallax-section">
-    <div class="container">
-        <h2 class="section-title">Speaking Engagements</h2>
-        <div class="parallax-content">
-            <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">Speaking Engagements (Available Upon Request)</h3>
-            <p>I occasionally speak at industry events, sharing insights on AI, XR, and the future of technology. My focus is on helping organizations integrate emerging technologies strategically, ethically, and for real-world impact.</p>
-            
-            <div class="card" style="margin-top: 2rem;">
-                <h3>Popular Topics</h3>
-                <ul>
-                    <li>XR & AI in Business: What's Next?</li>
-                    <li>Digital Transformation & Human Flourishing</li>
-                    <li>Building Mission-Driven Technology</li>
-                    <li>The Role of Ethics in AI Development</li>
+    <!-- Background Effects -->
+    <canvas id="scene-container"></canvas>
+    <div id="particles-js"></div>
+    
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <nav>
+            <div class="nav-content">
+                <a href="#" class="logo">CC.</a>
+                <button class="menu-button" aria-label="Open Menu">☰<span>Menu</span></button>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">Solutions</a></li>
+                    <li><a href="#about-carlos" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">How I Work</a></li>
+                    <li><a href="#selected-works" class="nav-link">Selected Works</a></li>
+                    <li><a href="/portafolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
+        </nav>
 
-            <div style="text-align: center; margin-top: 2rem;">
-                <p>💡 <em>Interested in having me speak at your event?</em> Let's talk! 📩</p>
-                <a href="#contact" class="services-cta" style="margin-top: 1.5rem;">
-                    <span class="icon">✉️</span>
-                    <span class="text">Get in Touch</span>
-                </a>
+        <!-- Hero Section -->
+        <section class="hero parallax-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Hi, I'm Carlos Consuegra.</h1>
+                    <h2>Executive Technology Producer with 20+ years leading global teams in AI, VR, and XR delivery</h2>
+                    <p class="tagline">From concept to delivery, I lead the full execution of innovative technology projects with precision, speed, and clarity.</p>
+                    <a href="#contact" class="hero-cta">Book a Consultation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section id="about" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">Solutions</h2>
+                <div class="parallax-content">
+                    <p>With a deep understanding of both strategy and implementation, I help agencies, innovation teams, and companies bring complex technology projects to life. I lead global remote teams and take full ownership of the production process — so you can focus on your vision while I ensure it becomes a reality.</p>
+                    
+                    <p>Whether you're building a prototype or scaling a high-impact solution, I'm here to make it happen — with clarity, speed, and accountability.</p>
+
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🔧 Custom Tech Solutions</h3>
+                            <p>Bespoke development in AI, XR and WebApps — built for business goals, not just tech demos.</p>
+                            <ul>
+                                <li>AI-powered automation and intelligent systems tailored to your workflows</li>
+                                <li>Immersive VR/AR experiences for training, marketing, and engagement</li>
+                                <li>Scalable web applications with modern frameworks and architectures</li>
+                                <li>Cross-platform solutions optimized for performance and user experience</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>🌍 Global Production Leadership</h3>
+                            <p>Distributed team orchestration with local expertise, global efficiency — no overhead, no friction.</p>
+                            <ul>
+                                <li>Strategic team assembly based on project requirements and budget optimization</li>
+                                <li>Cross-timezone coordination ensuring continuous development cycles</li>
+                                <li>Quality assurance and technical supervision across all development phases</li>
+                                <li>Cultural and communication bridge between stakeholders and technical teams</li>
+                            </ul>
+                        </div>
+                        <div class="card">
+                            <h3>📐 Technical Strategy & Roadmapping</h3>
+                            <p>Clear definitions, structured timelines, and scalable architectures aligned with your vision and constraints.</p>
+                            <ul>
+                                <li>Technology architecture design for scalability and future growth</li>
+                                <li>Project scoping with realistic timelines and budget frameworks</li>
+                                <li>Risk assessment and mitigation strategies for complex technical projects</li>
+                                <li>Integration planning for existing systems and future technology adoption</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Carlos Section -->
+        <section id="about-carlos" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="parallax-content">
+                    <h3 style="text-align: center; margin-bottom: 3rem;">🚀 From Code to Command: 20+ Years of Technical Leadership Excellence</h3>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🎯 The Journey</h3>
+                            <p>My journey in technology spans over two decades, evolving from hands-on development to strategic production leadership. I've built, managed, and orchestrated technical teams across multiple continents, delivering pioneering projects that range from Mexico's first VR company to enterprise AI solutions for global financial institutions.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>⚡ What Sets Me Apart</h3>
+                            <p><strong>The rare combination of deep technical expertise and executive-level orchestration.</strong> I understand both the intricacies of cutting-edge development and the complexities of business strategy. This dual perspective allows me to translate ambitious visions into deliverable realities while navigating global team coordination, budget optimization, and aggressive timelines.</p>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🎖️ My Leadership Philosophy</h3>
+                            <p><strong>Accountability and results-focused execution.</strong> Whether I'm coordinating a team of 5 or 50, across 3 time zones or 6 countries, the focus remains the same: delivering exceptional technology solutions that drive real business impact. The best innovation happens when technical excellence meets strategic clarity.</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(57, 255, 20, 0.05); border-radius: 8px; border: 1px solid rgba(57, 255, 20, 0.1);">
+                        <p style="font-size: 1.1rem; margin: 0;"><strong>Today, I focus exclusively on high-impact projects where technical innovation meets strategic business goals, working with agencies, innovation teams, and forward-thinking companies ready to push boundaries and deliver results.</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How I Work Section -->
+        <section id="experience" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">How I Work</h2>
+                <div class="parallax-content">
+                    <h3 style="text-align: center; margin-bottom: 3rem;">🎯 A streamlined process designed for clarity, execution, and results</h3>
+                    <p style="text-align: center; margin-bottom: 4rem;">Projects are executed through a structured yet adaptable process that prioritizes clarity, efficiency, and technical excellence. Each stage is designed to reduce friction, align expectations, and ensure high-impact delivery — no matter the complexity or scale.</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>🔍 Discovery & Strategic Scoping</h3>
+                            <h4>Foundation & Clarity</h4>
+                            <p>Project goals, technical constraints, target audiences, and success metrics are defined and translated into a clear, actionable roadmap. We establish the strategic foundation that guides every decision throughout the project lifecycle.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>⚡ Team Assembly & Technical Planning</h3>
+                            <h4>Strategic Resource Allocation</h4>
+                            <p>Specialized global team selection based on project requirements, with detailed technical specifications, timelines, and budget optimization. The right expertise in the right places for maximum efficiency and quality delivery.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>🚀 Coordinated Development & Quality Assurance</h3>
+                            <h4>Execution Excellence</h4>
+                            <p>Development progresses under executive supervision with integrated testing, quality control, and continuous alignment with business objectives. Regular checkpoints ensure we stay on track, on budget, and on vision.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>✅ Delivery & Strategic Handoff</h3>
+                            <h4>Results & Continuity</h4>
+                            <p>Final deliverables with comprehensive documentation, knowledge transfer, and optional ongoing support or iteration phases. You receive not just a product, but the strategic foundation for future growth and scaling.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: rgba(57, 255, 20, 0.05); border-radius: 8px; border: 1px solid rgba(57, 255, 20, 0.1);">
+                    <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">🚀 Ready to bring your vision to life?</h3>
+                    <p style="margin-bottom: 2rem;">Every project starts with a conversation. Let's discuss your goals, challenges, and how we can turn your innovative ideas into exceptional results.</p>
+                    <a href="#contact" class="hero-cta" style="display: inline-block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; transition: var(--transition); border-radius: 4px;">Start the Conversation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Works Section -->
+        <section id="selected-works" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">Selected Works</h2>
+                <div class="parallax-content">
+                    <h3 style="text-align: center; margin-bottom: 3rem;">🎯 Proven Results Across Industries</h3>
+                    <p style="text-align: center; margin-bottom: 4rem;">From global financial institutions to educational programs reaching 20,000+ students, here are some examples of how strategic technology production delivers real business impact.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🏦 Global Financial Institution</h3>
+                            <h4 style="color: var(--light-slate); margin-bottom: 1rem;">VR Employee Wellbeing & Onboarding</h4>
+                            <p style="margin-bottom: 1.5rem;"><strong>Challenge:</strong> Develop VR-based wellbeing and onboarding experiences to help employees reset, recharge, and enhance workplace engagement.</p>
+                            <p style="margin-bottom: 1.5rem;"><strong>Business Impact:</strong></p>
+                            <ul>
+                                <li>Created three immersive VR experiences for 24/7 mental wellness support</li>
+                                <li>Implemented scalable VR-based onboarding for company culture integration</li>
+                                <li>Successfully deployed enterprise-wide VR adoption for training and mental wellness</li>
+                            </ul>
+                            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--slate);"><strong>Technologies:</strong> VR Development, Enterprise Integration, Wellness Applications</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>🎓 UVEG Educational Program</h3>
+                            <h4 style="color: var(--light-slate); margin-bottom: 1rem;">VR for Human Flourishing & Education</h4>
+                            <p style="margin-bottom: 1.5rem;"><strong>Challenge:</strong> Introduce 20,000 students to human flourishing concepts and the metaverse using accessible immersive VR experiences.</p>
+                            <p style="margin-bottom: 1.5rem;"><strong>Business Impact:</strong></p>
+                            <ul>
+                                <li>Developed comprehensive 6-hour educational program "Flourishing in the Digital Age"</li>
+                                <li>Created scalable VR learning solutions accessible via WebXR and VR headsets</li>
+                                <li>Designed experiences compatible with low-cost VR cardboard for maximum accessibility</li>
+                            </ul>
+                            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--slate);"><strong>Technologies:</strong> WebXR, Educational VR, Accessibility Design, Scalable Deployment</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>🚗 Mercedes-Benz</h3>
+                            <h4 style="color: var(--light-slate); margin-bottom: 1rem;">Project Safeway @ México</h4>
+                            <p style="margin-bottom: 1.5rem;"><strong>Challenge:</strong> Provide a better sense of security for women while traveling in Mexico and Latin America through innovative technology solutions.</p>
+                            <p style="margin-bottom: 1.5rem;"><strong>Business Impact:</strong></p>
+                            <ul>
+                                <li>Engineered practical panic button device for real-world safety applications</li>
+                                <li>Created interactive storytelling experience for civic awareness campaigns</li>
+                                <li>Delivered iOS & Android concept design for real-time security enhancements</li>
+                            </ul>
+                            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--slate);"><strong>Technologies:</strong> Hardware Engineering, Mobile App Development, Interactive Storytelling, IoT Integration</p>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: rgba(57, 255, 20, 0.05); border-radius: 8px; border: 1px solid rgba(57, 255, 20, 0.1);">
+                        <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">💼 Ready to see more?</h3>
+                        <p style="margin-bottom: 2rem;">Explore the complete portfolio with detailed case studies, process documentation, and visual galleries showcasing the full scope of delivered projects.</p>
+                        <a href="portafolio.html" class="hero-cta" style="display: inline-block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; transition: var(--transition); border-radius: 4px; margin-right: 1rem;">View Full Portfolio</a>
+                        <a href="#contact" class="hero-cta" style="display: inline-block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; transition: var(--transition); border-radius: 4px; background: rgba(57, 255, 20, 0.1);">Discuss Your Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">Get Started</h2>
+                <div class="parallax-content">
+                    <h3 style="text-align: center; margin-bottom: 3rem;">🚀 Let's Build Something Great Together</h3>
+                    <p style="text-align: center; margin-bottom: 4rem;">Ready to start or just want to explore ideas? Choose the best way to connect and let's discuss how we can turn your innovative vision into exceptional results.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;" class="contact-grid">
+                        <!-- Contact Links -->
+                        <div style="display: flex; flex-direction: column; gap: 2rem;">
+                            
+                            <!-- Book a Call -->
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <a href="https://cal.com/consuegra" target="_blank" class="contact-link-wrapper" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: white; font-weight: 600; font-size: 1rem; transition: transform 0.3s;">
+                                    <div class="contact-icon" style="width: 60px; height: 60px; background-color: rgba(57, 255, 20, 0.2); border: 1px solid rgba(57, 255, 20, 0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                        <span style="font-size: 1.5rem;">📅</span>
+                                    </div>
+                                    <div>
+                                        <span class="contact-label" style="font-size: 1.1rem; font-weight: 600; color: var(--neon-green); display: block;">Book a Call</span>
+                                        <span style="font-size: 0.9rem; color: var(--light-slate); display: block;">Schedule a strategy session</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- LinkedIn -->
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank" class="contact-link-wrapper" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: white; font-weight: 600; font-size: 1rem; transition: transform 0.3s;">
+                                    <div class="contact-icon" style="width: 50px; height: 50px; background-color: rgba(57, 255, 20, 0.08); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                        <span style="font-size: 1.2rem;">💼</span>
+                                    </div>
+                                    <div>
+                                        <span class="contact-label" style="font-size: 1rem; font-weight: 600; color: var(--light-slate); display: block;">Connect on LinkedIn</span>
+                                        <span style="font-size: 0.85rem; color: var(--slate); display: block;">Professional networking</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <!-- WhatsApp -->
+                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                <a href="https://wa.me/525514743335?text=Hi%20Carlos%2C%20I%20found%20your%20site%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="contact-link-wrapper" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: white; font-weight: 600; font-size: 1rem; transition: transform 0.3s;">
+                                    <div class="contact-icon" style="width: 50px; height: 50px; background-color: rgba(57, 255, 20, 0.08); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                        <span style="font-size: 1.2rem;">📱</span>
+                                    </div>
+                                    <div>
+                                        <span class="contact-label" style="font-size: 1rem; font-weight: 600; color: var(--light-slate); display: block;">WhatsApp</span>
+                                        <span style="font-size: 0.85rem; color: var(--slate); display: block;">Quick questions</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Form -->
+                        <div class="contact-form" style="background-color: rgba(45, 27, 61, 0.3); backdrop-filter: blur(10px); border: 1px solid rgba(57, 255, 20, 0.1); border-radius: 8px; padding: 3rem; display: flex; flex-direction: column; justify-content: center;">
+                            <h3 style="color: var(--neon-green); margin-bottom: 1.5rem; text-align: center;">💬 Send a Message</h3>
+                            <p style="text-align: center; margin-bottom: 2rem; color: var(--light-slate);">Tell me about your project, goals, and how I can help bring your vision to life.</p>
+                            
+                            <form id="contact-form">
+                                <div style="margin-bottom: 1.5rem;">
+                                    <input type="text" name="name" placeholder="Full Name" required style="width: 100%; background-color: rgba(45, 27, 61, 0.5); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 0.5rem; padding: 1rem; color: white; font-family: inherit; transition: border-color 0.3s ease;">
+                                </div>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <input type="email" name="email" placeholder="Email Address" required style="width: 100%; background-color: rgba(45, 27, 61, 0.5); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 0.5rem; padding: 1rem; color: white; font-family: inherit; transition: border-color 0.3s ease;">
+                                </div>
+                                <div style="margin-bottom: 1.5rem;">
+                                    <input type="text" name="company" placeholder="Company/Organization (Optional)" style="width: 100%; background-color: rgba(45, 27, 61, 0.5); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 0.5rem; padding: 1rem; color: white; font-family: inherit; transition: border-color 0.3s ease;">
+                                </div>
+                                <div style="margin-bottom: 2rem;">
+                                    <textarea name="message" placeholder="Tell me about your project, goals, and timeline..." required style="width: 100%; background-color: rgba(45, 27, 61, 0.5); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 0.5rem; padding: 1rem; color: white; font-family: inherit; transition: border-color 0.3s ease; resize: vertical; min-height: 120px;"></textarea>
+                                </div>
+                                <button type="submit" class="hero-cta" style="width: 100%; display: inline-block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; transition: var(--transition); border-radius: 4px; background: none; cursor: pointer; font-size: 1rem;">Send Message</button>
+                                
+                                <p id="form-success" style="display:none; color: var(--neon-green); margin-top: 1rem; text-align: center;">
+                                    ✅ Message sent successfully! I'll get back to you soon.
+                                </p>
+                                <p id="form-error" style="display:none; color: #ff6b6b; margin-top: 1rem; text-align: center;">
+                                    ❌ Something went wrong. Please try again or use one of the direct contact methods above.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: rgba(26, 16, 37, 0.9); border-top: 1px solid rgba(57, 255, 20, 0.1); padding: 3rem 0 1rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
+                
+                <!-- Company Info -->
+                <div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <span style="color: var(--neon-green); font-family: var(--font-mono); font-size: 1.5rem; text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);">CC.</span>
+                    </div>
+                    <p style="color: var(--light-slate); margin-bottom: 1rem; max-width: 300px;">Executive Technology Producer with 20+ years leading global teams in AI, VR, and XR delivery.</p>
+                    <p style="color: var(--slate); font-size: 0.9rem;">From concept to delivery, turning innovative visions into exceptional results.</p>
+                </div>
+                
+                <!-- Navigation -->
+                <div>
+                    <h4 style="color: var(--lightest-slate); font-size: 1.1rem; margin-bottom: 1rem;">Navigation</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#about" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Solutions</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#about-carlos" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">About</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#experience" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">How I Work</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#selected-works" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Selected Works</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/portafolio.html" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Portfolio</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 style="color: var(--lightest-slate); font-size: 1.1rem; margin-bottom: 1rem;">Get in Touch</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="https://cal.com/consuegra" target="_blank" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">📅 Book a Call</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">💼 LinkedIn</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://wa.me/525514743335?text=Hi%20Carlos%2C%20I%20found%20your%20site%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">📱 WhatsApp</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#contact" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">💬 Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(57, 255, 20, 0.1);">
+                <p style="color: var(--slate); font-size: 0.85rem; margin: 0;">
+                    © 2025 Carlos Consuegra. All rights reserved. | Executive Technology Producer
+                </p>
             </div>
         </div>
-    </div>
-</section>
+    </footer>
 
-<section id="contact" class="parallax-section">
-    <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact">
-            <h3 style="color: var(--neon-green); margin-bottom: 2rem;">🚀 Let's Build the Future of Business Together!</h3>
-            <p>Whether you're looking to enhance training, streamline automation, or create immersive digital experiences, I'm here to help you make it happen.</p>
-            <div class="contact-links">
-                <a href="mailto:carlos@consuegra.tech">📩 Email</a>
-                <a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank">🔗 Connect on LinkedIn</a>
-                <a href="https://cal.com/consuegra" target="_blank" class="book-link">📅 Book a Call</a>
-            </div>
-            <p style="margin-top: 2rem;">Let's explore how XR & AI can transform your business!</p>
-        </div>
-    </div>
-</section>
-</div>
-
-<script>
-// Particles.js Configuration - Reduced number of particles for performance
-particlesJS("particles-js", {
-particles: {
-    number: {
-        value: 25,
-        density: {
-            enable: true,
-            value_area: 800
+    <style>
+        /* Footer hover effects */
+        footer a:hover {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
         }
-    },
-    color: {
-        value: "#39FF14"
-    },
-    shape: {
-        type: "circle"
-    },
-    opacity: {
-        value: 0.2,
-        random: false
-    },
-    size: {
-        value: 2,
-        random: true
-    },
-    line_linked: {
-        enable: true,
-        distance: 200,
-        color: "#39FF14",
-        opacity: 0.15,
-        width: 1
-    },
-    move: {
-        enable: true,
-        speed: 1.2,
-        direction: "none",
-        random: true,
-        straight: false,
-        out_mode: "out",
-        bounce: false
-    }
-},
-interactivity: {
-    detect_on: "canvas",
-    events: {
-        onhover: {
-            enable: true,
-            mode: "grab"
-        },
-        onclick: {
-            enable: true,
-            mode: "push"
-        },
-        resize: true
-    },
-    modes: {
-        grab: {
-            distance: 200,
-            line_linked: {
-                opacity: 0.3
+        
+        /* Mobile footer adjustments */
+        @media (max-width: 768px) {
+            footer > .container > div:first-child {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                text-align: center;
             }
         }
-    }
-},
-retina_detect: true
-});
+    </style>
 
-// Navbar scroll effect
-const nav = document.querySelector('nav');
-window.addEventListener('scroll', () => {
-if (window.scrollY > 50) {
-    nav.classList.add('scrolled');
-} else {
-    nav.classList.remove('scrolled');
-}
-});
+    <script>
+        // Particles.js Configuration
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 25,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#39FF14"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.2,
+                    random: false
+                },
+                size: {
+                    value: 2,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 200,
+                    color: "#39FF14",
+                    opacity: 0.15,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        line_linked: {
+                            opacity: 0.3
+                        }
+                    }
+                }
+            },
+            retina_detect: true
+        });
 
-// Mobile menu
-const menuButton = document.querySelector('.menu-button');
-const navLinksContainer = document.querySelector('.nav-links');
-const navLinks = document.querySelectorAll('.nav-links a');
+        // Navbar scroll effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
-menuButton.addEventListener('click', () => {
-navLinksContainer.classList.toggle('active');
-});
+        // Mobile menu
+        const menuButton = document.querySelector('.menu-button');
+        const navLinksContainer = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links a');
 
-navLinks.forEach(link => {
-link.addEventListener('click', () => {
-    navLinksContainer.classList.remove('active');
-});
-});
-</script>
+        menuButton.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+            });
+        });
+
+        // Contact Form Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(contactForm);
+                    const successMsg = document.getElementById('form-success');
+                    const errorMsg = document.getElementById('form-error');
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    try {
+                        const response = await fetch("https://formspree.io/f/mldbkgvb", {
+                            method: "POST",
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            contactForm.reset();
+                            successMsg.style.display = "block";
+                            errorMsg.style.display = "none";
+                        } else {
+                            throw new Error("Request failed");
+                        }
+                    } catch (err) {
+                        successMsg.style.display = "none";
+                        errorMsg.style.display = "block";
+                    } finally {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
