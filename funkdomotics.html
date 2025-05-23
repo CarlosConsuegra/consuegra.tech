@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funkdomotics | Smart Home Automation Solutions</title>
+
+    <!-- SEO Enhancements -->
+    <meta name="description" content="Professional smart home automation solutions. Transform your home, apartment complex, building, or warehouse with intelligent automation systems. Compatible with 1000s of brands.">
+    <meta name="keywords" content="Smart Home, Home Automation, IoT, Home Assistant, Smart Building, Automation Systems, Funkdomotics">
+    <meta name="author" content="Carlos Consuegra - Funkdomotics">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://consuegra.tech/funkdomotics">
+    <meta property="og:title" content="Funkdomotics | Smart Home Automation Solutions">
+    <meta property="og:description" content="Professional smart home automation solutions for homes, buildings, and commercial spaces.">
+
+    <!-- Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+
+    <style>
+        /* Core Variables - Matching Website */
+        :root {
+            --deep-purple: #1a1025;
+            --medium-purple: #2d1b3d;
+            --light-purple: #432c55;
+            --neon-green: #39FF14;
+            --slate: #b8b8d1;
+            --light-slate: #d8d8e8;
+            --lightest-slate: #e8e8f5;
+            --font-mono: "SF Mono", "Fira Code", "Fira Mono", monospace;
+            --font-sans: "Calibre", "Inter", "San Francisco", "SF Pro Text", -apple-system, system-ui, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--deep-purple);
+            color: var(--slate);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a, button {
+            outline: none;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        a:focus, button:focus {
+            outline: 2px solid var(--neon-green);
+            outline-offset: 2px;
+        }
+
+        /* Layout & Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Background Effects */
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 16, 37, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(26, 16, 37, 0.95);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            text-shadow: 0 0 20px rgba(57, 255, 20, 0.8);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-slate);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-green);
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .hero-content {
+            margin-top: -5vh;
+            text-align: center;
+        }
+
+        .hero-content .brand {
+            font-size: clamp(1rem, 5vw, 1.5rem);
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-family: var(--font-mono);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--lightest-slate);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content .tagline {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--light-slate);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-content .hero-cta {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            font-family: var(--font-mono);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: var(--transition);
+            margin: 0.5rem;
+        }
+
+        .hero-content .hero-cta:hover {
+            background: rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .hero-content .hero-cta.primary {
+            background: rgba(57, 255, 20, 0.1);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        section:first-of-type {
+            padding-top: 0;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            color: var(--lightest-slate);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            position: relative;
+            width: 300px;
+            height: 1px;
+            margin-left: 20px;
+            background-color: var(--light-purple);
+        }
+
+        /* Parallax Effects */
+        .parallax-section {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            z-index: 1;
+        }
+
+        .parallax-content {
+            transform: translateZ(0);
+            position: relative;
+            background: rgba(26, 16, 37, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            transition: var(--transition);
+        }
+
+        .parallax-content:hover {
+            border-color: rgba(57, 255, 20, 0.2);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(45, 27, 61, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) rotateX(2deg);
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow:
+                0 0 25px rgba(57, 255, 20, 0.1),
+                0 0 5px rgba(57, 255, 20, 0.2);
+        }
+
+        .card h3 {
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+        }
+
+        .card h4 {
+            color: var(--lightest-slate);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--light-slate);
+            font-size: 0.9rem;
+        }
+
+        .card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--neon-green);
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: rgba(45, 27, 61, 0.2);
+            border: 1px solid rgba(57, 255, 20, 0.08);
+            padding: 1.5rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            border-color: rgba(57, 255, 20, 0.2);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.08);
+        }
+
+        .feature-item h4 {
+            color: var(--neon-green);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+        }
+
+        .feature-item p {
+            color: var(--light-slate);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Technology Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .tech-item {
+            background: rgba(57, 255, 20, 0.1);
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            color: var(--neon-green);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            transition: var(--transition);
+        }
+
+        .tech-item:hover {
+            background: rgba(57, 255, 20, 0.2);
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+
+        /* Project Types */
+        .project-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .project-type {
+            background: rgba(45, 27, 61, 0.3);
+            border: 1px solid rgba(57, 255, 20, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .project-type:hover {
+            transform: translateY(-5px);
+            border-color: rgba(57, 255, 20, 0.3);
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.1);
+        }
+
+        .project-type .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-type .project-image {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(57, 255, 20, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+        }
+
+        .project-type .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-type:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-type h3 {
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            margin: 2rem auto;
+            border: 1px solid rgba(57, 255, 20, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(45, 27, 61, 0.3);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Mobile Menu */
+        .menu-button {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light-slate);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-button span {
+            margin-left: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .menu-button {
+                display: flex;
+                align-items: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 75%;
+                max-width: 300px;
+                background: rgba(45, 27, 61, 0.97);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .section-title::after {
+                width: 100px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-types {
+                grid-template-columns: 1fr;
+            }
+
+            .video-container {
+                height: 250px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Effects -->
+    <div id="particles-js"></div>
+    
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-content">
+                <a href="/" class="logo">CC.</a>
+                <button class="menu-button" aria-label="Open Menu">☰<span>Menu</span></button>
+                <ul class="nav-links">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/#about" class="nav-link">About</a></li>
+                    <li><a href="/#services" class="nav-link">Services</a></li>
+                    <li><a href="/portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero parallax-section">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="brand">Funkdomotics</p>
+                    <h1>Smart Home Automation Solutions</h1>
+                    <p class="tagline">Transform your space with intelligent automation systems. From single homes to commercial buildings, we create connected environments that work for you.</p>
+                    <div>
+                        <a href="#what-it-is" class="hero-cta primary">Learn More</a>
+                        <a href="#contact" class="hero-cta">Get Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What it is Section -->
+        <section id="what-it-is" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">What is Funkdomotics?</h2>
+                <div class="parallax-content">
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--light-slate);">Funkdomotics is a comprehensive smart home and building automation platform that integrates all your devices into one unified, intelligent system. Built on open-source foundations and cutting-edge technology, we create automation solutions that are reliable, scalable, and completely customizable to your needs.</p>
+                    
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/Vb8HFQymqU8?rel=0&modestbranding=1" title="Funkdomotics Smart Home Platform" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div style="background: rgba(57, 255, 20, 0.05); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 8px; padding: 2rem; margin-top: 2rem; text-align: center;">
+                        <h3 style="color: var(--neon-green); margin-bottom: 1rem;">🏠 Your Home, Intelligently Connected</h3>
+                        <p style="color: var(--light-slate); margin: 0;">From lighting and climate control to security and energy management, Funkdomotics brings all your smart devices together in one seamless, locally-controlled ecosystem that learns and adapts to your lifestyle.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What does it do Section -->
+        <section id="what-it-does" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">What Does It Do?</h2>
+                
+                <!-- Device Integration -->
+                <div class="parallax-content">
+                    <h3 style="color: var(--neon-green); margin-bottom: 2rem; text-align: center;">🔌 Integrates with 1000s of Devices</h3>
+                    <p style="text-align: center; margin-bottom: 3rem; color: var(--light-slate);">Funkdomotics seamlessly connects with virtually any smart device on the market, creating a unified control system for your entire property.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <h4>💡 Lighting</h4>
+                            <p>Smart bulbs, switches, dimmers, and light strips</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">Philips Hue, IKEA TRÅDFRI, Shelly, LIFX, Yeelight</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>🌡️ Sensors</h4>
+                            <p>Motion, contact, temperature, humidity, air quality, smoke, CO, and presence sensors</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">Aqara, Aeotec, Wyze Sense, Ecobee sensors</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>❄️ Climate Control</h4>
+                            <p>Smart thermostats, air conditioners, fans, and humidifiers/dehumidifiers</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">Ecobee, Honeywell, Nest, Sensibo, Z-Wave/Zigbee</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>🔌 Switches & Outlets</h4>
+                            <p>Smart plugs, in-wall switches, and relays for controlling "dumb" appliances</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">TP-Link Kasa, Shelly, Sonoff, Leviton, Lutron Caséta</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>🔒 Security</h4>
+                            <p>Alarm systems, security cameras, video doorbells, and smart locks</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">Abode, SimpliSafe, Ring, Eufy, Wyze, Yale, August, Nuki</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>🪟 Window Covers</h4>
+                            <p>Window blinds, shades, curtains, and garage door openers</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">Somfy, Lutron Serena, MyQ, Shelly</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>🎵 Media & Entertainment</h4>
+                            <p>Smart TVs, streaming devices, speakers, and A/V receivers</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">Sonos, Google Cast, Plex, Kodi, Denon, Samsung, LG</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>🎤 Voice Assistants</h4>
+                            <p>Integrate with or control devices via voice platforms</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">Amazon Alexa, Google Assistant, Apple Siri via HomeKit</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>🏠 Home Appliances</h4>
+                            <p>Smart refrigerators, ovens, washing machines, robotic vacuums</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">Roomba, Roborock, smart appliances</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>⚡ Energy Monitoring</h4>
+                            <p>Devices that track electricity usage and optimize consumption</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">Sense, Shelly EM, smart plugs with monitoring</p>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <h4>🔧 DIY & Maker Projects</h4>
+                            <p>Custom-built ESP32/ESP8266 based sensors and controllers</p>
+                            <p style="font-size: 0.8rem; color: var(--slate);">ESPHome, Tasmota platforms</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automation Features -->
+                <div class="parallax-content" style="margin-top: 4rem;">
+                    <h3 style="color: var(--neon-green); margin-bottom: 2rem; text-align: center;">🤖 Advanced Automation Engine</h3>
+                    <p style="text-align: center; margin-bottom: 3rem; color: var(--light-slate);">Once integrated, unleash powerful automation capabilities that make your home work for you automatically.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🌅 Intelligent Lighting</h3>
+                            <ul>
+                                <li>Turn on lights when the sun sets or when arriving home</li>
+                                <li>Adjust brightness based on time of day and occupancy</li>
+                                <li>Create custom lighting scenes for different activities</li>
+                                <li>Automatic nighttime pathways with motion detection</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🚪 Security Alerts</h3>
+                            <ul>
+                                <li>Alert when garage door is left open</li>
+                                <li>Notify when doors/windows are opened unexpectedly</li>
+                                <li>Automated security system arming/disarming</li>
+                                <li>Camera recording triggered by motion or events</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🌡️ Climate Optimization</h3>
+                            <ul>
+                                <li>Adjust temperature based on occupancy and schedules</li>
+                                <li>Optimize energy usage with smart scheduling</li>
+                                <li>Humidity control based on weather conditions</li>
+                                <li>Zone-based climate management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard Features -->
+                <div class="parallax-content" style="margin-top: 4rem;">
+                    <h3 style="color: var(--neon-green); margin-bottom: 2rem; text-align: center;">📱 Versatile Dashboards</h3>
+                    <p style="text-align: center; margin-bottom: 3rem; color: var(--light-slate);">Customizable dashboards provide powerful control and visualization of your smart home from any device.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🎨 Drag-and-Drop Customization</h3>
+                            <p style="color: var(--light-slate); margin-bottom: 1rem;">Easily create and customize your dashboards with intuitive drag-and-drop functionality.</p>
+                            <ul>
+                                <li>Personalize layouts for different users and devices</li>
+                                <li>Multiple card types to visualize data and control devices</li>
+                                <li>Responsive design works on mobile, tablet, and desktop</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>📊 Rich Data Visualization</h3>
+                            <p style="color: var(--light-slate); margin-bottom: 1rem;">Monitor and analyze your home's performance with comprehensive data displays.</p>
+                            <ul>
+                                <li>Real-time sensor data and historical trends</li>
+                                <li>Energy usage monitoring and optimization insights</li>
+                                <li>Device status and health monitoring</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Voice Assistant -->
+                <div class="parallax-content" style="margin-top: 4rem;">
+                    <h3 style="color: var(--neon-green); margin-bottom: 2rem; text-align: center;">🎤 AI Voice Assistant</h3>
+                    <p style="text-align: center; margin-bottom: 3rem; color: var(--light-slate);">Control your home using natural language with our built-in AI voice assistant, powered by open voice foundations.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🗣️ Natural Language Control</h3>
+                            <ul>
+                                <li>Customize your voice assistant and experiment with AI conversations</li>
+                                <li>Use Assist everywhere: mobile, tablets, smartwatches, telephones</li>
+                                <li>Privacy-focused: all processing happens locally</li>
+                                <li>Multi-language support and custom wake words</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Energy Management -->
+                <div class="parallax-content" style="margin-top: 4rem;">
+                    <h3 style="color: var(--neon-green); margin-bottom: 2rem; text-align: center;">⚡ Home Energy Management</h3>
+                    <p style="text-align: center; margin-bottom: 3rem; color: var(--light-slate);">Get on top of your energy use with comprehensive home energy management features.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>📈 Energy Insights</h3>
+                            <ul>
+                                <li>Gain new insights into your energy consumption patterns</li>
+                                <li>Optimize solar panel production and battery storage</li>
+                                <li>Plan energy usage to reduce costs</li>
+                                <li>Track and reduce your carbon footprint</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Local Data -->
+                <div class="parallax-content" style="margin-top: 4rem;">
+                    <h3 style="color: var(--neon-green); margin-bottom: 2rem; text-align: center;">🔒 Local Data Privacy</h3>
+                    <p style="text-align: center; margin-bottom: 3rem; color: var(--light-slate);">All your smart home data stays local - no cloud required, maximum privacy guaranteed.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🏠 Local Processing</h3>
+                            <ul>
+                                <li>All data processing happens in your home</li>
+                                <li>No dependence on cloud services or internet connectivity</li>
+                                <li>Fallback to cloud only when no local option exists</li>
+                                <li>Complete control over your data and privacy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Apps -->
+                <div class="parallax-content" style="margin-top: 4rem;">
+                    <h3 style="color: var(--neon-green); margin-bottom: 2rem; text-align: center;">📱 Companion Mobile Apps</h3>
+                    <p style="text-align: center; margin-bottom: 3rem; color: var(--light-slate);">Official mobile apps provide convenient control and notifications, even on your wrist with Apple Watch support.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>📲 Mobile Control</h3>
+                            <ul>
+                                <li>Quick device control and real-time notifications</li>
+                                <li>Location tracking for presence-based automations</li>
+                                <li>Apple Watch and wearable device support</li>
+                                <li>Direct connection to your home - no third-party access</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Section -->
+        <section id="technologies" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">Technologies Used</h2>
+                <div class="parallax-content">
+                    <p style="text-align: center; margin-bottom: 3rem; color: var(--light-slate);">Built on proven, open-source technologies and compatible with thousands of brands in the market.</p>
+                    
+                    <div class="cards-grid">
+                        <div class="card">
+                            <h3>🏠 Core Platform</h3>
+                            <div class="tech-stack">
+                                <span class="tech-item">Home Assistant</span>
+                                <span class="tech-item">ESPHome</span>
+                                <span class="tech-item">PlatformIO</span>
+                                <span class="tech-item">TASMOTA</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🌐 Networking</h3>
+                            <div class="tech-stack">
+                                <span class="tech-item">Ubiquiti</span>
+                                <span class="tech-item">Omada</span>
+                                <span class="tech-item">Zigbee</span>
+                                <span class="tech-item">Z-Wave</span>
+                                <span class="tech-item">WiFi 6</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🔧 Hardware</h3>
+                            <div class="tech-stack">
+                                <span class="tech-item">Shelly</span>
+                                <span class="tech-item">ESP32</span>
+                                <span class="tech-item">Arduino</span>
+                                <span class="tech-item">Raspberry Pi</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🎥 Security</h3>
+                            <div class="tech-stack">
+                                <span class="tech-item">Dahua</span>
+                                <span class="tech-item">Hikvision</span>
+                                <span class="tech-item">Frigate NVR</span>
+                                <span class="tech-item">ONVIF</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🎤 Voice & AI</h3>
+                            <div class="tech-stack">
+                                <span class="tech-item">Google Home</span>
+                                <span class="tech-item">Alexa</span>
+                                <span class="tech-item">Apple HomeKit</span>
+                                <span class="tech-item">Local Voice</span>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>🔨 Design & Prototyping</h3>
+                            <div class="tech-stack">
+                                <span class="tech-item">Fusion 360</span>
+                                <span class="tech-item">3D Printing</span>
+                                <span class="tech-item">PCB Design</span>
+                                <span class="tech-item">CAD</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(57, 255, 20, 0.05); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 8px; padding: 2rem; margin-top: 3rem; text-align: center;">
+                        <h3 style="color: var(--neon-green); margin-bottom: 1rem;">🔗 Universal Compatibility</h3>
+                        <p style="color: var(--light-slate); margin: 0;">Compatible with 1000s of brands in the market, ensuring your investment is future-proof and integrates with your existing devices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Types Section -->
+        <section id="project-types" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">Types of Projects We Do</h2>
+                <div class="parallax-content">
+                    <p style="text-align: center; margin-bottom: 3rem; color: var(--light-slate);">From single-family homes to large commercial buildings, we scale our solutions to meet any requirement.</p>
+                    
+                    <div class="project-types">
+                        <div class="project-type">
+                            <div class="project-image">
+                                <img src="images/funkdomotics/smart-home-automation.jpg" alt="Smart Home Automation" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'icon\'>🏠</div>'">
+                            </div>
+                            <h3>Smart Homes</h3>
+                            <p style="color: var(--light-slate);">Complete home automation solutions for single-family residences, condos, and luxury estates. Lighting, climate, security, entertainment, and energy management.</p>
+                        </div>
+                        
+                        <div class="project-type">
+                            <div class="project-image">
+                                <img src="images/funkdomotics/apartment-complex-automation.jpg" alt="Apartment Complex Automation" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'icon\'>🏢</div>'">
+                            </div>
+                            <h3>Apartment Complexes</h3>
+                            <p style="color: var(--light-slate);">Multi-unit residential automation with individual unit control and centralized management. Common area automation and energy optimization.</p>
+                        </div>
+                        
+                        <div class="project-type">
+                            <div class="project-image">
+                                <img src="images/funkdomotics/office-building-automation.jpg" alt="Office Building Automation" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'icon\'>🏢</div>'">
+                            </div>
+                            <h3>Buildings & Offices</h3>
+                            <p style="color: var(--light-slate);">Commercial building automation including HVAC control, lighting management, security systems, and occupancy-based optimization.</p>
+                        </div>
+                        
+                        <div class="project-type">
+                            <div class="project-image">
+                                <img src="images/funkdomotics/shopping-center-automation.jpg" alt="Shopping Center Automation" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'icon\'>🛒</div>'">
+                            </div>
+                            <h3>Shopping Centers</h3>
+                            <p style="color: var(--light-slate);">Large-scale retail automation with zone-based climate control, intelligent lighting, security integration, and energy management systems.</p>
+                        </div>
+                        
+                        <div class="project-type">
+                            <div class="project-image">
+                                <img src="images/funkdomotics/warehouse-automation.jpg" alt="Warehouse Automation" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=\'icon\'>🏭</div>'">
+                            </div>
+                            <h3>Warehouses</h3>
+                            <p style="color: var(--light-slate);">Industrial automation solutions including environmental monitoring, security systems, automated lighting, and equipment management.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="parallax-section">
+            <div class="container">
+                <h2 class="section-title">Get Started</h2>
+                <div class="parallax-content">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <h3 style="color: var(--neon-green); margin-bottom: 1.5rem;">🚀 Ready to Automate Your Space?</h3>
+                        <p style="color: var(--light-slate); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Whether you're planning a new smart home or upgrading an existing building, we're here to help design and implement the perfect automation solution for your needs.</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-bottom: 3rem;" class="contact-grid">
+                        <!-- Contact Info -->
+                        <div>
+                            <h4 style="color: var(--lightest-slate); margin-bottom: 2rem;">Contact Information</h4>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 50px; height: 50px; background-color: rgba(57, 255, 20, 0.1); border: 1px solid rgba(57, 255, 20, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <span style="font-size: 1.2rem;">📱</span>
+                                    </div>
+                                    <div>
+                                        <div style="color: var(--light-slate); font-weight: 600;">WhatsApp</div>
+                                        <div style="color: var(--slate); font-size: 0.9rem;">+52 55 1474 3335</div>
+                                    </div>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 50px; height: 50px; background-color: rgba(57, 255, 20, 0.1); border: 1px solid rgba(57, 255, 20, 0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                        <span style="font-size: 1.2rem;">📅</span>
+                                    </div>
+                                    <div>
+                                        <div style="color: var(--light-slate); font-weight: 600;">Schedule Consultation</div>
+                                        <div style="color: var(--slate); font-size: 0.9rem;">cal.com/consuegra</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- CTA -->
+                        <div style="background: rgba(45, 27, 61, 0.3); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 8px; padding: 2rem;">
+                            <h4 style="color: var(--neon-green); margin-bottom: 1.5rem; text-align: center;">🏠 Free Consultation</h4>
+                            <p style="color: var(--light-slate); text-align: center; margin-bottom: 2rem;">Get a personalized assessment of your automation needs and learn how Funkdomotics can transform your space.</p>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <a href="https://cal.com/consuegra" target="_blank" class="hero-cta primary" style="text-align: center; display: block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; border-radius: 4px; transition: var(--transition); background: rgba(57, 255, 20, 0.1);">📅 Book Free Consultation</a>
+                                <a href="https://wa.me/525514743335?text=Hi! I'm interested in Funkdomotics smart home automation solutions." target="_blank" class="hero-cta" style="text-align: center; display: block; padding: 1rem 2rem; border: 1px solid var(--neon-green); color: var(--neon-green); font-family: var(--font-mono); text-decoration: none; border-radius: 4px; transition: var(--transition);">💬 WhatsApp Chat</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; background: rgba(57, 255, 20, 0.05); border: 1px solid rgba(57, 255, 20, 0.2); border-radius: 8px; padding: 2rem;">
+                        <h4 style="color: var(--neon-green); margin-bottom: 1rem;">🔧 What We'll Discuss</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                            <div style="color: var(--light-slate); font-size: 0.9rem;">✓ Your automation goals</div>
+                            <div style="color: var(--light-slate); font-size: 0.9rem;">✓ Existing devices integration</div>
+                            <div style="color: var(--light-slate); font-size: 0.9rem;">✓ Budget and timeline</div>
+                            <div style="color: var(--light-slate); font-size: 0.9rem;">✓ Custom solutions design</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background: rgba(26, 16, 37, 0.9); border-top: 1px solid rgba(57, 255, 20, 0.1); padding: 3rem 0 1rem;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2rem;">
+                
+                <!-- Company Info -->
+                <div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <span style="color: var(--neon-green); font-family: var(--font-mono); font-size: 1.5rem; text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);">Funkdomotics</span>
+                    </div>
+                    <p style="color: var(--light-slate); margin-bottom: 1rem; max-width: 300px;">Smart home automation solutions that integrate all your devices into one unified, intelligent system.</p>
+                    <p style="color: var(--slate); font-size: 0.9rem;">From concept to deployment, creating connected environments that work for you.</p>
+                </div>
+                
+                <!-- Navigation -->
+                <div>
+                    <h4 style="color: var(--lightest-slate); font-size: 1.1rem; margin-bottom: 1rem;">Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="#what-it-is" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">What is Funkdomotics?</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#what-it-does" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Features</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#technologies" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Technologies</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#project-types" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Project Types</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="/" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">Main Site</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 style="color: var(--lightest-slate); font-size: 1.1rem; margin-bottom: 1rem;">Get in Touch</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;"><a href="https://cal.com/consuegra" target="_blank" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">📅 Book a Call</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://wa.me/525514743335?text=Hi! I'm interested in Funkdomotics smart home automation solutions." target="_blank" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">📱 WhatsApp</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="https://www.linkedin.com/in/carlosconsuegra" target="_blank" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">💼 LinkedIn</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="#contact" style="color: var(--light-slate); text-decoration: none; font-size: 0.9rem; transition: var(--transition);">💬 Contact Form</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div style="text-align: center; padding-top: 2rem; border-top: 1px solid rgba(57, 255, 20, 0.1);">
+                <p style="color: var(--slate); font-size: 0.85rem; margin: 0;">
+                    © 2025 Funkdomotics by Carlos Consuegra. All rights reserved. | Smart Home Automation Solutions
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Footer hover effects */
+        footer a:hover {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px rgba(57, 255, 20, 0.3);
+        }
+        
+        /* Mobile footer adjustments */
+        @media (max-width: 768px) {
+            footer > .container > div:first-child {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <script>
+        // Particles.js Configuration
+        particlesJS("particles-js", {
+            particles: {
+                number: {
+                    value: 25,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: "#39FF14"
+                },
+                shape: {
+                    type: "circle"
+                },
+                opacity: {
+                    value: 0.2,
+                    random: false
+                },
+                size: {
+                    value: 2,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 200,
+                    color: "#39FF14",
+                    opacity: 0.15,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1.2,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        line_linked: {
+                            opacity: 0.3
+                        }
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Navbar scroll effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu
+        const menuButton = document.querySelector('.menu-button');
+        const navLinksContainer = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        menuButton.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
