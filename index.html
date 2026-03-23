@@ -333,15 +333,19 @@
             .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
             .timeline-item:nth-child(even) { left: 0; }
             .timeline-item::after, .timeline-item:nth-child(even)::after { left: 24px; right: auto; }
-            .section-title::after { width: 80px; }
-            .hero-stats { gap: 1.5rem; }
+            .section-title { white-space: normal; }
+            .section-title::after { display: none; }
+            .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+            .hero-cta-group { flex-direction: column; }
+            .hero-cta-group .hero-cta { width: 100%; text-align: center; }
+            section { padding: 3rem 0; }
             .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
             .contact-form { padding: 2rem !important; }
         }
 
         footer a:hover { color: var(--neon-green); text-shadow: 0 0 5px rgba(57,255,20,0.3); }
         @media (max-width: 768px) {
-            footer > .container > div:first-child { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center; }
+            .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; text-align: center; }
         }
     </style>
 </head>
@@ -374,7 +378,7 @@
                 <div class="hero-content">
                     <p class="overline">Hi, I'm Carlos Consuegra.</p>
                     <h1>Technology Founder<br>&amp; AI Strategist.</h1>
-                    <h2>20+ years building platforms from zero to large-scale deployment - across AI, VR, IoT, healthcare, and enterprise strategy.</h2>
+                    <h2>20+ years building platforms from zero to large-scale deployment — across AI, VR, IoT, healthcare, and enterprise strategy.</h2>
                     <div class="hero-stats">
                         <div class="hero-stat"><strong>20+</strong>Years of experience</div>
                         <div class="hero-stat"><strong>250K+</strong>Active users on Violetta</div>
@@ -394,12 +398,12 @@
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <div class="parallax-content">
-                    <p>Technology is evolving at an unprecedented pace, and the organizations that harness AI, XR, and emerging platforms strategically will define the next decade. I help leadership teams not just keep up - but lead with clarity and intent.</p>
-                    <p>I'm a technology founder and AI strategist with over 20 years of experience building platforms from zero to large-scale deployment. My work spans applied AI, immersive technology (VR/AR/XR), IoT, clinical systems, and enterprise strategy - always with a focus on translating complex technology into real business value.</p>
-                    <p>I've built and led across concept, product design, technical architecture, cloud infrastructure, and full implementation - working hands-on with teams, not just from the boardroom.</p>
+                    <p>Technology is evolving at an unprecedented pace, and the organizations that harness AI, XR, and emerging platforms strategically will define the next decade. I help leadership teams not just keep up — but lead with clarity and intent.</p>
+                    <p>I'm a technology founder and AI strategist with over 20 years of experience building platforms from zero to large-scale deployment. My work spans applied AI, immersive technology (VR/AR/XR), IoT, clinical systems, and enterprise strategy — always with a focus on translating complex technology into real business value.</p>
+                    <p>I've built and led across concept, product design, technical architecture, cloud infrastructure, and full implementation — working hands-on with teams, not just from the boardroom.</p>
 
                     <h3>Technology for Good</h3>
-                    <p>I believe technology should serve human flourishing. Whether it's using VR to support brain health in older adults, AI to prevent gender-based violence, or IoT to make homes more sustainable - my work is driven by the conviction that emerging technology has a responsibility to improve lives and communities.</p>
+                    <p>I believe technology should serve human flourishing. Whether it's using VR to support brain health in older adults, AI to prevent gender-based violence, or IoT to make homes more sustainable — my work is driven by the conviction that emerging technology has a responsibility to improve lives and communities.</p>
 
                     <div class="cards-grid">
                         <div class="card">
@@ -468,7 +472,7 @@
 
                 <div class="project-card">
                     <div class="project-card-header">
-                        <h3>MindGlow - Brain Health Platform (VR + AI)</h3>
+                        <h3>MindGlow — Brain Health Platform (VR + AI)</h3>
                         <span class="project-role">Tech &amp; Product Director</span>
                     </div>
                     <p>A brain health companion platform for older adults focused on Alzheimer's prevention and care. Integrates 40 Hz light stimulation, spatial audio, immersive VR, and AI personalization. Institutional pilot underway with the largest senior living network in the United States, with a scaling roadmap across the US, Mexico, and Latin America.</p>
@@ -484,7 +488,7 @@
 
                 <div class="project-card">
                     <div class="project-card-header">
-                        <h3>Violetta - AI Gender-Based Violence Prevention Platform</h3>
+                        <h3>Violetta — AI Gender-Based Violence Prevention Platform</h3>
                         <span class="project-role">Fractional CTO</span>
                     </div>
                     <p>AI conversational platform focused on prevention and response to gender-based violence, with 250,000 active users across Latin America. Directing the full redesign as Violetta V2: product strategy, conversational AI architecture, behavioral data models, and market evolution from B2C toward B2B and B2G deployment for corporate, institutional, and government programs. Multi-region cloud deployment on AWS.</p>
@@ -499,7 +503,7 @@
 
                 <div class="project-card">
                     <div class="project-card-header">
-                        <h3>Novo - Digital Clinical Follow-Up Platform</h3>
+                        <h3>Novo — Digital Clinical Follow-Up Platform</h3>
                         <span class="project-role">Tech &amp; Product Director</span>
                     </div>
                     <p>Digital clinical follow-up platform integrating data processing and conversational AI for longitudinal monitoring, treatment adherence, and structured doctor-patient communication. Designed for B2C, B2B, and B2G deployment within health ecosystems. Cloud-based architecture designed for clinical workflow compliance. First institutional pilot preparing for 2026.</p>
@@ -549,9 +553,9 @@
                             <p class="timeline-dates">2007 – 2020</p>
                             <p>Founded and led a multidisciplinary innovation studio focused on VR, IoT, software development, and social-impact technology. Mentored 50+ professionals across engineering, product, design, and creative fields. Key innovation divisions:</p>
                             <ul>
-                                <li><strong style="color:var(--neon-green)">Oniria VR</strong> - Mexico's first VR production company; award-winning XR for Fortune 500 clients including 20th Century Fox and A&amp;E; founded VRFest, Latin America's first major VR industry event</li>
-                                <li><strong style="color:var(--neon-green)">Funkdomotics</strong> - Latin America's first IoT home automation platform for water, energy, and gas optimization</li>
-                                <li><strong style="color:var(--neon-green)">Chicle Fresco</strong> - EdTech and social impact; gamification-based learning for underserved communities; partnered with Save the Children, Amnesty International, and UNICEF</li>
+                                <li><strong style="color:var(--neon-green)">Oniria VR</strong> — Mexico's first VR production company; award-winning XR for Fortune 500 clients including 20th Century Fox and A&amp;E; founded VRFest, Latin America's first major VR industry event</li>
+                                <li><strong style="color:var(--neon-green)">Funkdomotics</strong> — Latin America's first IoT home automation platform for water, energy, and gas optimization</li>
+                                <li><strong style="color:var(--neon-green)">Chicle Fresco</strong> — EdTech and social impact; gamification-based learning for underserved communities; partnered with Save the Children, Amnesty International, and UNICEF</li>
                             </ul>
                         </div>
                     </div>
@@ -565,7 +569,7 @@
             <div class="container">
                 <h2 class="section-title">Selected Works</h2>
                 <div class="parallax-content">
-                    <p style="text-align:center; margin-bottom:2.5rem;">From global financial institutions to educational programs reaching 20,000+ students - strategic technology production delivering real business impact.</p>
+                    <p style="text-align:center; margin-bottom:2.5rem;">From global financial institutions to educational programs reaching 20,000+ students — strategic technology production delivering real business impact.</p>
 
                     <div class="cards-grid">
                         <div class="card">
@@ -638,7 +642,7 @@
                 <h2 class="section-title">Get Started</h2>
                 <div class="parallax-content">
                     <h3 style="text-align:center; margin-bottom:0.75rem;">🚀 Let's Build Something Great Together</h3>
-                    <p style="text-align:center; margin-bottom:3rem;">Whether you're launching an AI initiative, exploring XR for your organization, or looking for a strategic partner who can lead from concept to deployment - I'd love to hear about it.</p>
+                    <p style="text-align:center; margin-bottom:3rem;">Whether you're launching an AI initiative, exploring XR for your organization, or looking for a strategic partner who can lead from concept to deployment — I'd love to hear about it.</p>
 
                     <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;" class="contact-grid">
 
@@ -725,7 +729,7 @@
     <!-- Footer -->
     <footer style="background:rgba(26,16,37,0.9);border-top:1px solid rgba(57,255,20,0.1);padding:3rem 0 1rem;">
         <div class="container">
-            <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2rem;">
+            <div class="footer-grid" style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2rem;">
                 <div>
                     <div style="margin-bottom:1.5rem;">
                         <span style="color:var(--neon-green);font-family:var(--font-mono);font-size:1.5rem;text-shadow:0 0 10px rgba(57,255,20,0.5);">CC.</span>
