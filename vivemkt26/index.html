@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lo que recordamos · VIVEMKT 18</title>
+<meta name="description" content="Cada generación de tecnología se vendió con un número. Nadie recuerda el número: recordamos lo que sentimos. Una línea de tiempo de 1980 a 2040, de Carlos Consuegra para VIVEMKT 18.">
+<meta name="theme-color" content="#0b0f17">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="Lo que recordamos · VIVEMKT 18">
+<meta property="og:description" content="Cada generación de tecnología se vendió con un número. Recordamos lo que sentimos. Busca tu año, de 1980 a 2040.">
+<meta property="og:url" content="https://consuegra.tech/vivemkt26/">
+<meta property="og:image" content="https://consuegra.tech/vivemkt26/og-1985.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="1985 en la línea de tiempo Lo que recordamos: nos lo vendieron con 8 bits; lo que recordamos es el casete gastado de tanto rebobinarlo. Fotos de un NES, un Motorola DynaTAC, una grabadora y Live Aid.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://consuegra.tech/vivemkt26/og-1985.jpg">
+<link rel="canonical" href="https://consuegra.tech/vivemkt26/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23ffb547%22/%3E%3Ctext x=%2250%22 y=%2272%22 font-size=%2262%22 font-family=%22Arial%22 font-weight=%22900%22 text-anchor=%22middle%22 fill=%22%230b0f17%22%3E18%3C/text%3E%3C/svg%3E">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preload" href="/vivemkt26/fonts/big-shoulders-display-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Big Shoulders Display";font-weight:500;font-display:swap;src:url(/vivemkt26/fonts/big-shoulders-display-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-weight:800;font-display:swap;src:url(/vivemkt26/fonts/big-shoulders-display-latin-800-normal.woff2) format("woff2")}
+@font-face{font-family:"Big Shoulders Display";font-weight:900;font-display:swap;src:url(/vivemkt26/fonts/big-shoulders-display-latin-900-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:400;font-display:swap;src:url(/vivemkt26/fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-weight:500;font-display:swap;src:url(/vivemkt26/fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:400;font-display:swap;src:url(/vivemkt26/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Mono";font-weight:500;font-display:swap;src:url(/vivemkt26/fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2")}
+/* Layout: a single stage. A year tuner on top, one era at a time below it — the number they sold it with, struck out, then what we felt. */
+:root{
+  --ink:#0b0f17; --stage:#121826; --line:#243047; --fg:#eef1f6; --muted:#8e9ab0;
+  --light:#ffb547; --cool:#5fd3f3; --future:#c9a7ff;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{background:var(--ink);color:var(--fg)}
+body{font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:1040px;margin:0 auto}
+header{padding-block:32px 8px;display:flex;flex-direction:column;gap:10px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(44px,9vw,96px);line-height:.9;margin:0;letter-spacing:.01em;text-wrap:balance}
+h1 span{color:var(--light)}
+.lede{max-width:58ch;color:#c5cddb;margin:0;font-size:17px}
+
+/* tuner */
+.tuner{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ink);padding-block:14px 12px;margin-top:20px;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ink)}
+.dial{display:flex;align-items:center;gap:8px}
+.arrow{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--stage);color:var(--fg);font-size:20px;cursor:pointer}
+.arrow:hover{border-color:var(--light)}
+.arrow:focus-visible,.stop:focus-visible{outline:2px solid var(--light);outline-offset:2px}
+.track{flex:1;min-width:0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth;padding-block:4px}
+.track::-webkit-scrollbar{display:none}
+.stop{flex:none;font-family:var(--mono);font-size:14px;padding:8px 10px;border-radius:6px;border:1px solid transparent;background:none;color:var(--muted);cursor:pointer;font-variant-numeric:tabular-nums}
+.stop[aria-current="true"]{color:var(--ink);background:var(--light);font-weight:500}
+.stop.fut{color:var(--future)}
+.stop.fut[aria-current="true"]{background:var(--future);color:var(--ink)}
+.stop.sep{margin-left:10px;border-left:1px dashed var(--line);border-radius:0;padding-left:14px}
+
+/* era */
+.era{padding-top:28px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px 40px;align-items:start}
+.year{font-family:var(--display);font-weight:900;font-size:clamp(88px,20vw,200px);line-height:.8;color:var(--fg);margin:0;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.sold{margin-top:22px;display:flex;flex-direction:column;gap:4px}
+.sold .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.num{font-family:var(--display);font-weight:800;font-size:clamp(36px,6vw,60px);line-height:1;position:relative;display:inline-block;color:var(--muted);align-self:flex-start}
+.num::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:5px;background:var(--light);transform-origin:left;transform:scaleX(1)}
+.num-prod{font-size:14px;color:var(--muted)}
+.felt{margin-top:26px}
+.felt .k{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--light)}
+.felt p{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.4vw,56px);line-height:1.02;margin:6px 0 0;text-wrap:balance}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.cell{background:var(--stage);padding:12px 14px;min-width:0}
+.cell .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.cell .v{font-size:15px;margin-top:2px;overflow-wrap:anywhere}
+.cell.hl{grid-column:1/-1;background:#16202f}
+.cell.hl .k{color:var(--cool)}
+.mx{margin-top:14px;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.mx .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--light)}
+.mx ul{margin:6px 0 0;padding-left:18px}
+.mx li{font-size:15px}
+
+/* future */
+.fut-wrap{padding-top:28px}
+.fut-wrap .year{color:var(--future)}
+.fut-lede{color:#c5cddb;max-width:56ch;margin:16px 0 0}
+.preds{margin-top:26px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.pred{border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--stage);display:flex;flex-direction:column;gap:10px;min-width:0}
+.pred .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--future)}
+.pred .p{font-family:var(--display);font-weight:800;font-size:26px;line-height:1.08;margin:0}
+.pred .s{font-size:14px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin:0}
+.pred .s b{color:var(--cool);font-weight:500;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block}
+.close{margin-top:40px;padding:28px 22px;border-radius:12px;border:1px solid var(--future);text-align:left}
+.close p{font-family:var(--display);font-weight:900;font-size:clamp(34px,6vw,64px);line-height:.98;margin:0;text-wrap:balance}
+.close p span{color:var(--future)}
+
+.hint{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:10px}
+
+.in{animation:rise .45s ease both}
+.in .num::after{animation:strike .5s .25s ease both}
+@keyframes rise{from{opacity:.001;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes strike{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion:reduce){.in,.in .num::after{animation:none}}
+@media (max-width:760px){
+  .era{grid-template-columns:minmax(0,1fr)}
+  .preds{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:420px){.grid{grid-template-columns:minmax(0,1fr)}}
+
+/* collage */
+.collage{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:22px;padding:6px}
+.tile{aspect-ratio:1;max-width:100%;border-radius:14px;background:var(--tint);color:var(--ink);display:grid;place-items:center;padding:16%;box-shadow:0 0 0 2px var(--ink),0 0 0 3px var(--tint);--p:#fdf7ec;--a:var(--ink)}
+.tile svg{width:100%;height:100%}
+.tile:nth-child(1){transform:rotate(-3deg)}.tile:nth-child(2){transform:rotate(2deg) translateY(6px)}.tile:nth-child(3){transform:rotate(-1.5deg)}.tile:nth-child(4){transform:rotate(3deg) translateY(-4px)}
+.in .tile{animation:pop .5s cubic-bezier(.2,1.4,.4,1) both}
+.in .tile:nth-child(2){animation-delay:.06s}.in .tile:nth-child(3){animation-delay:.12s}.in .tile:nth-child(4){animation-delay:.18s}
+@keyframes pop{from{opacity:.001;scale:.7}to{opacity:1;scale:1}}
+details.more{margin-top:18px;border:1px solid var(--line);border-radius:10px;background:var(--stage)}
+details.more summary{cursor:pointer;list-style:none;padding:14px 16px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--cool);display:flex;justify-content:space-between}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";font-size:18px}
+details.more[open] summary::after{content:"–"}
+details.more .grid{border:0;border-top:1px solid var(--line);border-radius:0}
+details.more .mx{margin:0;border:0;border-top:1px solid var(--line);border-radius:0}
+.hero{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
+.hero .tile{width:56px;border:0;cursor:pointer;padding:9px;border-radius:10px;box-shadow:none;transform:none!important;animation:none!important}
+@media (max-width:760px){.collage{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
+@media (prefers-reduced-motion:reduce){.in .tile{animation:none}}
+
+/* fotos reales en el collage (Wikimedia Commons) */
+.era .collage{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.tile.photo{display:block;position:relative;padding:0;background:#fff;overflow:hidden;margin:0}
+.tile.photo img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover}
+.tile.photo.contain img{inset:9%;width:82%;height:82%;object-fit:contain}
+.tile.photo.lowres img{inset:20%;width:60%;height:60%} /* baja resolución: siempre miniatura, nunca grande */
+.fcred{margin:16px 6px 0;font-size:12px;line-height:1.55;color:var(--muted)}
+.fcred b{font-family:var(--mono);font-weight:400;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
+a{color:inherit}
+.fcred a,.credits a{text-decoration:underline;text-decoration-color:#3a4760;text-underline-offset:2px}
+.fcred a:hover,.credits a:hover{color:var(--fg);text-decoration-color:currentColor}
+
+/* cierre */
+.thanks{margin-top:64px;padding:32px 22px;border-radius:14px;background:var(--stage);border:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+.thanks h2{font-family:var(--display);font-weight:900;font-size:clamp(40px,8vw,80px);line-height:.92;margin:0;text-wrap:balance}
+.thanks h2 span{color:var(--light)}
+.thanks .who{margin:0;font-size:16px;color:#c5cddb;display:flex;flex-wrap:wrap;gap:4px 10px}
+.thanks .who b{color:var(--fg);font-weight:500}
+.thanks .who a{text-decoration:none;border-bottom:1px solid var(--line)}
+.thanks .who a:hover{border-color:var(--light)}
+.share-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:6px}
+.share{font:500 16px var(--body);color:var(--ink);background:var(--light);border:0;border-radius:999px;padding:13px 22px;min-height:48px;cursor:pointer;display:inline-flex;align-items:center;gap:10px}
+.share:hover{filter:brightness(1.08)}
+.share:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.share svg{width:20px;height:20px}
+.share-msg{font-family:var(--mono);font-size:13px;color:var(--cool)}
+.credits{margin-top:40px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.credits h2{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg);margin:0 0 6px}
+.credits p{margin:0 0 12px;max-width:72ch}
+.credits ol{list-style:none;margin:0;padding:0;columns:2 320px;column-gap:32px}
+.credits li{break-inside:avoid;padding:5px 0;border-bottom:1px dashed #1c2536;line-height:1.45}
+.credits li span{font-family:var(--mono);font-size:11px;color:#6d7890;margin-right:6px}
+a[rel~="license"]{white-space:nowrap}
+@media (max-width:520px){.thanks .who{flex-direction:column;gap:6px}.thanks .who span{display:none}.thanks .who a{align-self:flex-start}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">VIVEMKT 18 · UABC Tijuana · 3 de noviembre de 2026</div>
+    <h1>Lo que <span>recordamos</span></h1>
+    <p class="lede">Cada generación de tecnología se vendió con un número: bits, megahertz, gigas, píxeles. Nadie recuerda el número. Recordamos lo que sentimos. Busca tu año.</p>
+    <div class="hero" id="hero"></div>
+  </header>
+
+  <nav class="tuner" aria-label="Elige un año">
+    <div class="dial">
+      <button class="arrow" id="prev" aria-label="Año anterior">&larr;</button>
+      <div class="track" id="track" role="tablist"></div>
+      <button class="arrow" id="next" aria-label="Año siguiente">&rarr;</button>
+    </div>
+  </nav>
+
+  <main id="stage" aria-live="polite"></main>
+
+  <section class="thanks" aria-labelledby="gracias">
+    <div class="eyebrow">UABC Tijuana · 3 de noviembre de 2026</div>
+    <h2 id="gracias">Gracias por estar en <span>VIVEMKT 18</span></h2>
+    <p class="who"><b>Carlos Consuegra</b><span aria-hidden="true">·</span><a href="mailto:carlos@consuegra.tech">carlos@consuegra.tech</a><span aria-hidden="true">·</span><a href="https://consuegra.tech">consuegra.tech</a></p>
+    <div class="share-row">
+      <button class="share" id="share" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Compartir esta página</button>
+      <span class="share-msg" id="share-msg" role="status" aria-live="polite"></span>
+    </div>
+  </section>
+
+  <footer class="credits" aria-labelledby="creditos">
+    <h2 id="creditos">Créditos de imágenes</h2>
+    <p>Fotos de Wikimedia Commons, usadas bajo su licencia (dominio público, CC0, CC BY o CC BY-SA), redimensionadas y convertidas a WebP. Las ilustraciones son originales.</p>
+    <ol id="credit-list"></ol>
+  </footer>
+</div>
+<script>
+// Ilustraciones propias de objetos genéricos de cada época. viewBox 0 0 100 100.
+// Trazo con currentColor; rellenos con var(--a) (acento) y var(--p) (papel).
+const ICON={
+arcade:`<path d="M30 92V22l6-12h28l6 12v70z" fill="var(--p)"/><path d="M30 92V22l6-12h28l6 12v70z"/><rect x="36" y="24" width="28" height="22" rx="2" fill="var(--a)"/><path d="M30 56h40"/><circle cx="42" cy="64" r="3.5" fill="currentColor"/><path d="M42 64v-6"/><circle cx="54" cy="64" r="2.5" fill="var(--a)"/><circle cx="61" cy="64" r="2.5" fill="var(--a)"/><path d="M36 16h28"/><path d="M38 34l4-4 4 4 4-4 4 4"/>`,
+cassette:`<rect x="12" y="26" width="76" height="48" rx="4" fill="var(--p)"/><rect x="12" y="26" width="76" height="48" rx="4"/><rect x="22" y="34" width="56" height="22" rx="3" fill="var(--a)"/><circle cx="36" cy="45" r="6" fill="var(--p)"/><circle cx="64" cy="45" r="6" fill="var(--p)"/><path d="M42 45h16"/><path d="M28 74l6-10h32l6 10"/>`,
+walkman:`<rect x="24" y="20" width="52" height="66" rx="5" fill="var(--a)"/><rect x="24" y="20" width="52" height="66" rx="5"/><rect x="32" y="30" width="36" height="24" rx="3" fill="var(--p)"/><circle cx="42" cy="42" r="4"/><circle cx="58" cy="42" r="4"/><path d="M32 64h12M50 64h6M62 64h6"/><path d="M50 20c0-12 32-12 32 6v14"/><circle cx="82" cy="44" r="5" fill="var(--p)"/>`,
+rotary:`<path d="M16 76c0-26 12-38 34-38s34 12 34 38z" fill="var(--p)"/><path d="M16 76c0-26 12-38 34-38s34 12 34 38z"/><circle cx="50" cy="60" r="13" fill="var(--a)"/><circle cx="50" cy="60" r="4" fill="var(--p)"/><path d="M14 32c10-14 62-14 72 0l-6 8H20z" fill="var(--p)"/><path d="M14 32c10-14 62-14 72 0l-6 8H20z"/>`,
+crt:`<rect x="12" y="22" width="76" height="58" rx="8" fill="var(--p)"/><rect x="12" y="22" width="76" height="58" rx="8"/><rect x="20" y="30" width="48" height="42" rx="8" fill="var(--a)"/><circle cx="78" cy="38" r="3"/><circle cx="78" cy="50" r="3"/><path d="M38 22L28 8M62 22l10-14M30 88l4-8M70 88l-4-8"/>`,
+gamepad:`<rect x="10" y="32" width="80" height="36" rx="8" fill="var(--p)"/><rect x="10" y="32" width="80" height="36" rx="8"/><path d="M24 50h16M32 42v16" stroke-width="6"/><circle cx="66" cy="54" r="5" fill="var(--a)"/><circle cx="78" cy="46" r="5" fill="var(--a)"/><path d="M46 52h4M54 52h4"/>`,
+brick:`<rect x="34" y="22" width="32" height="70" rx="4" fill="var(--p)"/><rect x="34" y="22" width="32" height="70" rx="4"/><path d="M58 22V6"/><rect x="40" y="30" width="20" height="10" fill="var(--a)"/><path d="M41 50h4M48 50h4M55 50h4M41 58h4M48 58h4M55 58h4M41 66h4M48 66h4M55 66h4M41 74h4M48 74h4M55 74h4"/>`,
+boombox:`<path d="M30 30V20h40v10"/><rect x="8" y="30" width="84" height="48" rx="5" fill="var(--p)"/><rect x="8" y="30" width="84" height="48" rx="5"/><circle cx="28" cy="56" r="13" fill="var(--a)"/><circle cx="72" cy="56" r="13" fill="var(--a)"/><circle cx="28" cy="56" r="4" fill="var(--p)"/><circle cx="72" cy="56" r="4" fill="var(--p)"/><rect x="42" y="46" width="16" height="12" rx="2"/>`,
+vhs:`<rect x="10" y="28" width="80" height="44" rx="3" fill="var(--a)"/><rect x="10" y="28" width="80" height="44" rx="3"/><rect x="26" y="36" width="48" height="18" rx="2" fill="var(--p)"/><circle cx="38" cy="45" r="5"/><circle cx="62" cy="45" r="5"/><path d="M18 64h64"/>`,
+handheld:`<rect x="26" y="10" width="48" height="80" rx="6" fill="var(--p)"/><rect x="26" y="10" width="48" height="80" rx="6"/><rect x="33" y="18" width="34" height="28" rx="2" fill="var(--a)"/><path d="M34 62h12M40 56v12" stroke-width="5"/><circle cx="58" cy="64" r="3.5" fill="var(--a)"/><circle cx="66" cy="58" r="3.5" fill="var(--a)"/><path d="M42 80h6M52 80h6"/>`,
+lasers:`<path d="M50 88L10 14M50 88L30 10M50 88L50 8M50 88L70 10M50 88L90 14" stroke="var(--a)" stroke-width="3"/><path d="M20 88h60" stroke-width="4"/><circle cx="50" cy="86" r="4" fill="currentColor"/>`,
+pc:`<rect x="14" y="14" width="56" height="44" rx="4" fill="var(--p)"/><rect x="14" y="14" width="56" height="44" rx="4"/><rect x="21" y="21" width="42" height="30" rx="2" fill="var(--a)"/><path d="M34 58v8h16v-8"/><rect x="20" y="66" width="62" height="10" rx="2" fill="var(--p)"/><rect x="20" y="66" width="62" height="10" rx="2"/><rect x="74" y="24" width="14" height="38" rx="2" fill="var(--p)"/><rect x="74" y="24" width="14" height="38" rx="2"/><path d="M77 32h8M77 38h8"/><path d="M26 82h50"/>`,
+flip:`<rect x="34" y="8" width="32" height="38" rx="6" fill="var(--p)"/><rect x="34" y="8" width="32" height="38" rx="6"/><rect x="40" y="14" width="20" height="18" rx="2" fill="var(--a)"/><rect x="34" y="50" width="32" height="42" rx="6" fill="var(--p)"/><rect x="34" y="50" width="32" height="42" rx="6"/><path d="M41 62h4M48 62h4M55 62h4M41 70h4M48 70h4M55 70h4M41 78h4M48 78h4M55 78h4"/>`,
+cd:`<circle cx="50" cy="50" r="38" fill="var(--p)"/><circle cx="50" cy="50" r="38"/><path d="M50 12a38 38 0 0 1 32 18L50 50z" fill="var(--a)"/><circle cx="50" cy="50" r="10" fill="var(--p)"/><circle cx="50" cy="50" r="10"/><circle cx="50" cy="50" r="3"/>`,
+glasses3d:`<path d="M8 40h84"/><rect x="12" y="40" width="32" height="22" rx="5" fill="#ff5a5a"/><rect x="56" y="40" width="32" height="22" rx="5" fill="#4fd2ff"/><rect x="12" y="40" width="32" height="22" rx="5"/><rect x="56" y="40" width="32" height="22" rx="5"/><path d="M44 46c4-4 8-4 12 0"/>`,
+candybar:`<rect x="32" y="10" width="36" height="80" rx="14" fill="var(--p)"/><rect x="32" y="10" width="36" height="80" rx="14"/><rect x="39" y="22" width="22" height="20" rx="3" fill="var(--a)"/><path d="M42 30h4l2 3h6" stroke-width="2"/><circle cx="50" cy="52" r="5"/><path d="M40 64h4M48 64h4M56 64h4M40 72h4M48 72h4M56 72h4M40 80h4M48 80h4M56 80h4"/>`,
+discman:`<circle cx="50" cy="52" r="36" fill="var(--a)"/><circle cx="50" cy="52" r="36"/><circle cx="50" cy="52" r="20" fill="var(--p)"/><circle cx="50" cy="52" r="5"/><path d="M50 16c-24-6-38 0-38 18"/><circle cx="12" cy="38" r="5" fill="var(--p)"/>`,
+fireworks:`<g stroke="var(--a)" stroke-width="3"><path d="M30 34l0-16M30 34l12-8M30 34l14 4M30 34l8 12M30 34l-8 12M30 34l-14 4M30 34l-12-8"/></g><path d="M70 60l0-12M70 60l9-6M70 60l10 3M70 60l6 9M70 60l-6 9M70 60l-10 3M70 60l-9-6"/><path d="M30 92V40M70 92V66" stroke-dasharray="3 5"/>`,
+mp3:`<rect x="30" y="10" width="40" height="70" rx="8" fill="var(--p)"/><rect x="30" y="10" width="40" height="70" rx="8"/><rect x="36" y="16" width="28" height="22" rx="2" fill="var(--a)"/><rect x="38" y="46" width="24" height="24" rx="4"/><path d="M42 58h16M50 50v16" stroke-width="2"/><path d="M38 80c0 8-10 6-10 12M62 80c0 8 10 6 10 12"/>`,
+earbuds:`<path d="M30 30c-10 0-10 16 0 16v32" /><path d="M70 30c10 0 10 16 0 16v32"/><circle cx="30" cy="30" r="8" fill="var(--a)"/><circle cx="70" cy="30" r="8" fill="var(--a)"/><path d="M30 78c0 10 40 10 40 0"/><path d="M50 84v10"/>`,
+smartphone:`<rect x="30" y="8" width="40" height="84" rx="8" fill="var(--p)"/><rect x="30" y="8" width="40" height="84" rx="8"/><rect x="34" y="16" width="32" height="64" rx="2" fill="var(--a)"/><path d="M40 26h8M52 26h8M40 36h8M52 36h8M40 46h8M52 46h8" stroke="var(--p)" stroke-width="5"/><circle cx="50" cy="86" r="2.5"/>`,
+tablet:`<rect x="14" y="16" width="72" height="68" rx="7" fill="var(--p)"/><rect x="14" y="16" width="72" height="68" rx="7"/><rect x="20" y="22" width="60" height="56" rx="2" fill="var(--a)"/><path d="M58 50l-14-8v16z" fill="var(--p)" stroke="none"/>`,
+dome:`<path d="M10 76a40 40 0 0 1 80 0z" fill="var(--a)"/><path d="M10 76a40 40 0 0 1 80 0z"/><path d="M50 36v40M24 46q26 10 52 0M14 62q36 10 72 0" stroke="var(--p)" stroke-width="2"/><path d="M6 76h88"/><path d="M40 76v10h20V76"/>`,
+selfie:`<path d="M20 90L62 30" stroke-width="5"/><rect x="58" y="10" width="26" height="44" rx="5" fill="var(--p)" transform="rotate(35 71 32)"/><rect x="58" y="10" width="26" height="44" rx="5" transform="rotate(35 71 32)"/><circle cx="71" cy="32" r="6" fill="var(--a)"/>`,
+watch:`<rect x="38" y="6" width="24" height="18" rx="4" fill="var(--a)"/><rect x="38" y="76" width="24" height="18" rx="4" fill="var(--a)"/><rect x="28" y="22" width="44" height="56" rx="12" fill="var(--p)"/><rect x="28" y="22" width="44" height="56" rx="12"/><path d="M50 36v14l9 6"/><path d="M72 42h4"/>`,
+pin:`<path d="M50 90S22 58 22 38a28 28 0 0 1 56 0c0 20-28 52-28 52z" fill="var(--a)"/><path d="M50 90S22 58 22 38a28 28 0 0 1 56 0c0 20-28 52-28 52z"/><circle cx="50" cy="38" r="10" fill="var(--p)"/><circle cx="50" cy="38" r="10"/>`,
+drone:`<rect x="38" y="44" width="24" height="14" rx="4" fill="var(--a)"/><rect x="38" y="44" width="24" height="14" rx="4"/><path d="M38 48L20 36M62 48l18-12M38 54L20 66M62 54l18 12"/><ellipse cx="20" cy="36" rx="12" ry="3" fill="var(--p)"/><ellipse cx="80" cy="36" rx="12" ry="3" fill="var(--p)"/><ellipse cx="20" cy="66" rx="12" ry="3" fill="var(--p)"/><ellipse cx="80" cy="66" rx="12" ry="3" fill="var(--p)"/><circle cx="50" cy="62" r="3"/>`,
+vr:`<path d="M10 36h80v28a8 8 0 0 1-8 8H62l-6-8h-12l-6 8H18a8 8 0 0 1-8-8z" fill="var(--p)"/><path d="M10 36h80v28a8 8 0 0 1-8 8H62l-6-8h-12l-6 8H18a8 8 0 0 1-8-8z"/><path d="M10 42c-6-14 4-22 40-22s46 8 40 22"/><rect x="18" y="42" width="64" height="16" rx="4" fill="var(--a)"/><circle cx="30" cy="50" r="2" fill="var(--p)"/><circle cx="70" cy="50" r="2" fill="var(--p)"/>`,
+ringlight:`<circle cx="50" cy="38" r="28" fill="none" stroke="var(--a)" stroke-width="10"/><circle cx="50" cy="38" r="28"/><circle cx="50" cy="38" r="18"/><rect x="42" y="30" width="16" height="26" rx="3" fill="var(--p)"/><rect x="42" y="30" width="16" height="26" rx="3"/><path d="M50 66v24M36 92l14-6 14 6"/>`,
+headphones:`<path d="M18 62V50a32 32 0 0 1 64 0v12"/><rect x="12" y="56" width="18" height="30" rx="6" fill="var(--a)"/><rect x="70" y="56" width="18" height="30" rx="6" fill="var(--a)"/><rect x="12" y="56" width="18" height="30" rx="6"/><rect x="70" y="56" width="18" height="30" rx="6"/>`,
+smartglasses:`<path d="M6 44h88"/><rect x="10" y="40" width="34" height="26" rx="9" fill="var(--p)"/><rect x="56" y="40" width="34" height="26" rx="9" fill="var(--p)"/><rect x="10" y="40" width="34" height="26" rx="9"/><rect x="56" y="40" width="34" height="26" rx="9"/><path d="M44 48c4-4 8-4 12 0"/><rect x="62" y="46" width="16" height="6" rx="2" fill="var(--a)" stroke="none"/><circle cx="16" cy="38" r="3" fill="var(--a)"/>`,
+swarm:`<g fill="var(--a)" stroke="none"><circle cx="50" cy="14" r="3"/><circle cx="36" cy="22" r="3"/><circle cx="64" cy="22" r="3"/><circle cx="26" cy="36" r="3"/><circle cx="74" cy="36" r="3"/><circle cx="22" cy="52" r="3"/><circle cx="78" cy="52" r="3"/><circle cx="30" cy="66" r="3"/><circle cx="70" cy="66" r="3"/><circle cx="42" cy="76" r="3"/><circle cx="58" cy="76" r="3"/><circle cx="50" cy="44" r="3"/><circle cx="40" cy="40" r="3"/><circle cx="60" cy="40" r="3"/></g><path d="M8 92h84" stroke-dasharray="2 6"/>`,
+sphere:`<circle cx="50" cy="48" r="34" fill="var(--a)"/><circle cx="50" cy="48" r="34"/><g stroke="var(--p)" stroke-width="2"><path d="M16 48h68M50 14v68M24 30h52M24 66h52"/><ellipse cx="50" cy="48" rx="16" ry="34" fill="none"/></g><path d="M18 88h64"/>`,
+sparkle:`<path d="M50 10c4 24 16 36 40 40-24 4-36 16-40 40-4-24-16-36-40-40 24-4 36-16 40-40z" fill="var(--a)"/><path d="M50 10c4 24 16 36 40 40-24 4-36 16-40 40-4-24-16-36-40-40 24-4 36-16 40-40z"/><path d="M80 14l2 7 7 2-7 2-2 7-2-7-7-2 7-2z" fill="var(--p)"/>`,
+brain:`<path d="M50 20c-8-8-28-4-28 12-10 4-10 22 0 26 0 16 20 20 28 12 8 8 28 4 28-12 10-4 10-22 0-26 0-16-20-20-28-12z" fill="var(--p)"/><path d="M50 20c-8-8-28-4-28 12-10 4-10 22 0 26 0 16 20 20 28 12 8 8 28 4 28-12 10-4 10-22 0-26 0-16-20-20-28-12z"/><path d="M50 20v50"/><path d="M8 88q10-10 20 0t20 0 20 0 20 0" stroke="var(--a)" stroke-width="3"/>`,
+city:`<path d="M8 90V50h16v40M28 90V30h14v60M46 90V40h14v50M64 90V20h12v70M80 90V46h12v44"/><g fill="var(--a)" stroke="none"><rect x="32" y="36" width="6" height="6"/><rect x="32" y="50" width="6" height="6"/><rect x="50" y="48" width="6" height="6"/><rect x="67" y="28" width="6" height="6"/><rect x="67" y="44" width="6" height="6"/><rect x="83" y="54" width="6" height="6"/><rect x="12" y="58" width="6" height="6"/></g>`,
+};
+const SETS={
+1980:['arcade','walkman','rotary','crt'],
+1985:['gamepad','brick','boombox','vhs'],
+1990:['handheld','crt','lasers','cassette'],
+1995:['pc','flip','cd','glasses3d'],
+2000:['candybar','discman','gamepad','fireworks'],
+2005:['mp3','earbuds','flip','handheld'],
+2010:['smartphone','tablet','glasses3d','gamepad'],
+2015:['selfie','watch','pin','drone'],
+2020:['vr','ringlight','headphones','gamepad'],
+2025:['smartglasses','swarm','sphere','sparkle'],
+2030:['smartglasses','dome','sparkle','swarm'],
+2035:['sphere','vr','city','sparkle'],
+2040:['brain','city','dome','swarm']
+};
+const TINTS={1980:'#ff7a59',1985:'#ffb547',1990:'#7be36b',1995:'#5fd3f3',2000:'#9b8cff',2005:'#ff6fae',2010:'#4fd2ff',2015:'#ffcf5a',2020:'#73f0c5',2025:'#ff9d5c',2030:'#c9a7ff',2035:'#a9c2ff',2040:'#e7a7ff'};
+function svgIcon(k){return `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k]}</svg>`}
+
+const ERAS=[{"anio": 1980, "juego": "Pac-Man (arcade, 1980)", "pelicula": "El Imperio contraataca (1980)", "disco": "Back in Black — AC/DC (1980)", "serie": "Dallas: ¿Quién disparó a J.R.? (1980)", "hardware": "Atari 2600 (auge 1980–82)", "telefono": "Teléfono de disco; larga distancia por operadora", "gadget": "Sony Walkman (1979) / Cubo Rubik (1980)", "concierto": "Queen en Monterrey y Puebla (1981)", "inmersiva": "EPCOT abre en Florida (1982)", "show_luz": "Jean-Michel Jarre, Concerts in China (1981)", "numero": "128 bytes de RAM", "numero_producto": "Atari 2600", "sentimos": "Una moneda, una pantalla, toda la tarde", "mx": ["CECUT Tijuana abre con su domo OMNIMAX “La Bola” (1982)", "El Chavo del Ocho"]}, {"anio": 1985, "juego": "Super Mario Bros. (1985)", "pelicula": "Volver al futuro (1985)", "disco": "Master of Puppets — Metallica (1986)", "serie": "ThunderCats (1985) / He-Man (1983)", "hardware": "Nintendo NES (1985)", "telefono": "Motorola DynaTAC 8000X, “el ladrillo” (1983)", "gadget": "Boombox de casetes / VHS en casa", "concierto": "Live Aid (1985)", "inmersiva": "Captain EO 3D, Disneyland (1986)", "show_luz": "Jarre en Houston: ~1.3 millones de personas (1986)", "numero": "8 bits", "numero_producto": "Nintendo NES", "sentimos": "El casete gastado de tanto rebobinarlo", "mx": ["Mundial México 86 y la ola", "Rock en tu idioma (1986–87)"]}, {"anio": 1990, "juego": "Super Mario Bros. 3 (1990)", "pelicula": "Mi pobre angelito (1990)", "disco": "Please Hammer, Don't Hurt 'Em — MC Hammer (1990)", "serie": "Los Simpson (1989)", "hardware": "Game Boy (1989) / Super Nintendo (1990–91)", "telefono": "Motorola MicroTAC (1989)", "gadget": "Game Boy con Tetris (1989)", "concierto": "Madonna, Blond Ambition Tour (1990)", "inmersiva": "Universal Studios Florida abre (1990)", "show_luz": "Jarre en París La Défense: ~2.5 millones (1990)", "numero": "16 bits", "numero_producto": "Sega Genesis vs Super Nintendo", "sentimos": "Contar el episodio de ayer en el recreo", "mx": ["El celular llega a México por CDMX y Tijuana (1989)", "Juan Gabriel en Bellas Artes (1990)"]}, {"anio": 1995, "juego": "Donkey Kong Country (1994) / Mortal Kombat II (1993)", "pelicula": "Toy Story — primera película 100% CGI (1995)", "disco": "Jagged Little Pill — Alanis Morissette (1995)", "serie": "Los Simpson", "hardware": "Sony PlayStation (1995)", "telefono": "Motorola StarTAC — el primer celular de concha (1996)", "gadget": "Tamagotchi (1996)", "concierto": "Rolling Stones, Voodoo Lounge — primera vez en México, Foro Sol (1995)", "inmersiva": "Indiana Jones Adventure, Disneyland (1995); T2 3-D (1996)", "show_luz": "Atlanta 1996: Ali enciende el pebetero", "numero": "133 MHz", "numero_producto": "Intel Pentium + Windows 95", "sentimos": "El módem cantaba y el mundo se abría", "mx": ["Selena en el Astrodome (1995)", "Maná, ¿Dónde jugarán los niños?"]}, {"anio": 2000, "juego": "Pokémon Rojo/Azul (1998) / The Sims (2000)", "pelicula": "The Matrix (1999)", "disco": "The Marshall Mathers LP — Eminem (2000)", "serie": "Pokémon / Bob Esponja (1999)", "hardware": "PlayStation 2 (2000)", "telefono": "Nokia 3310 — y su Snake (2000)", "gadget": "Game Boy Color / Discman", "concierto": "Primer Vive Latino, Foro Sol (1998)", "inmersiva": "The Amazing Adventures of Spider-Man 3D (1999)", "show_luz": "Fuegos del milenio / Sídney 2000", "numero": "128 bits", "numero_producto": "PlayStation 2", "sentimos": "Sobrevivimos al Y2K y descargábamos canciones", "mx": ["Vive Latino 1998: Café Tacvba, Molotov, El Tri", "Amores perros (2000)", "Maná MTV Unplugged (1999)"]}, {"anio": 2005, "juego": "GTA: San Andreas (2004) / Halo 2 (2004)", "pelicula": "Star Wars Ep. III / Harry Potter y el cáliz de fuego (2005)", "disco": "Barrio Fino — Daddy Yankee, Gasolina (2004)", "serie": "Lost (2004) / Avatar: la leyenda de Aang (2005)", "hardware": "Xbox 360 (2005) / Nintendo DS (2004)", "telefono": "Motorola RAZR V3 (2004)", "gadget": "iPod nano y video (2005)", "concierto": "U2, Vertigo Tour (México, 2006)", "inmersiva": "Soarin' (Epcot 2005) / Cirque du Soleil KÀ (2004)", "show_luz": "Inauguración Atenas 2004 / Live 8 (2005)", "numero": "60 GB", "numero_producto": "iPod con video (2005)", "sentimos": "Todos con audífonos, cada quien su soundtrack", "mx": ["RBD / Rebelde (2004)", "El laberinto del fauno (2006)"]}, {"anio": 2010, "juego": "Angry Birds (2009) / Mario Kart Wii", "pelicula": "Toy Story 3 (2010)", "disco": "Sale el Sol — Shakira, “Waka Waka” (2010)", "serie": "Phineas y Ferb / Hora de Aventura", "hardware": "Wii + Kinect (2010)", "telefono": "iPhone 4 / BlackBerry y su BBM", "gadget": "iPad, primera generación (2010)", "concierto": "U2 360° Tour (2009–11)", "inmersiva": "Wizarding World of Harry Potter, Orlando (2010) / Avatar en 3D (2009)", "show_luz": "Bicentenario en el Zócalo (2010)", "numero": "326 ppi “Retina”", "numero_producto": "iPhone 4", "sentimos": "La primera vez que tocamos una pantalla", "mx": ["Fiestas del Bicentenario (2010)", "U2 en el Estadio Azteca (2011)", "Xolos campeón Apertura 2012"]}, {"anio": 2015, "juego": "Minecraft / Five Nights at Freddy's (2014)", "pelicula": "Intensamente / El despertar de la fuerza (2015)", "disco": "1989 — Taylor Swift (2014)", "serie": "Gravity Falls / Steven Universe", "hardware": "PlayStation 4 (2013)", "telefono": "iPhone 6s", "gadget": "Selfie stick / Apple Watch (2015)", "concierto": "Taylor Swift, The 1989 World Tour (2015)", "inmersiva": "Pokémon GO (2016) / Meow Wolf, House of Eternal Return (2016)", "show_luz": "300 drones de Intel detrás de Lady Gaga, Super Bowl (2017)", "numero": "4K", "numero_producto": "iPhone 6s graba en 4K", "sentimos": "El mundo entero cabía en una selfie", "mx": ["Pa'l Norte, Corona Capital y Vive Latino en su auge", "Yuya, Luisito Comunica, Juanpa Zurita"]}, {"anio": 2020, "juego": "Among Us / Animal Crossing (2020)", "pelicula": "Avengers: Endgame (2019) / Spider-Verse (2018)", "disco": "YHLQMDLG — Bad Bunny (2020)", "serie": "The Mandalorian (2019) / El juego del calamar (2021)", "hardware": "PlayStation 5 (2020)", "telefono": "iPhone 12, el primer iPhone 5G", "gadget": "Oculus Quest 2 (2020) / ring light", "concierto": "Travis Scott en Fortnite: 12.3 millones a la vez (2020)", "inmersiva": "Van Gogh inmersivo (2020–21) / Galaxy's Edge (2019) / teamLab Borderless (2018)", "show_luz": "Tokio 2020: 1,824 drones forman la Tierra (2021)", "numero": "5G", "numero_producto": "iPhone 12", "sentimos": "Juntos, cada quien desde su cuarto", "mx": ["Vive Latino 2020, último gran festival antes del encierro", "Frida: la experiencia inmersiva, Cocolab (2021)"]}, {"anio": 2025, "juego": "Grow a Garden (Roblox) / Mario Kart World (2025)", "pelicula": "KPop Demon Hunters (2025)", "disco": "Debí Tirar Más Fotos — Bad Bunny (2025)", "serie": "Stranger Things 5 / El juego del calamar 3", "hardware": "Nintendo Switch 2 (2025)", "telefono": "iPhone 17 / iPhone Air", "gadget": "Lentes con IA / Labubu", "concierto": "Bad Bunny: 8 fechas sold out en CDMX (2025)", "inmersiva": "El Mago de Oz en Sphere (2025) / Epic Universe (2025)", "show_luz": "Casi 16,000 drones en Liuyang, China (2025)", "numero": "1 billón de parámetros", "numero_producto": "Modelos de IA abiertos (2025)", "sentimos": "Ya no sabemos qué es real", "mx": ["Bad Bunny: más de 500 mil boletos en CDMX", "Metallica en Sphere desde octubre 2026"]}];
+const FUTURO={"2030": [{"categoria": "Conciertos", "prediccion": "Iremos a shows cuyos visuales genera la IA en vivo, respondiendo a la energía del público.", "senal": "Sphere reimaginó El Mago de Oz con IA generativa de Google (2025)."}, {"categoria": "Dispositivos", "prediccion": "Los lentes con IA serán tan comunes como los audífonos: el evento vivirá en nuestra mirada.", "senal": "Se vendieron más de 7 millones de lentes Meta en 2025."}, {"categoria": "Deportes", "prediccion": "Viviremos la final en domos inmersivos, sintiendo la cancha sin entrar al estadio.", "senal": "FOX Sports y Cosm llevan 40 partidos del Mundial 2026 a domos 12K."}, {"categoria": "Crear", "prediccion": "Un equipo de estudiantes prototipará un mundo inmersivo en una tarde, describiéndolo en voz alta.", "senal": "Google DeepMind abrió Project Genie: mundos explorables desde texto (ene 2026)."}, {"categoria": "Ciudades", "prediccion": "Las ciudades competirán con cielos de drones: el espectáculo nocturno será narrativa programable.", "senal": "Récord Guinness: 15,974 drones sincronizados en Liuyang, China (oct 2025)."}], "2035": [{"categoria": "Espacios", "prediccion": "Cada gran ciudad tendrá su esfera o domo: 'ir a ver algo' significará entrar en ello.", "senal": "Sphere Abu Dhabi: 20,000 asistentes, apertura prevista para 2029."}, {"categoria": "Conciertos", "prediccion": "Avatares de leyendas darán residencias simultáneas en varios continentes, cada noche.", "senal": "ABBA Voyage superó 4 millones de visitantes y planea réplicas (2026)."}, {"categoria": "Dispositivos", "prediccion": "Los lentes con pantalla reemplazarán al celular en los eventos: la información flotará donde la necesitemos.", "senal": "IDC proyecta 27 millones de lentes inteligentes vendidos en 2030."}, {"categoria": "Marcas", "prediccion": "Las marcas no patrocinarán eventos: personalizarán cada momento para cada asistente.", "senal": "Google es socio fundador de LA28 y usará su IA en la experiencia de fans."}], "2040": [{"categoria": "Dispositivos", "prediccion": "Algunas experiencias las controlaremos con el pensamiento; la interfaz simplemente desaparecerá.", "senal": "Decenas de pacientes de Neuralink ya controlan computadoras con la mente (2026)."}, {"categoria": "Ciudades", "prediccion": "Ciudades diseñadas como escenario: calles que cambian de historia según quién las camine.", "senal": "Arabia Saudita abrió Six Flags Qiddiya, primera pieza de su ciudad del entretenimiento."}, {"categoria": "Espacios", "prediccion": "Parques que la IA reescribe a diario: nunca viviremos la misma aventura dos veces.", "senal": "Disney anunció su primer parque en Medio Oriente, en Abu Dhabi (2025)."}, {"categoria": "Crear", "prediccion": "Una persona con agentes de IA creará mundos para millones, desde Tijuana para el planeta.", "senal": "World Labs lanzó Marble: mundos 3D generativos para cualquiera (nov 2025)."}], "frase_cierre": "El futuro no se predice: se diseña. ¿Qué experiencia vas a construir tú?"};
+const STOPS=[...ERAS.map(e=>({y:e.anio,t:'era',d:e})),...['2030','2035','2040'].map(y=>({y:+y,t:'fut',d:FUTURO[y]}))];
+const track=document.getElementById('track'), stage=document.getElementById('stage');
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+STOPS.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.className='stop'+(s.t==='fut'?' fut':'')+(s.y===2030?' sep':'');
+  b.textContent=s.y; b.setAttribute('role','tab'); b.id='s'+s.y;
+  b.addEventListener('click',()=>go(i,true));
+  track.appendChild(b);
+});
+const CATS=[['juego','Videojuego'],['pelicula','Película'],['disco','Disco'],['serie','Serie o caricatura'],['hardware','Consola o computadora'],['telefono','Teléfono'],['gadget','Gadget del momento'],['concierto','El concierto'],['inmersiva','Experiencia inmersiva',1],['show_luz','Espectáculo de luz',1]];
+// Fotos de Wikimedia Commons por año. Lo genera fotos_build.py a partir de commons/creditos.json: no editar a mano.
+/*FOTOS*/const FOTOS={"1980":[{"src":"1980_hardware.webp","w":1000,"h":584,"label":"Atari 2600","alt":"Consola Atari 2600 de madera con su joystick","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:Atari-2600-Wood-4Sw-Set.jpg"},{"src":"1980_gadget.webp","w":1000,"h":1588,"label":"Sony Walkman TPS-L2","alt":"Walkman Sony TPS-L2 azul y plateado","fit":"contain","pos":"","lowres":false,"autor":"Binarysequence","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Original_Sony_Walkman_TPS-L2.JPG"},{"src":"1980_inmersiva.webp","w":1000,"h":750,"label":"Spaceship Earth, EPCOT","alt":"Detalle de los paneles triangulares de la esfera Spaceship Earth en EPCOT","fit":"cover","pos":"","lowres":false,"autor":"Benjamin D. Esham (bdesham)","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Spaceship_Earth_tiles_(close).jpg"},{"src":"1980_mx.webp","w":1000,"h":750,"label":"CECUT, Tijuana","alt":"La Bola del Centro Cultural Tijuana con la bandera de México","fit":"cover","pos":"30% 50%","lowres":false,"autor":"WendyAvilesR","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Centro_Cultural_Tijuana_02.jpg"}],"1985":[{"src":"1985_hardware.webp","w":1000,"h":543,"label":"Nintendo NES","alt":"Consola Nintendo NES gris con su control","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:NES-Console-Set.jpg"},{"src":"1985_telefono.webp","w":399,"h":977,"label":"Motorola DynaTAC 8000X","alt":"Celular Motorola DynaTAC 8000X, “el ladrillo”","fit":"contain","pos":"","lowres":true,"autor":"Redrum0486","lic":"CC BY-SA 3.0","licUrl":"https://creativecommons.org/licenses/by-sa/3.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:DynaTAC8000X.jpg"},{"src":"1985_gadget.webp","w":1000,"h":695,"label":"Boombox Sharp GF-999","alt":"Grabadora boombox Sharp GF-999 de doble casetera","fit":"contain","pos":"","lowres":false,"autor":"Nesnad","lic":"CC BY 4.0","licUrl":"https://creativecommons.org/licenses/by/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Sharp_GF-999_Boombox_-_Exhibit_at_Edo_Tokyo_Museum_(edited).jpeg"},{"src":"1985_concierto.webp","w":1000,"h":804,"label":"Live Aid, Filadelfia","alt":"Escenario de Live Aid en el JFK Stadium de Filadelfia, 1985","fit":"cover","pos":"","lowres":false,"autor":"Squelle","lic":"CC BY-SA 3.0","licUrl":"https://creativecommons.org/licenses/by-sa/3.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Live_Aid_at_JFK_Stadium,_Philadelphia,_PA.jpg"}],"1990":[{"src":"1990_hardware.webp","w":1000,"h":1600,"label":"Game Boy","alt":"Game Boy original gris","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:Game-Boy-Original.jpg"},{"src":"1990_hardware2.webp","w":1000,"h":514,"label":"Sega Genesis","alt":"Consola Sega Genesis negra con control de seis botones","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"CC BY-SA 3.0","licUrl":"https://creativecommons.org/licenses/by-sa/3.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Sega-Genesis-Mk2-6button.jpg"},{"src":"1990_telefono.webp","w":368,"h":608,"label":"Motorola MicroTAC","alt":"Celular Motorola MicroTAC 9800X con la tapa abierta","fit":"contain","pos":"","lowres":true,"autor":"Ross Padluck (Redrum0486 at English Wikipedia)","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:Motorola_MicroTAC_9800x.jpg"},{"src":"1990_inmersiva.webp","w":1000,"h":1334,"label":"Universal Studios Florida","alt":"Arco de entrada de Universal Studios Florida","fit":"cover","pos":"50% 30%","lowres":false,"autor":"Eliedion","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Entrance_of_Universal_Studios_Florida_Minions_film.JPG"}],"1995":[{"src":"1995_hardware.webp","w":1000,"h":435,"label":"PlayStation","alt":"Consola PlayStation original con su control","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:PlayStation-SCPH-1000-with-Controller.jpg"},{"src":"1995_pc.webp","w":1000,"h":971,"label":"PC beige","alt":"Computadora de escritorio beige con monitor CRT, teclado y mouse","fit":"cover","pos":"","lowres":false,"autor":"Steve Elliott from UK","lic":"CC BY-SA 2.0","licUrl":"https://creativecommons.org/licenses/by-sa/2.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Viglen_PC_(51332336626).jpg"},{"src":"1995_telefono.webp","w":1000,"h":757,"label":"Motorola StarTAC","alt":"Celular de concha Motorola StarTAC abierto","fit":"contain","pos":"","lowres":false,"autor":"ProhibitOnions at English Wikipedia","lic":"CC BY-SA 3.0","licUrl":"https://creativecommons.org/licenses/by-sa/3.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:MotorolaStarTAC.jpg"},{"src":"1995_gadget.webp","w":900,"h":694,"label":"Tamagotchi","alt":"Tamagotchi rosa con su cadena","fit":"cover","pos":"40% 50%","lowres":false,"autor":"Tomasz Sienicki","lic":"CC BY-SA 3.0","licUrl":"https://creativecommons.org/licenses/by-sa/3.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Tamagotchi_0124_ubt.jpeg"}],"2000":[{"src":"2000_hardware.webp","w":1000,"h":455,"label":"PlayStation 2","alt":"Consola PlayStation 2 negra con control DualShock 2","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:Sony-PlayStation-2-30001-wController-L.jpg"},{"src":"2000_telefono.webp","w":1000,"h":1500,"label":"Nokia 3310","alt":"Celular Nokia 3310 gris","fit":"contain","pos":"","lowres":false,"autor":"Multicherry","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Nokia_3310_grey_front_(tidied_and_enhanced).jpg"},{"src":"2000_gadget.webp","w":1000,"h":667,"label":"Sony Discman","alt":"Discman Sony plateado","fit":"contain","pos":"","lowres":false,"autor":"Dillan Payne","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Sony_Discman_D-E206CK_(Top,_Closed).jpg"},{"src":"2000_concierto.webp","w":1000,"h":750,"label":"Foro Sol, CDMX","alt":"El Foro Sol de la Ciudad de México visto desde un puente peatonal","fit":"cover","pos":"","lowres":false,"autor":"LEON23","lic":"CC BY 3.0","licUrl":"https://creativecommons.org/licenses/by/3.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:FORO_SOL_1(BY_LION)_-_panoramio.jpg"}],"2005":[{"src":"2005_hardware.webp","w":1000,"h":1495,"label":"Xbox 360","alt":"Consola Xbox 360 blanca con su control","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:Xbox-360-Pro-wController.jpg"},{"src":"2005_hardware2.webp","w":1000,"h":844,"label":"Nintendo DS Lite","alt":"Nintendo DS Lite negro abierto","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"CC BY-SA 3.0","licUrl":"https://creativecommons.org/licenses/by-sa/3.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Nintendo-DS-Lite-Black-Open.jpg"},{"src":"2005_telefono.webp","w":1000,"h":1777,"label":"Motorola RAZR V3","alt":"Celular Motorola RAZR V3 plateado, cerrado","fit":"contain","pos":"","lowres":false,"autor":"Raimond Spekking","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Motorola_RAZR_V3-4899.jpg"},{"src":"2005_gadget.webp","w":1000,"h":1469,"label":"iPod de 5.ª generación","alt":"iPod blanco de quinta generación sobre una mesa de madera","fit":"contain","pos":"","lowres":false,"autor":"Elizabeth Surbrook","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:5th_Gen_iPod_(52775201666).jpg"}],"2010":[{"src":"2010_telefono.webp","w":1000,"h":1445,"label":"iPhone 4","alt":"iPhone 4 negro visto de frente","fit":"contain","pos":"","lowres":false,"autor":"K2025","lic":"CC0","licUrl":"https://creativecommons.org/publicdomain/zero/1.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:IPhone_4_-_front.jpg"},{"src":"2010_gadget.webp","w":1000,"h":1223,"label":"iPad (2010)","alt":"iPad de primera generación","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:IPad-WiFi-1stGen.jpg"},{"src":"2010_hardware.webp","w":1000,"h":345,"label":"Kinect para Xbox 360","alt":"Sensor Kinect negro para Xbox 360","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:Xbox-360-Kinect-Standalone.png"},{"src":"2010_show_luz.webp","w":1000,"h":670,"label":"Zócalo, Bicentenario 2010","alt":"Fachadas del Zócalo iluminadas con figuras de colores la noche del Grito del Bicentenario, 2010","fit":"cover","pos":"","lowres":false,"autor":"AlejandroLinaresGarcia","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:LitDecorationsWestZocaloGrito2010.JPG"}],"2015":[{"src":"2015_telefono.webp","w":1000,"h":1778,"label":"iPhone 6s","alt":"iPhone 6s plateado visto por detrás","fit":"contain","pos":"","lowres":false,"autor":"Raimond Spekking","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:IPhone_6s_-_rear_view-92671.jpg"},{"src":"2015_gadget.webp","w":1000,"h":750,"label":"Apple Watch (2015)","alt":"Apple Watch de primera generación en exhibición, abril de 2015","fit":"cover","pos":"70% 50%","lowres":false,"autor":"ubahnverleih","lic":"CC0","licUrl":"https://creativecommons.org/publicdomain/zero/1.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Apple_Watch_Demo.jpg"},{"src":"2015_hardware.webp","w":1000,"h":500,"label":"PlayStation 4","alt":"Consola PlayStation 4 con control DualShock 4","fit":"contain","pos":"","lowres":false,"autor":"Evan-Amos","lic":"Dominio público","licUrl":"","page":"https://commons.wikimedia.org/wiki/File:PS4-Console-wDS4.jpg"},{"svg":"drone"}],"2020":[{"src":"2020_hardware.webp","w":1000,"h":1204,"label":"PlayStation 5","alt":"Consola PlayStation 5 blanca con control DualSense","fit":"contain","pos":"","lowres":false,"autor":"Osh33m","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:PlayStation_5_and_DualSense.jpg"},{"src":"2020_telefono.webp","w":1000,"h":1334,"label":"iPhone 12 mini","alt":"iPhone 12 mini negro visto por detrás","fit":"contain","pos":"","lowres":false,"autor":"Ssu","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:IPhone_12_mini.jpg"},{"src":"2020_gadget.webp","w":1000,"h":1000,"label":"Oculus Quest 2","alt":"Visor de realidad virtual Oculus Quest 2 en exhibición","fit":"cover","pos":"","lowres":false,"autor":"KKPCW","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Oculus_Quest_2_-_2.jpg"},{"src":"2020_inmersiva.webp","w":1000,"h":750,"label":"teamLab Borderless, Tokio","alt":"Visitantes dentro de una sala de luces de teamLab Borderless en Tokio","fit":"cover","pos":"","lowres":false,"autor":"DannyWithLove","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:TeamLab_Borderless_Azabudai_Hills.jpg"}],"2025":[{"src":"2025_hardware.webp","w":1000,"h":536,"label":"Nintendo Switch 2","alt":"Nintendo Switch 2 en su base","fit":"contain","pos":"","lowres":false,"autor":"Crisco 1492","lic":"CC BY-SA 4.0","licUrl":"https://creativecommons.org/licenses/by-sa/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Nintendo_Switch_2_in_Docking_Console.jpg"},{"src":"2025_gadget.webp","w":1000,"h":750,"label":"Ray-Ban Meta","alt":"Lentes inteligentes Ray-Ban Meta con su estuche","fit":"contain","pos":"","lowres":false,"autor":"CCadio","lic":"CC BY 4.0","licUrl":"https://creativecommons.org/licenses/by/4.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Ray-Ban_Meta_Gen_1_smart_glasses_with_charging_case.jpg"},{"src":"2025_inmersiva.webp","w":1000,"h":750,"label":"Sphere, Las Vegas","alt":"La Sphere de Las Vegas iluminada de noche","fit":"cover","pos":"","lowres":false,"autor":"Matt Walter from Durham, NC USA, USA","lic":"CC BY 2.0","licUrl":"https://creativecommons.org/licenses/by/2.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:Sphere_Las_Vegas_(53473119340).jpg"},{"src":"2025_show_luz.webp","w":1000,"h":563,"label":"Drones en Chongqing (2025)","alt":"Show de drones sobre el río en Chongqing, China, 2025","fit":"cover","pos":"80% 50%","lowres":false,"autor":"Renek78","lic":"CC0","licUrl":"https://creativecommons.org/publicdomain/zero/1.0/deed.es","page":"https://commons.wikimedia.org/wiki/File:2025_Drone_show_in_Chongqing_03.jpg"}]};/*/FOTOS*/
+const IMG='/vivemkt26/img/';
+const isPhoto=t=>t&&t.src;
+// 4 tiles: primero las fotos reales del año; si faltan, se completa con las ilustraciones de SETS.
+function tilesFor(y){
+  const t=(FOTOS[y]||[]).slice(0,4);
+  const used=new Set(t.filter(x=>x.svg).map(x=>x.svg));
+  for(const k of SETS[y]){if(t.length>=4)break;if(!used.has(k)){t.push({svg:k});used.add(k)}}
+  return t;
+}
+function photoTile(p){
+  const cls='tile photo '+(p.fit==='contain'?'contain':'cover')+(p.lowres?' lowres':'');
+  const pos=p.pos?` style="object-position:${p.pos}"`:'';
+  return `<figure class="${cls}"><img src="${IMG}${p.src}" width="${p.w}" height="${p.h}" alt="${esc(p.alt)}" loading="lazy" decoding="async"${pos}></figure>`;
+}
+function licHTML(p){return p.licUrl?`<a href="${p.licUrl}" rel="license noopener" target="_blank">${esc(p.lic)}</a>`:esc(p.lic)}
+function creditHTML(p){return `<a href="${p.page}" rel="noopener" target="_blank">${esc(p.label)}</a>: ${esc(p.autor)}, ${licHTML(p)}`}
+function collage(y){
+  const t=tilesFor(y), ph=t.filter(isPhoto);
+  const cred=ph.length?`<p class="fcred"><b>Fotos</b>${ph.map(creditHTML).join(' · ')}</p>`:'';
+  return `<div class="collage" style="--tint:${TINTS[y]}">${t.map(x=>isPhoto(x)?photoTile(x):`<div class="tile">${svgIcon(x.svg)}</div>`).join('')}</div>${cred}`;
+}
+function eraHTML(e){
+  const cells=CATS.map(([k,l,hl])=>`<div class="cell${hl?' hl':''}"><div class="k">${l}</div><div class="v">${esc(e[k])}</div></div>`).join('');
+  const mx=(e.mx&&e.mx.length)?`<div class="mx"><div class="k">En México</div><ul>${e.mx.map(m=>`<li>${esc(m)}</li>`).join('')}</ul></div>`:'';
+  return `<section class="era in">
+    <div>
+      <p class="year">${e.anio}</p>
+      ${collage(e.anio)}
+    </div>
+    <div>
+      <div class="sold" style="margin-top:0"><span class="k">Nos lo vendieron con</span><span class="num">${esc(e.numero)}</span><span class="num-prod">${esc(e.numero_producto)}</span></div>
+      <div class="felt"><span class="k">Lo que recordamos</span><p>${esc(e.sentimos)}</p></div>
+      <details class="more"><summary>Juego, película, disco, concierto y más</summary><div class="grid">${cells}</div>${mx}</details>
+    </div>
+  </section>`;
+}
+function futHTML(y,list){
+  const last=y===2040;
+  return `<section class="fut-wrap in">
+    <p class="year">${y}</p>
+    ${collage(y)}
+    <p class="fut-lede">${y===2030?'Juguemos a ser oráculos. Cada predicción tiene una señal que ya existe hoy.':y===2035?'Más lejos, con los pies todavía en algo real.':'La apuesta más arriesgada. Ojalá nos equivoquemos por quedarnos cortos.'}</p>
+    <div class="preds">${list.map(p=>`<article class="pred"><div class="k">${esc(p.categoria)}</div><p class="p">${esc(p.prediccion)}</p><p class="s"><b>La señal de hoy</b>${esc(p.senal)}</p></article>`).join('')}</div>
+    ${last?`<div class="close"><p>${esc(FUTURO.frase_cierre).replace('¿','<span>¿').replace('?','?</span>')}</p></div>`:''}
+  </section>`;
+}
+let cur=0;
+function go(i,push){
+  cur=Math.max(0,Math.min(STOPS.length-1,i));
+  const s=STOPS[cur];
+  stage.innerHTML=s.t==='era'?eraHTML(s.d):futHTML(s.y,s.d);
+  [...track.children].forEach((b,j)=>{b.setAttribute('aria-current',j===cur?'true':'false');b.setAttribute('aria-selected',j===cur)});
+  const btn=track.children[cur];
+  track.scrollLeft=btn.offsetLeft-track.clientWidth/2+btn.clientWidth/2;
+  if(push){try{history.replaceState(null,'','#y'+s.y)}catch(e){location.hash='y'+s.y}}
+}
+document.getElementById('prev').onclick=()=>go(cur-1,true);
+document.getElementById('next').onclick=()=>go(cur+1,true);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(cur+1,true);if(e.key==='ArrowLeft')go(cur-1,true)});
+let tx=null;
+stage.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+stage.addEventListener('touchend',e=>{if(tx==null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>60)go(cur+(dx<0?1:-1),true);tx=null});
+function fromHash(){const m=location.hash.match(/^#y(\d{4})$/);const i=m?STOPS.findIndex(s=>s.y===+m[1]):-1;go(i>=0?i:0,false)}
+window.addEventListener('hashchange',fromHash);
+document.getElementById("hero").innerHTML=Object.keys(SETS).slice(0,10).map(y=>`<button class="tile" aria-label="Ir a ${y}" onclick="go(STOPS.findIndex(s=>s.y===${y}),true)" style="--tint:${TINTS[y]}">${svgIcon(SETS[y][0])}</button>`).join("");
+// Créditos completos al pie
+document.getElementById('credit-list').innerHTML=Object.keys(FOTOS).flatMap(y=>FOTOS[y].filter(isPhoto).map(p=>
+  `<li><span>${y}</span><a href="${p.page}" rel="noopener" target="_blank">${esc(p.label)}</a> · ${esc(p.autor)} · ${licHTML(p)}</li>`)).join('');
+// Compartir: menú nativo del teléfono; si no existe, copia el enlace.
+(function(){
+  const btn=document.getElementById('share'), msg=document.getElementById('share-msg');
+  const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+  btn.addEventListener('click',async()=>{
+    const url=location.href.split('#')[0];
+    const data={title:'Lo que recordamos · VIVEMKT 18',text:'Cada generación de tecnología se vendió con un número. Recordamos lo que sentimos. Busca tu año:',url};
+    if(navigator.share){try{await navigator.share(data);return}catch(e){if(e&&e.name==='AbortError')return}}
+    try{await navigator.clipboard.writeText(url);say('Enlace copiado')}
+    catch(e){say(url)}
+  });
+})();
+fromHash();
+</script>
+</body>
+</html>
